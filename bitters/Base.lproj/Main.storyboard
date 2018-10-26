@@ -86,7 +86,7 @@
         <!--LoginPage-->
         <scene sceneID="T6d-5J-H7D">
             <objects>
-                <viewController title="LoginPage" id="faN-it-E2P" sceneMemberID="viewController">
+                <viewController title="LoginPage" id="faN-it-E2P" customClass="LoginPageViewController" customModule="bitters" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4EN-RA-zvM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
