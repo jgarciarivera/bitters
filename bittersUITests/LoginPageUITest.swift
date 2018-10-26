@@ -1,14 +1,14 @@
 //
-//  bittersUITests.swift
+//  LoginPageUITest.swift
 //  bittersUITests
 //
-//  Created by Jorge Garcia-Rivera on 10/3/18.
+//  Created by Kristian Galvan on 10/25/18.
 //  Copyright © 2018 Jorge Garcia-Rivera. All rights reserved.
 //
 
 import XCTest
 
-class bittersUITests: XCTestCase {
+class LoginPageUITest: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -26,12 +26,24 @@ class bittersUITests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        
-        
-        XCTAssertTrue(true)
-    }
 
+
+    func testCanEnterUsername() {
+        let app = XCUIApplication()
+        
+        let usernameTextField = app.otherElements.textFields["usernameTextField"]
+        usernameTextField.tap()
+        usernameTextField.typeText("user")
+        XCTAssertEqual(usernameTextField.value as? String, "user")
+        
+    }
+    func testCanEnterPassword() {
+        let app = XCUIApplication()
+        
+        let usernameTextField = app.otherElements.textFields["passwordTextField"]
+        usernameTextField.tap()
+        usernameTextField.typeText("password")
+        XCTAssertEqual(usernameTextField.value as? String, "password")
+        
+    }
 }
