@@ -1,6 +1,0 @@
-framework module Pods_bitters {
-  umbrella header "Pods-bitters-umbrella.h"
-
-  export *
-  module * { export * }
-}
