@@ -27,15 +27,22 @@ class LoginPageViewController: UIViewController {
             if let error = error {
                 print(error.localizedDescription)
                     print("Error signing in!")
-            } else if let user = Auth.auth().currentUser {
+            } else if Auth.auth().currentUser != nil {
                 print("Successful sign in!")
+                self.performSegue(withIdentifier: "loginToMain", sender: self)
+
             }
         }
     }
     
     @IBAction func registerButton(_ sender: Any) {
     }
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "loginToMain" {
+            let dvc = segue.destination as! UITabBarController
+        }
+    }
     /*
     // MARK: - Navigation
 
