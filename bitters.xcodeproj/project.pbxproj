@@ -10,12 +10,13 @@
 		7AEC4BE80F8B34BB0685D4FD /* Pods_bittersUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43E050F3D14570F206139689 /* Pods_bittersUITests.framework */; };
 		867106142E220DEE66BA988E /* Pods_bitters.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 204C685D4F4BE16838B7AB95 /* Pods_bitters.framework */; };
 		9FE37B52A7992FA3836B376B /* Pods_bittersTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B49F28F77C417C074FB3B3E3 /* Pods_bittersTests.framework */; };
+		F12B3C9221879ED800298636 /* InventoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12B3C9121879ED800298636 /* InventoryViewController.swift */; };
+		F12B3C9621879F4000298636 /* InventoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12B3C9521879F4000298636 /* InventoryTableViewCell.swift */; };
 		F2790082218401A80063276C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2790081218401A80063276C /* GoogleService-Info.plist */; };
 		F27900842184023F0063276C /* LoginPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27900832184023F0063276C /* LoginPageViewController.swift */; };
 		F279008D218408AB0063276C /* bittersUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F279008C218408AB0063276C /* bittersUITest.swift */; };
 		F2790095218409110063276C /* LoginPageUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2790094218409110063276C /* LoginPageUITest.swift */; };
 		F9DA47B02165BF3500718111 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9DA47AF2165BF3500718111 /* AppDelegate.swift */; };
-		F9DA47B22165BF3500718111 /* InventoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9DA47B12165BF3500718111 /* InventoryVC.swift */; };
 		F9DA47B42165BF3500718111 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9DA47B32165BF3500718111 /* SecondViewController.swift */; };
 		F9DA47B72165BF3500718111 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9DA47B52165BF3500718111 /* Main.storyboard */; };
 		F9DA47B92165BF3600718111 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9DA47B82165BF3600718111 /* Assets.xcassets */; };
@@ -56,6 +57,8 @@
 		9FE34F67BEE4770A0E2F97A6 /* Pods-bitters.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bitters.debug.xcconfig"; path = "Pods/Target Support Files/Pods-bitters/Pods-bitters.debug.xcconfig"; sourceTree = "<group>"; };
 		B49F28F77C417C074FB3B3E3 /* Pods_bittersTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bittersTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD7F0EA0D57CCE2068CCE20E /* Pods-bitters.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bitters.release.xcconfig"; path = "Pods/Target Support Files/Pods-bitters/Pods-bitters.release.xcconfig"; sourceTree = "<group>"; };
+		F12B3C9121879ED800298636 /* InventoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryViewController.swift; sourceTree = "<group>"; };
+		F12B3C9521879F4000298636 /* InventoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryTableViewCell.swift; sourceTree = "<group>"; };
 		F2790081218401A80063276C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F27900832184023F0063276C /* LoginPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginPageViewController.swift; sourceTree = "<group>"; };
 		F279008A218408AB0063276C /* bittersUITest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = bittersUITest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -64,7 +67,6 @@
 		F2790094218409110063276C /* LoginPageUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageUITest.swift; sourceTree = "<group>"; };
 		F9DA47AC2165BF3500718111 /* bitters.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bitters.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9DA47AF2165BF3500718111 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F9DA47B12165BF3500718111 /* InventoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryVC.swift; sourceTree = "<group>"; };
 		F9DA47B32165BF3500718111 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		F9DA47B62165BF3500718111 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F9DA47B82165BF3600718111 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -132,6 +134,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F12B3C9021879EB800298636 /* Inventory */ = {
+			isa = PBXGroup;
+			children = (
+				F12B3C9121879ED800298636 /* InventoryViewController.swift */,
+				F12B3C9521879F4000298636 /* InventoryTableViewCell.swift */,
+			);
+			path = Inventory;
+			sourceTree = "<group>";
+		};
 		F279008B218408AB0063276C /* bittersUITest */ = {
 			isa = PBXGroup;
 			children = (
@@ -170,8 +181,8 @@
 				F27900832184023F0063276C /* LoginPageViewController.swift */,
 				F2790081218401A80063276C /* GoogleService-Info.plist */,
 				F9DA47AF2165BF3500718111 /* AppDelegate.swift */,
-				F9DA47B12165BF3500718111 /* InventoryVC.swift */,
 				F9DA47B32165BF3500718111 /* SecondViewController.swift */,
+				F12B3C9021879EB800298636 /* Inventory */,
 				F9DA47B52165BF3500718111 /* Main.storyboard */,
 				F9DA47B82165BF3600718111 /* Assets.xcassets */,
 				F9DA47BA2165BF3600718111 /* LaunchScreen.storyboard */,
@@ -454,9 +465,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F9DA47B42165BF3500718111 /* SecondViewController.swift in Sources */,
+				F12B3C9221879ED800298636 /* InventoryViewController.swift in Sources */,
+				F12B3C9621879F4000298636 /* InventoryTableViewCell.swift in Sources */,
 				F27900842184023F0063276C /* LoginPageViewController.swift in Sources */,
 				F9DA47B02165BF3500718111 /* AppDelegate.swift in Sources */,
-				F9DA47B22165BF3500718111 /* InventoryVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
