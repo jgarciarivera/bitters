@@ -49,19 +49,19 @@ class LoginPageUITest: XCTestCase {
         XCTAssertEqual(passwordTextField.value as? String, "password")
         
     }
-    func testCanSignIn() {
-        let app = XCUIApplication()
-        
-        let usernameTextField = app.otherElements.textFields["usernameTextField"]
-        let passwordTextField = app.otherElements.textFields["passwordTextField"]
-        usernameTextField.tap()
-        usernameTextField.typeText("kristian.galvan@gmail.com")
-        passwordTextField.tap()
-        passwordTextField.typeText("bitters")
-        let submitButton = app.otherElements.buttons["logInButton"]
-        submitButton.tap()
-        
-//        usernameTextField.
-    }
+//    func testCanSignIn() {
+//        let app = XCUIApplication()
+//
+//        let usernameTextField = app.otherElements.textFields["usernameTextField"]
+//        let passwordTextField = app.otherElements.textFields["passwordTextField"]
+//        usernameTextField.tap()
+//        usernameTextField.typeText("kristian.galvan@gmail.com")
+//        passwordTextField.tap()
+//        passwordTextField.typeText("bitters")
+//        let submitButton = app.otherElements.buttons["logInButton"]
+//        submitButton.tap()
+//
+////        usernameTextField.
+//    }
     
 }

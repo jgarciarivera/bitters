@@ -7,9 +7,14 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class InventoryTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var ingredientImage: UIImageView!
+    @IBOutlet weak var ingredientName: UILabel!
+    @IBOutlet weak var ingredientCategory: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -17,8 +22,10 @@ class InventoryTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+        
+        //By default set to image if not provided
 
-        // Configure the view for the selected state
+        // Configure the view for the selected states
     }
 
 }

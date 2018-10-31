@@ -18,6 +18,9 @@ class LoginPageViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        self.emailTextField.text = "123@bitters.com"
+        self.passwordTextField.text = "123bitters"
     }
     
     @IBAction func loginButton(_ sender: Any) {

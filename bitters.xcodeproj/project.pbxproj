@@ -12,6 +12,9 @@
 		9FE37B52A7992FA3836B376B /* Pods_bittersTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B49F28F77C417C074FB3B3E3 /* Pods_bittersTests.framework */; };
 		F12B3C9221879ED800298636 /* InventoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12B3C9121879ED800298636 /* InventoryViewController.swift */; };
 		F12B3C9621879F4000298636 /* InventoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12B3C9521879F4000298636 /* InventoryTableViewCell.swift */; };
+		F19D1E8F2188E842007B0C4D /* AddIngredientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19D1E8E2188E842007B0C4D /* AddIngredientViewController.swift */; };
+		F19D1E9121894872007B0C4D /* Methods.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19D1E9021894872007B0C4D /* Methods.swift */; };
+		F1F2EF5C2187E95700462932 /* InventoryUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F2EF5B2187E95700462932 /* InventoryUITest.swift */; };
 		F2790082218401A80063276C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2790081218401A80063276C /* GoogleService-Info.plist */; };
 		F27900842184023F0063276C /* LoginPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27900832184023F0063276C /* LoginPageViewController.swift */; };
 		F279008D218408AB0063276C /* bittersUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F279008C218408AB0063276C /* bittersUITest.swift */; };
@@ -59,6 +62,9 @@
 		CD7F0EA0D57CCE2068CCE20E /* Pods-bitters.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bitters.release.xcconfig"; path = "Pods/Target Support Files/Pods-bitters/Pods-bitters.release.xcconfig"; sourceTree = "<group>"; };
 		F12B3C9121879ED800298636 /* InventoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryViewController.swift; sourceTree = "<group>"; };
 		F12B3C9521879F4000298636 /* InventoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryTableViewCell.swift; sourceTree = "<group>"; };
+		F19D1E8E2188E842007B0C4D /* AddIngredientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIngredientViewController.swift; sourceTree = "<group>"; };
+		F19D1E9021894872007B0C4D /* Methods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Methods.swift; sourceTree = "<group>"; };
+		F1F2EF5B2187E95700462932 /* InventoryUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryUITest.swift; sourceTree = "<group>"; };
 		F2790081218401A80063276C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F27900832184023F0063276C /* LoginPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginPageViewController.swift; sourceTree = "<group>"; };
 		F279008A218408AB0063276C /* bittersUITest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = bittersUITest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -139,6 +145,8 @@
 			children = (
 				F12B3C9121879ED800298636 /* InventoryViewController.swift */,
 				F12B3C9521879F4000298636 /* InventoryTableViewCell.swift */,
+				F19D1E8E2188E842007B0C4D /* AddIngredientViewController.swift */,
+				F19D1E9021894872007B0C4D /* Methods.swift */,
 			);
 			path = Inventory;
 			sourceTree = "<group>";
@@ -149,6 +157,7 @@
 				F279008C218408AB0063276C /* bittersUITest.swift */,
 				F279008E218408AB0063276C /* Info.plist */,
 				F2790094218409110063276C /* LoginPageUITest.swift */,
+				F1F2EF5B2187E95700462932 /* InventoryUITest.swift */,
 			);
 			path = bittersUITest;
 			sourceTree = "<group>";
@@ -457,6 +466,7 @@
 			files = (
 				F2790095218409110063276C /* LoginPageUITest.swift in Sources */,
 				F279008D218408AB0063276C /* bittersUITest.swift in Sources */,
+				F1F2EF5C2187E95700462932 /* InventoryUITest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -465,6 +475,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F9DA47B42165BF3500718111 /* SecondViewController.swift in Sources */,
+				F19D1E8F2188E842007B0C4D /* AddIngredientViewController.swift in Sources */,
+				F19D1E9121894872007B0C4D /* Methods.swift in Sources */,
 				F12B3C9221879ED800298636 /* InventoryViewController.swift in Sources */,
 				F12B3C9621879F4000298636 /* InventoryTableViewCell.swift in Sources */,
 				F27900842184023F0063276C /* LoginPageViewController.swift in Sources */,
@@ -530,14 +542,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8728Z7GL38;
+				DEVELOPMENT_TEAM = 7VB9R44KK9;
 				INFOPLIST_FILE = bittersUITest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ubicompteam5.bittersUITest;
+				PRODUCT_BUNDLE_IDENTIFIER = tech.thenerdydeveloper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -549,14 +561,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8728Z7GL38;
+				DEVELOPMENT_TEAM = 7VB9R44KK9;
 				INFOPLIST_FILE = bittersUITest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ubicompteam5.bittersUITest;
+				PRODUCT_BUNDLE_IDENTIFIER = tech.thenerdydeveloper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -725,7 +737,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8728Z7GL38;
+				DEVELOPMENT_TEAM = 7VB9R44KK9;
 				INFOPLIST_FILE = bittersTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -747,7 +759,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8728Z7GL38;
+				DEVELOPMENT_TEAM = 7VB9R44KK9;
 				INFOPLIST_FILE = bittersTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -768,14 +780,14 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8728Z7GL38;
+				DEVELOPMENT_TEAM = 7VB9R44KK9;
 				INFOPLIST_FILE = bittersUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = kristian.bittersUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = tech.thenerdydeveloper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -789,14 +801,14 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8728Z7GL38;
+				DEVELOPMENT_TEAM = 7VB9R44KK9;
 				INFOPLIST_FILE = bittersUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = kristian.bittersUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = tech.thenerdydeveloper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
