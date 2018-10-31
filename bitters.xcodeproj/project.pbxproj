@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		867106142E220DEE66BA988E /* Pods_bitters.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 204C685D4F4BE16838B7AB95 /* Pods_bitters.framework */; };
-		C676481F218938CB00684B66 /* bittersUITests in Resources */ = {isa = PBXBuildFile; fileRef = C676481E218938CB00684B66 /* bittersUITests */; };
 		C67648272189391900684B66 /* bittersUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67648262189391900684B66 /* bittersUITests.swift */; };
+		F105989E21897F29008DDCD4 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F105989D21897F28008DDCD4 /* RegisterViewController.swift */; };
 		F12B3C9221879ED800298636 /* InventoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12B3C9121879ED800298636 /* InventoryViewController.swift */; };
 		F12B3C9621879F4000298636 /* InventoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12B3C9521879F4000298636 /* InventoryTableViewCell.swift */; };
 		F19D1E8F2188E842007B0C4D /* AddIngredientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19D1E8E2188E842007B0C4D /* AddIngredientViewController.swift */; };
@@ -59,15 +59,14 @@
 		5CE53F538F758EC3C203CC1A /* Pods-bittersUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bittersUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-bittersUITests/Pods-bittersUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		9FE34F67BEE4770A0E2F97A6 /* Pods-bitters.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bitters.debug.xcconfig"; path = "Pods/Target Support Files/Pods-bitters/Pods-bitters.debug.xcconfig"; sourceTree = "<group>"; };
 		B49F28F77C417C074FB3B3E3 /* Pods_bittersTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bittersTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C676480E2189275E00684B66 /* bittersTests */ = {isa = PBXFileReference; lastKnownFileType = folder; path = bittersTests; sourceTree = "<group>"; };
 		C6764814218927CD00684B66 /* bittersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = bittersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6764816218927CD00684B66 /* bittersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bittersTests.swift; sourceTree = "<group>"; };
 		C6764818218927CD00684B66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C676481E218938CB00684B66 /* bittersUITests */ = {isa = PBXFileReference; lastKnownFileType = folder; path = bittersUITests; sourceTree = "<group>"; };
 		C67648242189391900684B66 /* bittersUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = bittersUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C67648262189391900684B66 /* bittersUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bittersUITests.swift; sourceTree = "<group>"; };
 		C67648282189391900684B66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CD7F0EA0D57CCE2068CCE20E /* Pods-bitters.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bitters.release.xcconfig"; path = "Pods/Target Support Files/Pods-bitters/Pods-bitters.release.xcconfig"; sourceTree = "<group>"; };
+		F105989D21897F28008DDCD4 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		F12B3C9121879ED800298636 /* InventoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryViewController.swift; sourceTree = "<group>"; };
 		F12B3C9521879F4000298636 /* InventoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryTableViewCell.swift; sourceTree = "<group>"; };
 		F19D1E8E2188E842007B0C4D /* AddIngredientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIngredientViewController.swift; sourceTree = "<group>"; };
@@ -187,8 +186,6 @@
 		F9DA47A32165BF3500718111 = {
 			isa = PBXGroup;
 			children = (
-				C676481E218938CB00684B66 /* bittersUITests */,
-				C676480E2189275E00684B66 /* bittersTests */,
 				F9DA47AE2165BF3500718111 /* bitters */,
 				F279008B218408AB0063276C /* bittersUITest */,
 				C6764815218927CD00684B66 /* bittersTests */,
@@ -213,6 +210,7 @@
 		F9DA47AE2165BF3500718111 /* bitters */ = {
 			isa = PBXGroup;
 			children = (
+				F105989D21897F28008DDCD4 /* RegisterViewController.swift */,
 				F27900832184023F0063276C /* LoginViewController.swift */,
 				F2790081218401A80063276C /* GoogleService-Info.plist */,
 				F9DA47AF2165BF3500718111 /* AppDelegate.swift */,
@@ -379,7 +377,6 @@
 			files = (
 				F9DA47BC2165BF3600718111 /* LaunchScreen.storyboard in Resources */,
 				F2790082218401A80063276C /* GoogleService-Info.plist in Resources */,
-				C676481F218938CB00684B66 /* bittersUITests in Resources */,
 				F9DA47B92165BF3600718111 /* Assets.xcassets in Resources */,
 				F9DA47B72165BF3500718111 /* Main.storyboard in Resources */,
 			);
@@ -473,6 +470,7 @@
 				F9DA47B42165BF3500718111 /* SecondViewController.swift in Sources */,
 				F19D1E8F2188E842007B0C4D /* AddIngredientViewController.swift in Sources */,
 				F19D1E9121894872007B0C4D /* Methods.swift in Sources */,
+				F105989E21897F29008DDCD4 /* RegisterViewController.swift in Sources */,
 				F12B3C9221879ED800298636 /* InventoryViewController.swift in Sources */,
 				F12B3C9621879F4000298636 /* InventoryTableViewCell.swift in Sources */,
 				F27900842184023F0063276C /* LoginViewController.swift in Sources */,
