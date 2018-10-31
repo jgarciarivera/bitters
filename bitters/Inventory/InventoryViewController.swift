@@ -59,7 +59,7 @@ extension InventoryViewController: UITableViewDataSource, UITableViewDelegate, U
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) { // called when text changes (including clear)
         
-        var containsString: (Ingredient, String) -> Bool = { (ingredient, searchText) in
+        let containsString: (Ingredient, String) -> Bool = { (ingredient, searchText) in
             ingredient.name.lowercased().contains(searchText.lowercased()) || ingredient.category.rawValue.lowercased().contains(searchText.lowercased())
         }
         
