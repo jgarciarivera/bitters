@@ -46,7 +46,7 @@ class LoginViewController: UIViewController {
         if segue.identifier == "loginToMain" {
             let destinationViewController = segue.destination as! UITabBarController
         } else if segue.identifier == "loginToRegister" {
-            //let destinationViewController = segue.destination as! RegisterViewController
+            let destinationViewController = segue.destination as! RegisterViewController
         } else {
             print("Could not find corresponding segue")
         }
