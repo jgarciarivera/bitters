@@ -2,12 +2,11 @@
 //  bittersTests.swift
 //  bittersTests
 //
-//  Created by Jorge Garcia-Rivera on 10/3/18.
+//  Created by Kaelaholme on 10/30/18.
 //  Copyright © 2018 Jorge Garcia-Rivera. All rights reserved.
 //
 
 import XCTest
-@testable import bitters
 
 class bittersTests: XCTestCase {
 
