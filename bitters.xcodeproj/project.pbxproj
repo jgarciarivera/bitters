@@ -9,7 +9,8 @@
 /* Begin PBXBuildFile section */
 		7AEC4BE80F8B34BB0685D4FD /* Pods_bittersUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43E050F3D14570F206139689 /* Pods_bittersUITests.framework */; };
 		867106142E220DEE66BA988E /* Pods_bitters.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 204C685D4F4BE16838B7AB95 /* Pods_bitters.framework */; };
-		9FE37B52A7992FA3836B376B /* Pods_bittersTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B49F28F77C417C074FB3B3E3 /* Pods_bittersTests.framework */; };
+		C676480F2189275E00684B66 /* bittersTests in Resources */ = {isa = PBXBuildFile; fileRef = C676480E2189275E00684B66 /* bittersTests */; };
+		C6764817218927CD00684B66 /* bittersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6764816218927CD00684B66 /* bittersTests.swift */; };
 		F12B3C9221879ED800298636 /* InventoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12B3C9121879ED800298636 /* InventoryViewController.swift */; };
 		F12B3C9621879F4000298636 /* InventoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12B3C9521879F4000298636 /* InventoryTableViewCell.swift */; };
 		F2790082218401A80063276C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2790081218401A80063276C /* GoogleService-Info.plist */; };
@@ -24,14 +25,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		F279008F218408AB0063276C /* PBXContainerItemProxy */ = {
+		C6764819218927CD00684B66 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F9DA47A42165BF3500718111 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = F9DA47AB2165BF3500718111;
 			remoteInfo = bitters;
 		};
-		F9DA47C32165BF3600718111 /* PBXContainerItemProxy */ = {
+		F279008F218408AB0063276C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F9DA47A42165BF3500718111 /* Project object */;
 			proxyType = 1;
@@ -56,6 +57,10 @@
 		5CE53F538F758EC3C203CC1A /* Pods-bittersUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bittersUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-bittersUITests/Pods-bittersUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		9FE34F67BEE4770A0E2F97A6 /* Pods-bitters.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bitters.debug.xcconfig"; path = "Pods/Target Support Files/Pods-bitters/Pods-bitters.debug.xcconfig"; sourceTree = "<group>"; };
 		B49F28F77C417C074FB3B3E3 /* Pods_bittersTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bittersTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C676480E2189275E00684B66 /* bittersTests */ = {isa = PBXFileReference; lastKnownFileType = folder; path = bittersTests; sourceTree = "<group>"; };
+		C6764814218927CD00684B66 /* bittersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = bittersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C6764816218927CD00684B66 /* bittersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bittersTests.swift; sourceTree = "<group>"; };
+		C6764818218927CD00684B66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CD7F0EA0D57CCE2068CCE20E /* Pods-bitters.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bitters.release.xcconfig"; path = "Pods/Target Support Files/Pods-bitters/Pods-bitters.release.xcconfig"; sourceTree = "<group>"; };
 		F12B3C9121879ED800298636 /* InventoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryViewController.swift; sourceTree = "<group>"; };
 		F12B3C9521879F4000298636 /* InventoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryTableViewCell.swift; sourceTree = "<group>"; };
@@ -72,11 +77,17 @@
 		F9DA47B82165BF3600718111 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F9DA47BB2165BF3600718111 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F9DA47BD2165BF3600718111 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F9DA47C22165BF3600718111 /* bittersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = bittersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9DA47CD2165BF3600718111 /* bittersUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = bittersUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		C6764811218927CD00684B66 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F2790087218408AB0063276C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -89,14 +100,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				867106142E220DEE66BA988E /* Pods_bitters.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F9DA47BF2165BF3600718111 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				9FE37B52A7992FA3836B376B /* Pods_bittersTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,6 +137,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C6764815218927CD00684B66 /* bittersTests */ = {
+			isa = PBXGroup;
+			children = (
+				C6764816218927CD00684B66 /* bittersTests.swift */,
+				C6764818218927CD00684B66 /* Info.plist */,
+			);
+			path = bittersTests;
+			sourceTree = "<group>";
+		};
 		F12B3C9021879EB800298636 /* Inventory */ = {
 			isa = PBXGroup;
 			children = (
@@ -156,8 +168,10 @@
 		F9DA47A32165BF3500718111 = {
 			isa = PBXGroup;
 			children = (
+				C676480E2189275E00684B66 /* bittersTests */,
 				F9DA47AE2165BF3500718111 /* bitters */,
 				F279008B218408AB0063276C /* bittersUITest */,
+				C6764815218927CD00684B66 /* bittersTests */,
 				F9DA47AD2165BF3500718111 /* Products */,
 				290E62726915E04D22F6A7F2 /* Pods */,
 				94DD58500B6BB2F6A7460A3A /* Frameworks */,
@@ -168,9 +182,9 @@
 			isa = PBXGroup;
 			children = (
 				F9DA47AC2165BF3500718111 /* bitters.app */,
-				F9DA47C22165BF3600718111 /* bittersTests.xctest */,
 				F9DA47CD2165BF3600718111 /* bittersUITests.xctest */,
 				F279008A218408AB0063276C /* bittersUITest.xctest */,
+				C6764814218927CD00684B66 /* bittersTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -194,6 +208,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		C6764813218927CD00684B66 /* bittersTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C676481B218927CD00684B66 /* Build configuration list for PBXNativeTarget "bittersTests" */;
+			buildPhases = (
+				C6764810218927CD00684B66 /* Sources */,
+				C6764811218927CD00684B66 /* Frameworks */,
+				C6764812218927CD00684B66 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C676481A218927CD00684B66 /* PBXTargetDependency */,
+			);
+			name = bittersTests;
+			productName = bittersTests;
+			productReference = C6764814218927CD00684B66 /* bittersTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		F2790089218408AB0063276C /* bittersUITest */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F2790091218408AB0063276C /* Build configuration list for PBXNativeTarget "bittersUITest" */;
@@ -231,25 +263,6 @@
 			productReference = F9DA47AC2165BF3500718111 /* bitters.app */;
 			productType = "com.apple.product-type.application";
 		};
-		F9DA47C12165BF3600718111 /* bittersTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = F9DA47D92165BF3600718111 /* Build configuration list for PBXNativeTarget "bittersTests" */;
-			buildPhases = (
-				06731B8A4C319A9F24A37DE8 /* [CP] Check Pods Manifest.lock */,
-				F9DA47BE2165BF3600718111 /* Sources */,
-				F9DA47BF2165BF3600718111 /* Frameworks */,
-				F9DA47C02165BF3600718111 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				F9DA47C42165BF3600718111 /* PBXTargetDependency */,
-			);
-			name = bittersTests;
-			productName = bittersTests;
-			productReference = F9DA47C22165BF3600718111 /* bittersTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		F9DA47CC2165BF3600718111 /* bittersUITests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F9DA47DC2165BF3600718111 /* Build configuration list for PBXNativeTarget "bittersUITests" */;
@@ -276,20 +289,20 @@
 			isa = PBXProject;
 			attributes = {
 				DefaultBuildSystemTypeForWorkspace = Original;
-				LastSwiftUpdateCheck = 1000;
+				LastSwiftUpdateCheck = 1010;
 				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = "Jorge Garcia-Rivera";
 				TargetAttributes = {
+					C6764813218927CD00684B66 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = F9DA47AB2165BF3500718111;
+					};
 					F2790089218408AB0063276C = {
 						CreatedOnToolsVersion = 10.0;
 						TestTargetID = F9DA47AB2165BF3500718111;
 					};
 					F9DA47AB2165BF3500718111 = {
 						CreatedOnToolsVersion = 10.0;
-					};
-					F9DA47C12165BF3600718111 = {
-						CreatedOnToolsVersion = 10.0;
-						TestTargetID = F9DA47AB2165BF3500718111;
 					};
 					F9DA47CC2165BF3600718111 = {
 						CreatedOnToolsVersion = 10.0;
@@ -311,14 +324,21 @@
 			projectRoot = "";
 			targets = (
 				F9DA47AB2165BF3500718111 /* bitters */,
-				F9DA47C12165BF3600718111 /* bittersTests */,
 				F9DA47CC2165BF3600718111 /* bittersUITests */,
 				F2790089218408AB0063276C /* bittersUITest */,
+				C6764813218927CD00684B66 /* bittersTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		C6764812218927CD00684B66 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F2790088218408AB0063276C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -333,14 +353,8 @@
 				F9DA47BC2165BF3600718111 /* LaunchScreen.storyboard in Resources */,
 				F2790082218401A80063276C /* GoogleService-Info.plist in Resources */,
 				F9DA47B92165BF3600718111 /* Assets.xcassets in Resources */,
+				C676480F2189275E00684B66 /* bittersTests in Resources */,
 				F9DA47B72165BF3500718111 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F9DA47C02165BF3600718111 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,28 +368,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		06731B8A4C319A9F24A37DE8 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-bittersTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		84AFA635DAA6CBA051626861 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -451,6 +443,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		C6764810218927CD00684B66 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C6764817218927CD00684B66 /* bittersTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F2790086218408AB0063276C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -472,13 +472,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F9DA47BE2165BF3600718111 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		F9DA47C92165BF3600718111 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -489,15 +482,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		C676481A218927CD00684B66 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F9DA47AB2165BF3500718111 /* bitters */;
+			targetProxy = C6764819218927CD00684B66 /* PBXContainerItemProxy */;
+		};
 		F2790090218408AB0063276C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = F9DA47AB2165BF3500718111 /* bitters */;
 			targetProxy = F279008F218408AB0063276C /* PBXContainerItemProxy */;
-		};
-		F9DA47C42165BF3600718111 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = F9DA47AB2165BF3500718111 /* bitters */;
-			targetProxy = F9DA47C32165BF3600718111 /* PBXContainerItemProxy */;
 		};
 		F9DA47CF2165BF3600718111 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -526,6 +519,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		C676481C218927CD00684B66 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = bittersTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.team5.bittersTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/bitters.app/bitters";
+			};
+			name = Debug;
+		};
+		C676481D218927CD00684B66 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = bittersTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.team5.bittersTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/bitters.app/bitters";
+			};
+			name = Release;
+		};
 		F2790092218408AB0063276C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -718,50 +751,6 @@
 			};
 			name = Release;
 		};
-		F9DA47DA2165BF3600718111 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1069C815FEBA7B9F4F8F272F /* Pods-bittersTests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8728Z7GL38;
-				INFOPLIST_FILE = bittersTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = ubicompteamfive.bittersTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/bitters.app/bitters";
-			};
-			name = Debug;
-		};
-		F9DA47DB2165BF3600718111 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 01F19CCCC7761BEBDCFFF103 /* Pods-bittersTests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8728Z7GL38;
-				INFOPLIST_FILE = bittersTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = ubicompteamfive.bittersTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/bitters.app/bitters";
-			};
-			name = Release;
-		};
 		F9DA47DD2165BF3600718111 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5CE53F538F758EC3C203CC1A /* Pods-bittersUITests.debug.xcconfig */;
@@ -807,6 +796,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		C676481B218927CD00684B66 /* Build configuration list for PBXNativeTarget "bittersTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C676481C218927CD00684B66 /* Debug */,
+				C676481D218927CD00684B66 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		F2790091218408AB0063276C /* Build configuration list for PBXNativeTarget "bittersUITest" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -830,15 +828,6 @@
 			buildConfigurations = (
 				F9DA47D72165BF3600718111 /* Debug */,
 				F9DA47D82165BF3600718111 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		F9DA47D92165BF3600718111 /* Build configuration list for PBXNativeTarget "bittersTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				F9DA47DA2165BF3600718111 /* Debug */,
-				F9DA47DB2165BF3600718111 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
