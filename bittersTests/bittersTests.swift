@@ -29,5 +29,31 @@ class bittersTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
-
+    struct Ingredient {
+        
+        enum category: String {
+            case Rum
+            case Vodka
+            case Tequila
+            case Gin
+            case Whiskey
+            case Brandy
+            case Cognac
+        }
+        
+        let name: String
+        let category: category
+        let image: UIImage
+        
+        init(name: String, category: category, image: UIImage = UIImage(named: "cellDefault")!) {
+            self.name = name
+            self.category = category
+            self.image = image
+        }
+    }
+    func testIngredientStruct(){
+        let blankImage = UIImage()
+        let ingredient = Ingredient(name: "Test", category: Ingredient.category.Rum, image: blankImage)
+        XCTAssertEqual(ingredient.category, Ingredient.category.Rum)
+    }
 }

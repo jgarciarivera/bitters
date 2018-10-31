@@ -2,7 +2,7 @@
 //  bittersUITests.swift
 //  bittersUITests
 //
-//  Created by Jorge Garcia-Rivera on 10/3/18.
+//  Created by Kaelaholme on 10/30/18.
 //  Copyright © 2018 Jorge Garcia-Rivera. All rights reserved.
 //
 
@@ -29,9 +29,6 @@ class bittersUITests: XCTestCase {
     func testExample() {
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
-        
-        
-        XCTAssertTrue(true)
     }
 
 }
