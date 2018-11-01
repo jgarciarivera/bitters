@@ -9,6 +9,7 @@ target 'bitters' do
   pod 'Firebase/Core'
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
+  pod 'Firebase/Firestore'
   target 'bittersTests' do
     inherit! :search_paths
     # Pods for testing

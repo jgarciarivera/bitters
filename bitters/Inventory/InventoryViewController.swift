@@ -23,6 +23,7 @@ class InventoryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        currentUser()
         entireCells = updateCellContent()
         currentCells = currentCells.isEmpty ? entireCells : currentCells
     }

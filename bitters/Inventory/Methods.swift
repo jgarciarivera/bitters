@@ -8,6 +8,8 @@
 
 import Foundation
 import UIKit
+import Firebase
+import FirebaseFirestore
 
 struct Ingredient {
     
@@ -27,6 +29,7 @@ struct Ingredient {
         case Scotch = "Scotch Whiskey"
         case TennWhiskey = "Tennessee Whiskey"
     }
+    
     
     let name: String
     let category: category
@@ -56,7 +59,77 @@ func updateCellContent() -> [Ingredient] { //This will later be used to pull dat
     return cellContents
 }
 
+
+// Mark: - Database Handling
+
+
+
+
 func addNewIngredient(ingredientToBeAdded: Ingredient) {
-    print("Called addNewIngredient... \n\(ingredientToBeAdded)")
+    print("Called addNewIngredient... \n\(ingredientToBeAdded.name)")
+    if( true) {
+        enum hello {
+            case mym
+            case luck
+        }
+    }
+}
+
+enum dbcollections: String {
+    case UserData
+    case Recipes = "Recipies"
+}
+
+func currentUser() {
+    let db = Firestore.firestore() //Firestore
+    db.settings.areTimestampsInSnapshotsEnabled = true
+    
+    let knownUID = "yRCNQg6ATkfnSFApp40P3ugwv1k1"
+    
+    //let ref = Database.database().reference() //Real-time
+    
+    let userID: String!
+    userID = Auth.auth().currentUser?.uid
+    
+    
+    db.collection(dbcollections.UserData.rawValue).document(userID).setData([
+        "name": "Luis",
+        "last":"Flores",
+        "dog": [
+            "name": "Dusty",
+            "middle": "Jay",
+            "last": "Enciso",
+        ]
+        ], merge: true)
+    
+    
+    db.collection(dbcollections.Recipes.rawValue).getDocuments() { (snapshot, error) in
+        if let error = error {
+            print("Error getting documents \(error.localizedDescription)")
+        } else {
+            for document in snapshot!.documents {
+                print(document.documentID)
+                print(document.data())
+            }
+        }
+    }
+        
+    
+    
+//    db.collection("Recipies").getDocuments() { (snapshot, error) in
+//        if let error = error {
+//            print("Could not get documents: \(error)")
+//        } else {
+//            for document in snapshot!.documents {
+//                print("Document Name: \(document.documentID)")
+//                print("Data: \(document.data())\n")
+//            }
+//        }
+//
+//    }
+    
+    print("Current UID: \(userID!)")
+    print(userID == knownUID)
+    
 }
 

@@ -17,21 +17,21 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>tech.thenerdydeveloper</string>
+	<string>com.ubicompteam5.bitters</string>
 	<key>PROJECT_ID</key>
 	<string>bitters-96abe</string>
 	<key>STORAGE_BUCKET</key>
 	<string>bitters-96abe.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false/>
+	<false></false>
 	<key>IS_APPINVITE_ENABLED</key>
-	<false/>
+	<false></false>
 	<key>IS_GCM_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>GOOGLE_APP_ID</key>
 	<string>1:773429266888:ios:4d7ff908c849cec7</string>
 	<key>DATABASE_URL</key>

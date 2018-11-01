@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		53B69B4A737C9B4800EB622F /* Pods_bittersUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43E050F3D14570F206139689 /* Pods_bittersUITests.framework */; };
 		867106142E220DEE66BA988E /* Pods_bitters.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 204C685D4F4BE16838B7AB95 /* Pods_bitters.framework */; };
 		C67648272189391900684B66 /* bittersUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67648262189391900684B66 /* bittersUITests.swift */; };
+		DB0716A49F7252A98E07A20B /* Pods_bittersTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B49F28F77C417C074FB3B3E3 /* Pods_bittersTests.framework */; };
 		F105989E21897F29008DDCD4 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F105989D21897F28008DDCD4 /* RegisterViewController.swift */; };
 		F12B3C9221879ED800298636 /* InventoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12B3C9121879ED800298636 /* InventoryViewController.swift */; };
 		F12B3C9621879F4000298636 /* InventoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12B3C9521879F4000298636 /* InventoryTableViewCell.swift */; };
@@ -92,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB0716A49F7252A98E07A20B /* Pods_bittersTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,6 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53B69B4A737C9B4800EB622F /* Pods_bittersUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,6 +235,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F19D1E94218973FF007B0C4D /* Build configuration list for PBXNativeTarget "bittersTests" */;
 			buildPhases = (
+				A92EC152BBA4D1BC90F79899 /* [CP] Check Pods Manifest.lock */,
 				C6764810218927CD00684B66 /* Sources */,
 				C6764811218927CD00684B66 /* Frameworks */,
 				C6764812218927CD00684B66 /* Resources */,
@@ -249,6 +254,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C676482B2189391900684B66 /* Build configuration list for PBXNativeTarget "bittersUITests" */;
 			buildPhases = (
+				6CD7561154E120E73D128FCC /* [CP] Check Pods Manifest.lock */,
 				C67648202189391900684B66 /* Sources */,
 				C67648212189391900684B66 /* Frameworks */,
 				C67648222189391900684B66 /* Resources */,
@@ -385,6 +391,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		6CD7561154E120E73D128FCC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-bittersUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		84AFA635DAA6CBA051626861 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -394,8 +422,15 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-bitters/Pods-bitters-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-RxLibrary/RxLibrary.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -403,14 +438,43 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxLibrary.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-bitters/Pods-bitters-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A92EC152BBA4D1BC90F79899 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-bittersTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C2AA497BE615A77DBE0B9323 /* [CP] Check Pods Manifest.lock */ = {
@@ -520,6 +584,7 @@
 /* Begin XCBuildConfiguration section */
 		C676482C2189391900684B66 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5CE53F538F758EC3C203CC1A /* Pods-bittersUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = bittersUITests/Info.plist;
@@ -539,6 +604,7 @@
 		};
 		C676482D2189391900684B66 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 028D97D7756AF5F03EE4C37A /* Pods-bittersUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = bittersUITests/Info.plist;
@@ -558,6 +624,7 @@
 		};
 		F19D1E92218973FF007B0C4D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1069C815FEBA7B9F4F8F272F /* Pods-bittersTests.debug.xcconfig */;
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -568,6 +635,7 @@
 		};
 		F19D1E93218973FF007B0C4D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 01F19CCCC7761BEBDCFFF103 /* Pods-bittersTests.release.xcconfig */;
 			buildSettings = {
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -741,7 +809,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = tech.thenerdydeveloper;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ubicompteam5.bitters;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -760,7 +828,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = tech.thenerdydeveloper;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ubicompteam5.bitters;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";

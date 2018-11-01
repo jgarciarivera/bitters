@@ -19,13 +19,9 @@ class InventoryTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        
-        //By default set to image if not provided
-
-        // Configure the view for the selected states
     }
 
 }
