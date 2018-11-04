@@ -24,7 +24,7 @@ class InventoryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         currentUser()
-        entireCells = updateCellContent()
+        entireCells = updateIngredientCellContent()
         currentCells = currentCells.isEmpty ? entireCells : currentCells
     }
     

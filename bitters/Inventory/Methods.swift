@@ -11,6 +11,53 @@ import UIKit
 import Firebase
 import FirebaseFirestore
 
+
+//MARK: - Default Texts as a reference for defaultValues of Cocktail Struct
+
+let defaultLongText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum consequat lacus sit amet tempus mollis. Ut nibh justo, bibendum vel leo in, semper lacinia nisl. Mauris erat ex, dictum vitae purus ac, interdum ornare lacus. Nulla tempor dictum est, et viverra nisi. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut semper sem nulla, nec sagittis turpis vehicula quis. Sed ac nulla nec neque interdum consequat. Morbi tristique augue elit. Nunc rutrum purus et risus ultricies mattis. Etiam fermentum pulvinar posuere."
+let defaultMediumText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum consequat lacus sit amet tempus mollis. Ut nibh justo, bibendum vel leo in, semper lacinia nisl. Mauris erat ex, dictum vitae purus ac, interdum ornare lacus. Nulla tempor dictum est, et viverra nisi."
+let dafaultShortText = "Lorem ipsum dolor sit amet."
+
+//MARK: - Cocktail Struct
+
+struct Cocktail {
+    let name: String
+    let about: String
+    let description: String
+    let instructions: [String]
+    let ingredients: [Ingredient]
+    let image: UIImage
+    
+    init(name: String, about: String = defaultLongText, description: String = defaultMediumText, instructions: [String] = [dafaultShortText], ingredients:[Ingredient] = updateIngredientCellContent(), image: UIImage = UIImage(named: "cellDefault")!) {
+        self.name = name
+        self.about = about
+        self.image = image
+        self.description = description
+        self.instructions = instructions
+        self.ingredients = ingredients
+    }
+}
+
+//MARK: - Mock Cocktail Data Array
+
+func updateCocktailCellContent() -> [Cocktail] {
+    var cocktailArray: [Cocktail] = []
+    cocktailArray.append(Cocktail(name: "Dark n Stormy"))
+    cocktailArray.append(Cocktail(name: "Negroni"))
+    cocktailArray.append(Cocktail(name: "Vodka Sour"))
+    cocktailArray.append(Cocktail(name: "Sake Bomb"))
+    cocktailArray.append(Cocktail(name: "Gibson"))
+    cocktailArray.append(Cocktail(name: "Gin and Tonic"))
+    cocktailArray.append(Cocktail(name: "Gin Sour"))
+    cocktailArray.append(Cocktail(name: "Cojito"))
+    cocktailArray.append(Cocktail(name: "Mojito"))
+    
+    return cocktailArray
+}
+
+
+// MARK: - Ingredient Struct
+
 struct Ingredient {
     
     enum category: String, CaseIterable {
@@ -42,7 +89,9 @@ struct Ingredient {
     }
 }
 
-func updateCellContent() -> [Ingredient] { //This will later be used to pull data info
+// MARK: - Mock Ingredient Data Array
+
+func updateIngredientCellContent() -> [Ingredient] { //This will later be used to pull data info
     
     var cellContents: [Ingredient] = []
     cellContents.append(Ingredient(name: "New Amsterdam", category: Ingredient.category.Vodka))
@@ -60,61 +109,44 @@ func updateCellContent() -> [Ingredient] { //This will later be used to pull dat
 }
 
 
-// Mark: - Database Handling
-
-
-
-
-func addNewIngredient(ingredientToBeAdded: Ingredient) {
-    print("Called addNewIngredient... \n\(ingredientToBeAdded.name)")
-    if( true) {
-        enum hello {
-            case mym
-            case luck
-        }
-    }
-}
+// MARK: - Database Stuff & Random Methods
 
 enum dbcollections: String {
     case UserData
     case Recipes = "Recipies"
 }
 
+func addNewIngredient(ingredientToBeAdded: Ingredient) {
+    print("Called addNewIngredient... \n\(ingredientToBeAdded.name)")
+}
+
 func currentUser() {
-    let db = Firestore.firestore() //Firestore
-    db.settings.areTimestampsInSnapshotsEnabled = true
-    
-    let knownUID = "yRCNQg6ATkfnSFApp40P3ugwv1k1"
-    
-    //let ref = Database.database().reference() //Real-time
-    
-    let userID: String!
-    userID = Auth.auth().currentUser?.uid
-    
-    
-    db.collection(dbcollections.UserData.rawValue).document(userID).setData([
-        "name": "Luis",
-        "last":"Flores",
-        "dog": [
-            "name": "Dusty",
-            "middle": "Jay",
-            "last": "Enciso",
-        ]
-        ], merge: true)
-    
-    
-    db.collection(dbcollections.Recipes.rawValue).getDocuments() { (snapshot, error) in
-        if let error = error {
-            print("Error getting documents \(error.localizedDescription)")
-        } else {
-            for document in snapshot!.documents {
-                print(document.documentID)
-                print(document.data())
-            }
-        }
-    }
-        
-    
+//    let db = Firestore.firestore() //Firestore
+//    db.settings.areTimestampsInSnapshotsEnabled = true
+//    
+//    let userID = Auth.auth().currentUser!.uid
+//    
+//    db.collection(dbcollections.UserData.rawValue).document(userID).setData([
+//        "name": "Luis",
+//        "last":"Flores",
+//        "dog": [
+//            "name": "Dusty",
+//            "middle": "Jay",
+//            "last": "Enciso",
+//        ]
+//        ], merge: true)
+//    
+//    
+//    db.collection(dbcollections.Recipes.rawValue).getDocuments() { (snapshot, error) in
+//        if let error = error {
+//            print("Error getting documents \(error.localizedDescription)")
+//        } else {
+//            for document in snapshot!.documents {
+//                print(document.documentID)
+//                print(document.data())
+//            }
+//        }
+//    }
     
 //    db.collection("Recipies").getDocuments() { (snapshot, error) in
 //        if let error = error {
@@ -127,9 +159,6 @@ func currentUser() {
 //        }
 //
 //    }
-    
-    print("Current UID: \(userID!)")
-    print(userID == knownUID)
     
 }
 

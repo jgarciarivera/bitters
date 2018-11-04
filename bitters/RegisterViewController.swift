@@ -7,7 +7,7 @@
 import UIKit
 import Firebase
 
-class RegisterViewController: UIViewController {
+class RegisterViewController: UIViewController,UITextFieldDelegate {
     
     @IBOutlet weak var registerButton: UIButton!
     @IBOutlet weak var usernameTextField: UITextField!
@@ -15,8 +15,18 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var confirmationTextField: UITextField!
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        usernameTextField.delegate = self
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
+        confirmationTextField.delegate = self
+        
         registerButton.layer.cornerRadius = 16
         registerButton.clipsToBounds = true
     }

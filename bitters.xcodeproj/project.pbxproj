@@ -16,6 +16,7 @@
 		F12B3C9621879F4000298636 /* InventoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12B3C9521879F4000298636 /* InventoryTableViewCell.swift */; };
 		F19D1E8F2188E842007B0C4D /* AddIngredientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19D1E8E2188E842007B0C4D /* AddIngredientViewController.swift */; };
 		F19D1E9121894872007B0C4D /* Methods.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19D1E9021894872007B0C4D /* Methods.swift */; };
+		F1C00908218D28040024B2CB /* FloatingActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C00907218D28040024B2CB /* FloatingActionButton.swift */; };
 		F1F2EF5C2187E95700462932 /* InventoryUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F2EF5B2187E95700462932 /* InventoryUITest.swift */; };
 		F2790082218401A80063276C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2790081218401A80063276C /* GoogleService-Info.plist */; };
 		F27900842184023F0063276C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27900832184023F0063276C /* LoginViewController.swift */; };
@@ -73,6 +74,7 @@
 		F12B3C9521879F4000298636 /* InventoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryTableViewCell.swift; sourceTree = "<group>"; };
 		F19D1E8E2188E842007B0C4D /* AddIngredientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIngredientViewController.swift; sourceTree = "<group>"; };
 		F19D1E9021894872007B0C4D /* Methods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Methods.swift; sourceTree = "<group>"; };
+		F1C00907218D28040024B2CB /* FloatingActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FloatingActionButton.swift; path = /Users/luiflores/ub/project/bitters/bitters/Inventory/FloatingActionButton.swift; sourceTree = "<absolute>"; };
 		F1F2EF5B2187E95700462932 /* InventoryUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryUITest.swift; sourceTree = "<group>"; };
 		F2790081218401A80063276C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F27900832184023F0063276C /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 		F12B3C9021879EB800298636 /* Inventory */ = {
 			isa = PBXGroup;
 			children = (
+				F1C00907218D28040024B2CB /* FloatingActionButton.swift */,
 				F12B3C9121879ED800298636 /* InventoryViewController.swift */,
 				F12B3C9521879F4000298636 /* InventoryTableViewCell.swift */,
 				F19D1E8E2188E842007B0C4D /* AddIngredientViewController.swift */,
@@ -538,6 +541,7 @@
 				F12B3C9221879ED800298636 /* InventoryViewController.swift in Sources */,
 				F12B3C9621879F4000298636 /* InventoryTableViewCell.swift in Sources */,
 				F27900842184023F0063276C /* LoginViewController.swift in Sources */,
+				F1C00908218D28040024B2CB /* FloatingActionButton.swift in Sources */,
 				F9DA47B02165BF3500718111 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -802,15 +806,18 @@
 			baseConfigurationReference = 9FE34F67BEE4770A0E2F97A6 /* Pods-bitters.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7VB9R44KK9;
 				INFOPLIST_FILE = bitters/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ubicompteam5.bitters;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -821,15 +828,18 @@
 			baseConfigurationReference = CD7F0EA0D57CCE2068CCE20E /* Pods-bitters.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7VB9R44KK9;
 				INFOPLIST_FILE = bitters/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ubicompteam5.bitters;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
