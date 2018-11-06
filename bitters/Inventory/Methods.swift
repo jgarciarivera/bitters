@@ -9,7 +9,6 @@
 import Foundation
 import UIKit
 import Firebase
-import FirebaseFirestore
 
 
 //MARK: - Default Texts as a reference for defaultValues of Cocktail Struct
