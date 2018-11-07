@@ -16,14 +16,13 @@
 		F12B3C9621879F4000298636 /* InventoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12B3C9521879F4000298636 /* InventoryTableViewCell.swift */; };
 		F19D1E8F2188E842007B0C4D /* AddIngredientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19D1E8E2188E842007B0C4D /* AddIngredientViewController.swift */; };
 		F19D1E9121894872007B0C4D /* Methods.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19D1E9021894872007B0C4D /* Methods.swift */; };
-		F1C00908218D28040024B2CB /* FloatingActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C00907218D28040024B2CB /* FloatingActionButton.swift */; };
 		F1F2EF5C2187E95700462932 /* InventoryUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F2EF5B2187E95700462932 /* InventoryUITest.swift */; };
 		F2790082218401A80063276C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2790081218401A80063276C /* GoogleService-Info.plist */; };
 		F27900842184023F0063276C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27900832184023F0063276C /* LoginViewController.swift */; };
 		F279008D218408AB0063276C /* bittersUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F279008C218408AB0063276C /* bittersUITest.swift */; };
 		F2790095218409110063276C /* LoginPageUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2790094218409110063276C /* LoginPageUITest.swift */; };
+		F9D4B344218FA6D100A7EC38 /* CocktailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D4B343218FA6D100A7EC38 /* CocktailsViewController.swift */; };
 		F9DA47B02165BF3500718111 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9DA47AF2165BF3500718111 /* AppDelegate.swift */; };
-		F9DA47B42165BF3500718111 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9DA47B32165BF3500718111 /* SecondViewController.swift */; };
 		F9DA47B72165BF3500718111 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9DA47B52165BF3500718111 /* Main.storyboard */; };
 		F9DA47B92165BF3600718111 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9DA47B82165BF3600718111 /* Assets.xcassets */; };
 		F9DA47BC2165BF3600718111 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9DA47BA2165BF3600718111 /* LaunchScreen.storyboard */; };
@@ -74,7 +73,6 @@
 		F12B3C9521879F4000298636 /* InventoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryTableViewCell.swift; sourceTree = "<group>"; };
 		F19D1E8E2188E842007B0C4D /* AddIngredientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIngredientViewController.swift; sourceTree = "<group>"; };
 		F19D1E9021894872007B0C4D /* Methods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Methods.swift; sourceTree = "<group>"; };
-		F1C00907218D28040024B2CB /* FloatingActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FloatingActionButton.swift; path = /Users/luiflores/ub/project/bitters/bitters/Inventory/FloatingActionButton.swift; sourceTree = "<absolute>"; };
 		F1F2EF5B2187E95700462932 /* InventoryUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryUITest.swift; sourceTree = "<group>"; };
 		F2790081218401A80063276C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F27900832184023F0063276C /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -82,9 +80,9 @@
 		F279008C218408AB0063276C /* bittersUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bittersUITest.swift; sourceTree = "<group>"; };
 		F279008E218408AB0063276C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F2790094218409110063276C /* LoginPageUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageUITest.swift; sourceTree = "<group>"; };
+		F9D4B343218FA6D100A7EC38 /* CocktailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailsViewController.swift; sourceTree = "<group>"; };
 		F9DA47AC2165BF3500718111 /* bitters.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bitters.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9DA47AF2165BF3500718111 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F9DA47B32165BF3500718111 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		F9DA47B62165BF3500718111 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F9DA47B82165BF3600718111 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F9DA47BB2165BF3600718111 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -170,7 +168,6 @@
 		F12B3C9021879EB800298636 /* Inventory */ = {
 			isa = PBXGroup;
 			children = (
-				F1C00907218D28040024B2CB /* FloatingActionButton.swift */,
 				F12B3C9121879ED800298636 /* InventoryViewController.swift */,
 				F12B3C9521879F4000298636 /* InventoryTableViewCell.swift */,
 				F19D1E8E2188E842007B0C4D /* AddIngredientViewController.swift */,
@@ -188,6 +185,35 @@
 				F1F2EF5B2187E95700462932 /* InventoryUITest.swift */,
 			);
 			path = bittersUITest;
+			sourceTree = "<group>";
+		};
+		F9D4B33D218F9A5B00A7EC38 /* Cocktails */ = {
+			isa = PBXGroup;
+			children = (
+				F9D4B343218FA6D100A7EC38 /* CocktailsViewController.swift */,
+			);
+			path = Cocktails;
+			sourceTree = "<group>";
+		};
+		F9D4B33F218F9AEA00A7EC38 /* Discover */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Discover;
+			sourceTree = "<group>";
+		};
+		F9D4B340218F9B1100A7EC38 /* Shopping */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Shopping;
+			sourceTree = "<group>";
+		};
+		F9D4B341218F9B2600A7EC38 /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Favorites;
 			sourceTree = "<group>";
 		};
 		F9DA47A32165BF3500718111 = {
@@ -217,13 +243,16 @@
 		F9DA47AE2165BF3500718111 /* bitters */ = {
 			isa = PBXGroup;
 			children = (
-				F105989D21897F28008DDCD4 /* RegisterViewController.swift */,
 				F27900832184023F0063276C /* LoginViewController.swift */,
-				F2790081218401A80063276C /* GoogleService-Info.plist */,
-				F9DA47AF2165BF3500718111 /* AppDelegate.swift */,
-				F9DA47B32165BF3500718111 /* SecondViewController.swift */,
+				F105989D21897F28008DDCD4 /* RegisterViewController.swift */,
+				F9D4B33D218F9A5B00A7EC38 /* Cocktails */,
 				F12B3C9021879EB800298636 /* Inventory */,
+				F9D4B33F218F9AEA00A7EC38 /* Discover */,
+				F9D4B340218F9B1100A7EC38 /* Shopping */,
+				F9D4B341218F9B2600A7EC38 /* Favorites */,
 				F9DA47B52165BF3500718111 /* Main.storyboard */,
+				F9DA47AF2165BF3500718111 /* AppDelegate.swift */,
+				F2790081218401A80063276C /* GoogleService-Info.plist */,
 				F9DA47B82165BF3600718111 /* Assets.xcassets */,
 				F9DA47BA2165BF3600718111 /* LaunchScreen.storyboard */,
 				F9DA47BD2165BF3600718111 /* Info.plist */,
@@ -534,14 +563,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F9DA47B42165BF3500718111 /* SecondViewController.swift in Sources */,
 				F19D1E8F2188E842007B0C4D /* AddIngredientViewController.swift in Sources */,
 				F19D1E9121894872007B0C4D /* Methods.swift in Sources */,
 				F105989E21897F29008DDCD4 /* RegisterViewController.swift in Sources */,
 				F12B3C9221879ED800298636 /* InventoryViewController.swift in Sources */,
 				F12B3C9621879F4000298636 /* InventoryTableViewCell.swift in Sources */,
 				F27900842184023F0063276C /* LoginViewController.swift in Sources */,
-				F1C00908218D28040024B2CB /* FloatingActionButton.swift in Sources */,
+				F9D4B344218FA6D100A7EC38 /* CocktailsViewController.swift in Sources */,
 				F9DA47B02165BF3500718111 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
