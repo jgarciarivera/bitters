@@ -17,7 +17,7 @@ class CocktailsViewController: UIViewController, UITableViewDelegate, UITableVie
         
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.separatorColor = UIColor(white: 0.95, alpha: 1)
+        tableView.separatorStyle = .none
         
         cocktails = updateCocktailCellContent()
     }
@@ -45,7 +45,7 @@ class CocktailsViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return 120
     }
     
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
