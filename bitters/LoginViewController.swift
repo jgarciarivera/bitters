@@ -24,9 +24,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         emailTextField.delegate = self
         passwordTextField.delegate = self
         
-        
-//        self.emailTextField.text = "123@bitters.com"
-//        self.passwordTextField.text = "123bitters"
+        //placeholder login
+        self.emailTextField.text = "123@bitters.com"
+        self.passwordTextField.text = "123bitters"
 
         loginButton.layer.cornerRadius = 16
         loginButton.clipsToBounds = true

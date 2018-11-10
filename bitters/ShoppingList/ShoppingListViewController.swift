@@ -8,13 +8,26 @@
 
 import UIKit
 
+struct ListCell
+{
+    let itemName: String?
+}
+
 class ShoppingListViewController: UITableViewController
 {
-    //https://www.youtube.com/watch?v=YwE3_hMyDZA
+    var listData = [ListCell]()
+    func getShoppingListData()
+    {
+        //Placeholder Data
+        listData.append(ListCell.init(itemName: "Ice"))
+        listData.append(ListCell.init(itemName: "Water"))
+        self.tableView.register(ShoppingListCell.self, forCellReuseIdentifier: "listCell")
+    }
     override func viewDidLoad()
     {
         super.viewDidLoad()
-
+        getShoppingListData()
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -24,25 +37,30 @@ class ShoppingListViewController: UITableViewController
 
     // MARK: - Table view data source
 
+    /*
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 0
     }
+     */
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
+        print  ("count:", listData.count)
+        return listData.count
     }
 
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "listCell", for: indexPath) as! ShoppingListCell
+        cell.itemName = listData[indexPath.row].itemName
         return cell
     }
-    */
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
+        //tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.checkmark
+    }
 
     /*
     // Override to support conditional editing of the table view.

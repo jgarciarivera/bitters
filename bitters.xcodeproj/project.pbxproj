@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		53B69B4A737C9B4800EB622F /* Pods_bittersUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43E050F3D14570F206139689 /* Pods_bittersUITests.framework */; };
 		867106142E220DEE66BA988E /* Pods_bitters.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 204C685D4F4BE16838B7AB95 /* Pods_bitters.framework */; };
+		C609D77821976721006319B4 /* ShoppingListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C609D77721976721006319B4 /* ShoppingListCell.swift */; };
 		C67648272189391900684B66 /* bittersUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67648262189391900684B66 /* bittersUITests.swift */; };
 		C681A79721975407004FCA67 /* ShoppingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C681A79621975407004FCA67 /* ShoppingListViewController.swift */; };
 		C6DA4612219222D2006F88ED /* FloatingActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DA4611219222D2006F88ED /* FloatingActionButton.swift */; };
@@ -63,6 +64,7 @@
 		5CE53F538F758EC3C203CC1A /* Pods-bittersUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bittersUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-bittersUITests/Pods-bittersUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		9FE34F67BEE4770A0E2F97A6 /* Pods-bitters.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bitters.debug.xcconfig"; path = "Pods/Target Support Files/Pods-bitters/Pods-bitters.debug.xcconfig"; sourceTree = "<group>"; };
 		B49F28F77C417C074FB3B3E3 /* Pods_bittersTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bittersTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C609D77721976721006319B4 /* ShoppingListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListCell.swift; sourceTree = "<group>"; };
 		C6764814218927CD00684B66 /* bittersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = bittersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6764816218927CD00684B66 /* bittersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bittersTests.swift; sourceTree = "<group>"; };
 		C6764818218927CD00684B66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				C681A79621975407004FCA67 /* ShoppingListViewController.swift */,
+				C609D77721976721006319B4 /* ShoppingListCell.swift */,
 			);
 			path = ShoppingList;
 			sourceTree = "<group>";
@@ -549,6 +552,7 @@
 				F19D1E8F2188E842007B0C4D /* AddIngredientViewController.swift in Sources */,
 				C681A79721975407004FCA67 /* ShoppingListViewController.swift in Sources */,
 				F19D1E9121894872007B0C4D /* Methods.swift in Sources */,
+				C609D77821976721006319B4 /* ShoppingListCell.swift in Sources */,
 				F105989E21897F29008DDCD4 /* RegisterViewController.swift in Sources */,
 				F12B3C9221879ED800298636 /* InventoryViewController.swift in Sources */,
 				F12B3C9621879F4000298636 /* InventoryTableViewCell.swift in Sources */,

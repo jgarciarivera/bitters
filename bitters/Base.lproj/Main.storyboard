@@ -229,7 +229,7 @@
         <scene sceneID="ehz-3K-iKB">
             <objects>
                 <viewController title="Shopping List" id="xfU-tA-Svr" customClass="ShoppingListViewController" customModule="bitters" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="SLE-yF-a35">
+                    <view key="view" contentMode="scaleToFill" id="SLE-yF-a35" customClass="UITableView">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
