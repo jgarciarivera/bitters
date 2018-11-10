@@ -9,7 +9,7 @@
 import UIKit
 import FirebaseDatabase
 
-class InventoryTableViewCell: UITableViewCell {
+class InventoryCell: UITableViewCell {
 
     @IBOutlet weak var ingredientImage: UIImageView!
     @IBOutlet weak var ingredientName: UILabel!

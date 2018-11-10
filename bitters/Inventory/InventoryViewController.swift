@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 // MARK: - Cell Contents Structure
 //This can later be globalized if necessary
 
@@ -15,6 +16,7 @@ var entireCells: [Ingredient] = []
 var currentCells: [Ingredient] = []
 
 class InventoryViewController: UIViewController {
+    var dbdelegate: dbConnectionDelegate?
     
     // MARK: - View Controller Objects
     @IBOutlet weak var inventoryTable: UITableView!
@@ -24,7 +26,7 @@ class InventoryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         currentUser()
-        entireCells = updateIngredientCellContent()
+        entireCells = dbdelegate!.getUserIngredients()
         currentCells = currentCells.isEmpty ? entireCells : currentCells
     }
     
@@ -46,7 +48,7 @@ extension InventoryViewController: UITableViewDataSource, UITableViewDelegate, U
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as? InventoryTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as? InventoryCell else {
             return UITableViewCell()
         }
         
@@ -55,6 +57,28 @@ extension InventoryViewController: UITableViewDataSource, UITableViewDelegate, U
         cell.ingredientImage.image = currentCells[indexPath.row].image
         return cell
     }
+    
+    //MARK: - Swipe Delete Action
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let delete = deleteAction(at: indexPath)
+        return UISwipeActionsConfiguration(actions: [delete])
+    }
+    
+    func deleteAction(at indexPath: IndexPath) -> UIContextualAction {
+        let ingredient = currentCells[indexPath.row]
+        let action = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completion) in
+            entireCells.remove(at: indexPath.row)
+            
+            
+            completion(true)
+        }
+        
+        return action
+    }
+    
+    
+    
     
     // MARK: - SearchBar Functionality
     
