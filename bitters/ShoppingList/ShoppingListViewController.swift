@@ -13,7 +13,7 @@ struct ListCell
     let itemName: String?
 }
 
-class ShoppingListViewController: UITableViewController
+class ShoppingListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource
 {
     var listData = [ListCell]()
     func getShoppingListData()
@@ -21,8 +21,24 @@ class ShoppingListViewController: UITableViewController
         //Placeholder Data
         listData.append(ListCell.init(itemName: "Ice"))
         listData.append(ListCell.init(itemName: "Water"))
-        self.tableView.register(ShoppingListCell.self, forCellReuseIdentifier: "listCell")
+        //self.tableView.register(ShoppingListCell.self, forCellReuseIdentifier: "listCell")
     }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
+        return listData.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    {
+        let cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "itemCell")
+        cell.textLabel?.text = listData[indexPath.row].itemName
+        return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
+        tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.checkmark
+    }
+
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -44,6 +60,7 @@ class ShoppingListViewController: UITableViewController
     }
      */
 
+    /*
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         print  ("count:", listData.count)
@@ -61,6 +78,7 @@ class ShoppingListViewController: UITableViewController
     {
         //tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.checkmark
     }
+    */
 
     /*
     // Override to support conditional editing of the table view.
