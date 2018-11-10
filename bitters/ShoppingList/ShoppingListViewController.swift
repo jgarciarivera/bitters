@@ -8,19 +8,19 @@
 
 import UIKit
 
-struct ListCell
+struct ListCellData
 {
     let itemName: String?
 }
 
 class ShoppingListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource
 {
-    var listData = [ListCell]()
+    var listData = [ListCellData]()
     func getShoppingListData()
     {
         //Placeholder Data
-        listData.append(ListCell.init(itemName: "Ice"))
-        listData.append(ListCell.init(itemName: "Water"))
+        listData.append(ListCellData.init(itemName: "Ice"))
+        listData.append(ListCellData.init(itemName: "Water"))
         //self.tableView.register(ShoppingListCell.self, forCellReuseIdentifier: "listCell")
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
@@ -30,7 +30,8 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        let cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "itemCell")
+        //let cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "itemCell")
+        let cell = ShoppingListCell()
         cell.textLabel?.text = listData[indexPath.row].itemName
         return cell
     }

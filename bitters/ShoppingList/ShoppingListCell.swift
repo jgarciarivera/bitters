@@ -36,7 +36,9 @@ class ShoppingListCell: UITableViewCell
         super.layoutSubviews()
         if let itemName = itemName
         {
-            itemView.text = itemName
+            //Custom cell check
+            itemView.text = "Item:" + itemName
+            //itemView.text = itemName
         }
     }
     required init?(coder aDecoder: NSCoder)
