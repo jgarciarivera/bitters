@@ -16,7 +16,7 @@ var entireCells: [Ingredient] = []
 var currentCells: [Ingredient] = []
 
 class InventoryViewController: UIViewController {
-    var dbdelegate: dbConnectionDelegate?
+    var dbdelegate = DatabaseConnection()
     
     // MARK: - View Controller Objects
     @IBOutlet weak var inventoryTable: UITableView!
@@ -26,7 +26,7 @@ class InventoryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         currentUser()
-        entireCells = dbdelegate!.getUserIngredients()
+        entireCells = dbdelegate.getUserIngredients()
         currentCells = currentCells.isEmpty ? entireCells : currentCells
     }
     
