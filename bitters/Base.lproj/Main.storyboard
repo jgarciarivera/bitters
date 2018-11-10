@@ -233,17 +233,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OLa-b2-AVH" customClass="ShoppingListTableView">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OLa-b2-AVH" customClass="ShoppingListTableView">
                                 <rect key="frame" x="0.0" y="20" width="375" height="401"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableView>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="wPs-GL-jei">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="wPs-GL-jei">
                                 <rect key="frame" x="0.0" y="429" width="375" height="189"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="189" id="1A2-sO-7rc"/>
+                                    <constraint firstAttribute="width" constant="375" id="i0C-xY-3tJ"/>
+                                </constraints>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="OLa-b2-AVH" firstAttribute="top" secondItem="zWP-cg-pCf" secondAttribute="top" id="1xJ-vM-BEp"/>
+                            <constraint firstItem="OLa-b2-AVH" firstAttribute="leading" secondItem="zWP-cg-pCf" secondAttribute="leading" id="5Af-cC-eRb"/>
+                            <constraint firstItem="wPs-GL-jei" firstAttribute="bottom" secondItem="zWP-cg-pCf" secondAttribute="bottom" id="5bl-Uz-G09"/>
+                            <constraint firstItem="wPs-GL-jei" firstAttribute="trailing" secondItem="OLa-b2-AVH" secondAttribute="trailing" id="ATs-wI-PyT"/>
+                            <constraint firstItem="wPs-GL-jei" firstAttribute="top" secondItem="OLa-b2-AVH" secondAttribute="bottom" constant="8" symbolic="YES" id="DN1-Rd-LcC"/>
+                            <constraint firstItem="wPs-GL-jei" firstAttribute="trailing" secondItem="zWP-cg-pCf" secondAttribute="trailing" id="clB-Se-ts1"/>
+                            <constraint firstItem="wPs-GL-jei" firstAttribute="leading" secondItem="zWP-cg-pCf" secondAttribute="leading" id="egR-i5-zLO"/>
+                            <constraint firstItem="OLa-b2-AVH" firstAttribute="trailing" secondItem="zWP-cg-pCf" secondAttribute="trailing" id="tmI-Ay-hQ4"/>
+                            <constraint firstItem="OLa-b2-AVH" firstAttribute="leading" secondItem="wPs-GL-jei" secondAttribute="leading" id="wck-Qe-d9i"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="zWP-cg-pCf"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Shopping List" id="gec-dK-guG"/>
