@@ -10,6 +10,7 @@
 		53B69B4A737C9B4800EB622F /* Pods_bittersUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43E050F3D14570F206139689 /* Pods_bittersUITests.framework */; };
 		867106142E220DEE66BA988E /* Pods_bitters.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 204C685D4F4BE16838B7AB95 /* Pods_bitters.framework */; };
 		C67648272189391900684B66 /* bittersUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67648262189391900684B66 /* bittersUITests.swift */; };
+		C681A79721975407004FCA67 /* ShoppingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C681A79621975407004FCA67 /* ShoppingListViewController.swift */; };
 		C6DA4612219222D2006F88ED /* FloatingActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DA4611219222D2006F88ED /* FloatingActionButton.swift */; };
 		DB0716A49F7252A98E07A20B /* Pods_bittersTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B49F28F77C417C074FB3B3E3 /* Pods_bittersTests.framework */; };
 		F105989E21897F29008DDCD4 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F105989D21897F28008DDCD4 /* RegisterViewController.swift */; };
@@ -68,6 +69,7 @@
 		C67648242189391900684B66 /* bittersUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = bittersUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C67648262189391900684B66 /* bittersUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bittersUITests.swift; sourceTree = "<group>"; };
 		C67648282189391900684B66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C681A79621975407004FCA67 /* ShoppingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListViewController.swift; sourceTree = "<group>"; };
 		C6DA4611219222D2006F88ED /* FloatingActionButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingActionButton.swift; sourceTree = "<group>"; };
 		CD7F0EA0D57CCE2068CCE20E /* Pods-bitters.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bitters.release.xcconfig"; path = "Pods/Target Support Files/Pods-bitters/Pods-bitters.release.xcconfig"; sourceTree = "<group>"; };
 		F105989D21897F28008DDCD4 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -167,6 +169,14 @@
 			path = bittersUITests;
 			sourceTree = "<group>";
 		};
+		C681A795219753A6004FCA67 /* ShoppingList */ = {
+			isa = PBXGroup;
+			children = (
+				C681A79621975407004FCA67 /* ShoppingListViewController.swift */,
+			);
+			path = ShoppingList;
+			sourceTree = "<group>";
+		};
 		F12B3C9021879EB800298636 /* Inventory */ = {
 			isa = PBXGroup;
 			children = (
@@ -217,6 +227,7 @@
 		F9DA47AE2165BF3500718111 /* bitters */ = {
 			isa = PBXGroup;
 			children = (
+				C681A795219753A6004FCA67 /* ShoppingList */,
 				F105989D21897F28008DDCD4 /* RegisterViewController.swift */,
 				F27900832184023F0063276C /* LoginViewController.swift */,
 				F2790081218401A80063276C /* GoogleService-Info.plist */,
@@ -536,6 +547,7 @@
 			files = (
 				F9DA47B42165BF3500718111 /* SecondViewController.swift in Sources */,
 				F19D1E8F2188E842007B0C4D /* AddIngredientViewController.swift in Sources */,
+				C681A79721975407004FCA67 /* ShoppingListViewController.swift in Sources */,
 				F19D1E9121894872007B0C4D /* Methods.swift in Sources */,
 				F105989E21897F29008DDCD4 /* RegisterViewController.swift in Sources */,
 				F12B3C9221879ED800298636 /* InventoryViewController.swift in Sources */,
