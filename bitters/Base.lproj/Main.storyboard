@@ -251,6 +251,9 @@
                         <viewLayoutGuide key="safeArea" id="zWP-cg-pCf"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Shopping List" id="gec-dK-guG"/>
+                    <connections>
+                        <outlet property="ShoppingListView" destination="BgI-VQ-vUJ" id="plM-Sb-vb9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cDP-CS-Kza" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

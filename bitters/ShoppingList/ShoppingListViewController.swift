@@ -15,6 +15,7 @@ struct ListCellData
 
 class ShoppingListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource
 {
+    @IBOutlet weak var ShoppingListView: UITableView!
     var listData = [ListCellData]()
     func getShoppingListData()
     {
@@ -30,8 +31,8 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        //let cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "itemCell")
-        let cell = ShoppingListCell()
+        let cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "itemCell")
+        //let cell = ShoppingListCell()
         cell.textLabel?.text = listData[indexPath.row].itemName
         return cell
     }
@@ -44,6 +45,7 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
     {
         super.viewDidLoad()
         getShoppingListData()
+        ShoppingListView.register(ShoppingListCell.self, forCellReuseIdentifier: "itemCell")
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
