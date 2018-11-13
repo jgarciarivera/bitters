@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import UIKit
 
 protocol dbConnectionDelegate {
     func getUserIngredients() -> [Ingredient]
@@ -52,5 +52,15 @@ class DatabaseConnection: dbConnectionDelegate  {
         cellContents.append(Ingredient(name: "Casadores", category: .Tequila))
         
         return cellContents
+    }
+    
+    func getDetailedCocktailInfo(name: String) -> Cocktail {
+        
+        return Cocktail(name: name,
+                        about:defaultMediumText,
+                        description: defaultLongText,
+                        instructions: defaultInstructions,
+                        ingredients: defaultIngredients,
+                        image: UIImage(named: "defaultCocktailPhoto")!)
     }
 }

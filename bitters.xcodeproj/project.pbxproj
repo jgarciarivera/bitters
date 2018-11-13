@@ -23,7 +23,11 @@
 		F2790082218401A80063276C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F2790081218401A80063276C /* GoogleService-Info.plist */; };
 		F279008D218408AB0063276C /* bittersUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F279008C218408AB0063276C /* bittersUITest.swift */; };
 		F2790095218409110063276C /* LoginPageUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2790094218409110063276C /* LoginPageUITest.swift */; };
-		F988DF3D21929FC200532167 /* CocktailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F988DF3C21929FC200532167 /* CocktailsViewController.swift */; };
+		F92BBE362199FD80005DF383 /* CocktailsListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92BBE352199FD80005DF383 /* CocktailsListCell.swift */; };
+		F92BBE382199FDDA005DF383 /* CocktailRecipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92BBE372199FDDA005DF383 /* CocktailRecipeCell.swift */; };
+		F92BBE3A2199FDF2005DF383 /* CocktailIngredientsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92BBE392199FDF2005DF383 /* CocktailIngredientsCell.swift */; };
+		F93A7A5D2198A853005B771E /* CocktailDescriptionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F931200321976CC700583423 /* CocktailDescriptionVC.swift */; };
+		F988DF3D21929FC200532167 /* CocktailsListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F988DF3C21929FC200532167 /* CocktailsListVC.swift */; };
 		F999DB3B2193590000BF2C7B /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F999DB3A2193590000BF2C7B /* CardView.swift */; };
 		F9DA47B02165BF3500718111 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9DA47AF2165BF3500718111 /* AppDelegate.swift */; };
 		F9DA47B72165BF3500718111 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9DA47B52165BF3500718111 /* Main.storyboard */; };
@@ -85,7 +89,11 @@
 		F279008C218408AB0063276C /* bittersUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bittersUITest.swift; sourceTree = "<group>"; };
 		F279008E218408AB0063276C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F2790094218409110063276C /* LoginPageUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageUITest.swift; sourceTree = "<group>"; };
-		F988DF3C21929FC200532167 /* CocktailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailsViewController.swift; sourceTree = "<group>"; };
+		F92BBE352199FD80005DF383 /* CocktailsListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailsListCell.swift; sourceTree = "<group>"; };
+		F92BBE372199FDDA005DF383 /* CocktailRecipeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailRecipeCell.swift; sourceTree = "<group>"; };
+		F92BBE392199FDF2005DF383 /* CocktailIngredientsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailIngredientsCell.swift; sourceTree = "<group>"; };
+		F931200321976CC700583423 /* CocktailDescriptionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailDescriptionVC.swift; sourceTree = "<group>"; };
+		F988DF3C21929FC200532167 /* CocktailsListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailsListVC.swift; sourceTree = "<group>"; };
 		F999DB3A2193590000BF2C7B /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		F9DA47AC2165BF3500718111 /* bitters.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bitters.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9DA47AF2165BF3500718111 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -202,6 +210,25 @@
 			path = bittersUITest;
 			sourceTree = "<group>";
 		};
+		F92BBE3B219A133C005DF383 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				F988DF3C21929FC200532167 /* CocktailsListVC.swift */,
+				F92BBE352199FD80005DF383 /* CocktailsListCell.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		F92BBE3C219A1351005DF383 /* Description */ = {
+			isa = PBXGroup;
+			children = (
+				F931200321976CC700583423 /* CocktailDescriptionVC.swift */,
+				F92BBE372199FDDA005DF383 /* CocktailRecipeCell.swift */,
+				F92BBE392199FDF2005DF383 /* CocktailIngredientsCell.swift */,
+			);
+			path = Description;
+			sourceTree = "<group>";
+		};
 		F999DB3D2193681B00BF2C7B /* Login and Registration */ = {
 			isa = PBXGroup;
 			children = (
@@ -214,7 +241,8 @@
 		F9D4B33D218F9A5B00A7EC38 /* Cocktails */ = {
 			isa = PBXGroup;
 			children = (
-				F988DF3C21929FC200532167 /* CocktailsViewController.swift */,
+				F92BBE3B219A133C005DF383 /* List */,
+				F92BBE3C219A1351005DF383 /* Description */,
 			);
 			path = Cocktails;
 			sourceTree = "<group>";
@@ -567,14 +595,18 @@
 				F111EB742197819500DEB88A /* LoginViewController.swift in Sources */,
 				F19D1E8F2188E842007B0C4D /* AddIngredientViewController.swift in Sources */,
 				F19D1E9121894872007B0C4D /* Methods.swift in Sources */,
+				F92BBE3A2199FDF2005DF383 /* CocktailIngredientsCell.swift in Sources */,
 				F12B3C9221879ED800298636 /* InventoryViewController.swift in Sources */,
 				F12B3C9621879F4000298636 /* InventoryCell.swift in Sources */,
+				F92BBE382199FDDA005DF383 /* CocktailRecipeCell.swift in Sources */,
+				F93A7A5D2198A853005B771E /* CocktailDescriptionVC.swift in Sources */,
 				F1E3A7B42197673F007DDE13 /* DatabaseConnection.swift in Sources */,
 				F1E3A7B621976A24007DDE13 /* Structures.swift in Sources */,
+				F92BBE362199FD80005DF383 /* CocktailsListCell.swift in Sources */,
 				F999DB3B2193590000BF2C7B /* CardView.swift in Sources */,
 				F111EB752197819500DEB88A /* RegisterViewController.swift in Sources */,
 				F9DA47B02165BF3500718111 /* AppDelegate.swift in Sources */,
-				F988DF3D21929FC200532167 /* CocktailsViewController.swift in Sources */,
+				F988DF3D21929FC200532167 /* CocktailsListVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -840,7 +872,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7VB9R44KK9;
+				DEVELOPMENT_TEAM = Z45ZX8S546;
 				INFOPLIST_FILE = bitters/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -862,7 +894,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7VB9R44KK9;
+				DEVELOPMENT_TEAM = Z45ZX8S546;
 				INFOPLIST_FILE = bitters/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = (

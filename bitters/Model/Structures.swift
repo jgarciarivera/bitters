@@ -11,14 +11,21 @@ import UIKit
 
 //MARK: - Default Texts as a reference for defaultValues of Cocktail Struct
 
-let defaultLongText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum consequat lacus sit amet tempus mollis. Ut nibh justo, bibendum vel leo in, semper lacinia nisl. Mauris erat ex, dictum vitae purus ac, interdum ornare lacus. Nulla tempor dictum est, et viverra nisi. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut semper sem nulla, nec sagittis turpis vehicula quis. Sed ac nulla nec neque interdum consequat. Morbi tristique augue elit. Nunc rutrum purus et risus ultricies mattis. Etiam fermentum pulvinar posuere."
-let defaultMediumText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum consequat lacus sit amet tempus mollis. Ut nibh justo, bibendum vel leo in, semper lacinia nisl. Mauris erat ex, dictum vitae purus ac, interdum ornare lacus. Nulla tempor dictum est, et viverra nisi."
-let dafaultShortText = "Lorem ipsum dolor sit amet."
+let defaultLongText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum consequat lacus sit amet tempus mollis. Ut nibh justo, bibendum vel leo in, semper lacinia nisl. Mauris erat ex, dictum vitae purus ac, interdum ornare lacus. Nulla tempor dictum est."
+let defaultMediumText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum consequat lacus sit amet tempus mollis. Ut nibh justo, bibendum vel leo in."
+let dafaultShortText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+let defaultInstructions = ["Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                           "Vestibulum consequat lacus sit amet tempus mollis.",
+                           "Nulla tempor dictum est, et viverra nisi."]
 
-
-//MARK: - Cocktail Struct
+let mockIngredientOne = Ingredient(name: "vodka", category: Ingredient.category.Vodka)
+let mockIngredientTwo = Ingredient(name: "lime juice", category: Ingredient.category.Juice)
+let mockIngredientThree = Ingredient(name: "ginger beer", category: Ingredient.category.Other)
+let defaultIngredients = [mockIngredientOne, mockIngredientTwo, mockIngredientThree]
 
 let dbDelegate: dbConnectionDelegate = DatabaseConnection()
+
+//MARK: - Cocktail Struct
 
 struct Cocktail {
     let name: String
@@ -28,13 +35,27 @@ struct Cocktail {
     let ingredients: [Ingredient]
     let image: UIImage
     
-    init(name: String, about: String = defaultLongText, description: String = defaultMediumText, instructions: [String] = [dafaultShortText], ingredients:[Ingredient] = dbDelegate.getUserIngredients(), image: UIImage = UIImage(named: "cellDefault")!) {
+    init(name: String,
+         about: String = defaultLongText,
+         description: String = defaultMediumText,
+         instructions: [String] = [dafaultShortText],
+         ingredients:[Ingredient] = dbDelegate.getUserIngredients(),
+         image: UIImage = UIImage(named: "cellDefault")!) {
         self.name = name
         self.about = about
         self.image = image
         self.description = description
         self.instructions = instructions
         self.ingredients = ingredients
+    }
+    
+    init() {
+        self.name = ""
+        self.about = ""
+        self.image = UIImage(named: "defaultCocktailPhoto")!
+        self.description = ""
+        self.instructions = []
+        self.ingredients = []
     }
 }
 
@@ -58,6 +79,8 @@ struct Ingredient {
         case Rye = "Rye whiskey"
         case Scotch = "Scotch Whiskey"
         case TennWhiskey = "Tennessee Whiskey"
+        case Juice
+        case Other
     }
     
     

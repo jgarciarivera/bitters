@@ -12,7 +12,7 @@ import UIKit
     @IBInspectable var shadowColor: UIColor? = UIColor.gray
     @IBInspectable var shadowOffsetWidth: Int = 0
     @IBInspectable var shadowOffsetHeight: Int = 1
-    @IBInspectable var shadowOpacity: Float = 0.4
+    @IBInspectable var shadowOpacity: Float = 0.6
     
     override func layoutSubviews() {
         layer.cornerRadius = cornerRadius
