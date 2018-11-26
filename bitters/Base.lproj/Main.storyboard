@@ -233,21 +233,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="wPs-GL-jei">
-                                <rect key="frame" x="0.0" y="429" width="375" height="189"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </mapView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BgI-VQ-vUJ">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BgI-VQ-vUJ">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="421"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="375" id="0ht-D8-hkg"/>
+                                    <constraint firstAttribute="height" constant="421" id="eiN-E3-k8n"/>
+                                </constraints>
                                 <connections>
                                     <outlet property="dataSource" destination="xfU-tA-Svr" id="fpH-ar-pEA"/>
                                     <outlet property="delegate" destination="xfU-tA-Svr" id="DpX-qx-KbP"/>
                                 </connections>
                             </tableView>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="wPs-GL-jei">
+                                <rect key="frame" x="0.0" y="429" width="375" height="189"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="189" id="2ki-VF-Ht6"/>
+                                    <constraint firstAttribute="width" constant="375" id="x28-0P-40W"/>
+                                </constraints>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="wPs-GL-jei" firstAttribute="trailing" secondItem="zWP-cg-pCf" secondAttribute="trailing" id="1ZB-aU-duo"/>
+                            <constraint firstItem="BgI-VQ-vUJ" firstAttribute="leading" secondItem="zWP-cg-pCf" secondAttribute="leading" id="3Ir-Fn-HSR"/>
+                            <constraint firstItem="wPs-GL-jei" firstAttribute="bottom" secondItem="zWP-cg-pCf" secondAttribute="bottom" id="8nl-kW-T5z"/>
+                            <constraint firstItem="zWP-cg-pCf" firstAttribute="bottom" secondItem="BgI-VQ-vUJ" secondAttribute="bottom" constant="197" id="EWN-Bv-ETU"/>
+                            <constraint firstItem="wPs-GL-jei" firstAttribute="leading" secondItem="zWP-cg-pCf" secondAttribute="leading" id="aIG-Qt-Dxd"/>
+                            <constraint firstItem="BgI-VQ-vUJ" firstAttribute="trailing" secondItem="zWP-cg-pCf" secondAttribute="trailing" id="coI-Wa-WUY"/>
+                            <constraint firstItem="wPs-GL-jei" firstAttribute="top" secondItem="zWP-cg-pCf" secondAttribute="top" constant="409" id="gs3-tS-xCq"/>
+                            <constraint firstItem="BgI-VQ-vUJ" firstAttribute="top" secondItem="SLE-yF-a35" secondAttribute="top" id="wTq-g6-VFy"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="zWP-cg-pCf"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Shopping List" id="gec-dK-guG"/>
