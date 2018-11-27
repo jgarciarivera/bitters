@@ -11,32 +11,44 @@ import UIKit
 struct ListCellData
 {
     let itemName: String?
+    var itemSelected: Bool
 }
 
 class ShoppingListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource
 {
+    var listData = [ListCellData]()
     @IBAction func clickEdit(_ sender: Any)
     {
         print("edit")
     }
     @IBAction func clickAdd(_ sender: Any)
     {
-        print("add")
-        listData.append(ListCellData.init(itemName: "test"))
-        savePersistentData(data: listData as! [ListCellData])
+        let alert = UIAlertController(title: "Add Item", message: nil, preferredStyle: .alert)
+        alert.addTextField { (shoppingListField) in shoppingListField.placeholder = "Enter Item" }
+        let action = UIAlertAction(title: "Add", style: .default) { (_) in
+            guard let itemEntry = alert.textFields?.first?.text else { return }
+            print (itemEntry)
+            self.addItem(ListCellData.init(itemName: itemEntry, itemSelected: false))
+        }
+        alert.addAction(action)
+        present(alert, animated: true)
+        self.ShoppingListView.reloadData()
     }
-    func savePersistentData(data: [ListCellData])
+    func addItem(_ item: ListCellData)
     {
-        UserDefaults.standard.set(data, forKey: "ShoppingList")
+        let index = 0
+        listData.insert(item, at: index)
+        let indexPath = IndexPath(row: index, section: 0)
+        ShoppingListView.insertRows(at: [indexPath], with: .automatic)
+        //self.ShoppingListView.reloadData()
     }
     @IBOutlet weak var ShoppingListView: UITableView!
-    //var listData = [ListCellData]()
-    var listData = UserDefaults.standard.array(forKey: "ShoppingList") ?? [ListCellData]()
     func getShoppingListData()
     {
         //Placeholder Data
-        listData.append(ListCellData.init(itemName: "Ice"))
-        listData.append(ListCellData.init(itemName: "Water"))
+        listData.append(ListCellData.init(itemName: "Ice", itemSelected: false))
+        listData.append(ListCellData.init(itemName: "Water", itemSelected: false))
+        listData.append(ListCellData.init(itemName: "Whiskey", itemSelected: false))
         //self.tableView.register(ShoppingListCell.self, forCellReuseIdentifier: "listCell")
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
@@ -48,12 +60,31 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
     {
         let cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "itemCell")
         //let cell = ShoppingListCell()
-        cell.textLabel?.text = (listData[indexPath.row] as! ListCellData).itemName
+        cell.textLabel?.text = listData[indexPath.row].itemName
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
-        //tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.checkmark
+        let item = listData[indexPath.row]
+        let cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "itemCell")
+        if (item.itemSelected)
+        {
+            listData[indexPath.row].itemSelected = false
+            tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.none
+        }
+        else
+        {
+            listData[indexPath.row].itemSelected = true
+            tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.checkmark
+        }
+        print (cell.accessoryType)
+    }
+    // Override to support editing the table view.
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath)
+    {
+        guard editingStyle == .delete else { return }
+        listData.remove(at: indexPath.row)
+        tableView.deleteRows(at: [indexPath], with: .automatic)
     }
 
     override func viewDidLoad()
@@ -105,19 +136,6 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
         return true
     }
     */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
     /*
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
