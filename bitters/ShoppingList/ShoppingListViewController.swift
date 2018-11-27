@@ -15,8 +15,23 @@ struct ListCellData
 
 class ShoppingListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource
 {
+    @IBAction func clickEdit(_ sender: Any)
+    {
+        print("edit")
+    }
+    @IBAction func clickAdd(_ sender: Any)
+    {
+        print("add")
+        listData.append(ListCellData.init(itemName: "test"))
+        savePersistentData(data: listData as! [ListCellData])
+    }
+    func savePersistentData(data: [ListCellData])
+    {
+        UserDefaults.standard.set(data, forKey: "ShoppingList")
+    }
     @IBOutlet weak var ShoppingListView: UITableView!
-    var listData = [ListCellData]()
+    //var listData = [ListCellData]()
+    var listData = UserDefaults.standard.array(forKey: "ShoppingList") ?? [ListCellData]()
     func getShoppingListData()
     {
         //Placeholder Data
@@ -33,7 +48,7 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
     {
         let cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "itemCell")
         //let cell = ShoppingListCell()
-        cell.textLabel?.text = listData[indexPath.row].itemName
+        cell.textLabel?.text = (listData[indexPath.row] as! ListCellData).itemName
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)

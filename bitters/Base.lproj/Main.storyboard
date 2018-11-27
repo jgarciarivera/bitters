@@ -226,6 +226,23 @@
             <point key="canvasLocation" x="1087" y="-174"/>
         </scene>
         <!--Shopping List-->
+        <scene sceneID="LGe-Ag-kbI">
+            <objects>
+                <navigationController id="LcN-hx-9td" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Shopping List" selectedImage="ShoppingListIcon" id="R1M-jU-eod"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="NZZ-7T-0Tx">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="xfU-tA-Svr" kind="relationship" relationship="rootViewController" id="asY-cE-2Bl"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rkc-Yw-gU6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-62" y="574"/>
+        </scene>
+        <!--Shopping List-->
         <scene sceneID="ehz-3K-iKB">
             <objects>
                 <viewController title="Shopping List" id="xfU-tA-Svr" customClass="ShoppingListViewController" customModule="bitters" customModuleProvider="target" sceneMemberID="viewController">
@@ -237,8 +254,8 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="421"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="375" id="0ht-D8-hkg"/>
-                                    <constraint firstAttribute="height" constant="421" id="eiN-E3-k8n"/>
+                                    <constraint firstAttribute="width" constant="375" id="LMj-GW-MV8"/>
+                                    <constraint firstAttribute="height" constant="421" id="gam-oc-6Vn"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="dataSource" destination="xfU-tA-Svr" id="fpH-ar-pEA"/>
@@ -246,34 +263,46 @@
                                 </connections>
                             </tableView>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="wPs-GL-jei">
-                                <rect key="frame" x="0.0" y="429" width="375" height="189"/>
+                                <rect key="frame" x="0.0" y="473" width="375" height="145"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="189" id="2ki-VF-Ht6"/>
-                                    <constraint firstAttribute="width" constant="375" id="x28-0P-40W"/>
+                                    <constraint firstAttribute="height" constant="145" id="Aei-OD-CrL"/>
+                                    <constraint firstAttribute="width" constant="375" id="ccj-ls-tR7"/>
                                 </constraints>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="wPs-GL-jei" firstAttribute="trailing" secondItem="zWP-cg-pCf" secondAttribute="trailing" id="1ZB-aU-duo"/>
-                            <constraint firstItem="BgI-VQ-vUJ" firstAttribute="leading" secondItem="zWP-cg-pCf" secondAttribute="leading" id="3Ir-Fn-HSR"/>
-                            <constraint firstItem="wPs-GL-jei" firstAttribute="bottom" secondItem="zWP-cg-pCf" secondAttribute="bottom" id="8nl-kW-T5z"/>
-                            <constraint firstItem="zWP-cg-pCf" firstAttribute="bottom" secondItem="BgI-VQ-vUJ" secondAttribute="bottom" constant="197" id="EWN-Bv-ETU"/>
-                            <constraint firstItem="wPs-GL-jei" firstAttribute="leading" secondItem="zWP-cg-pCf" secondAttribute="leading" id="aIG-Qt-Dxd"/>
-                            <constraint firstItem="BgI-VQ-vUJ" firstAttribute="trailing" secondItem="zWP-cg-pCf" secondAttribute="trailing" id="coI-Wa-WUY"/>
-                            <constraint firstItem="wPs-GL-jei" firstAttribute="top" secondItem="zWP-cg-pCf" secondAttribute="top" constant="409" id="gs3-tS-xCq"/>
-                            <constraint firstItem="BgI-VQ-vUJ" firstAttribute="top" secondItem="SLE-yF-a35" secondAttribute="top" id="wTq-g6-VFy"/>
+                            <constraint firstItem="BgI-VQ-vUJ" firstAttribute="trailing" secondItem="zWP-cg-pCf" secondAttribute="trailing" id="3Wn-qB-TNj"/>
+                            <constraint firstItem="wPs-GL-jei" firstAttribute="bottom" secondItem="zWP-cg-pCf" secondAttribute="bottom" id="Gkz-pj-d3R"/>
+                            <constraint firstItem="zWP-cg-pCf" firstAttribute="bottom" secondItem="BgI-VQ-vUJ" secondAttribute="bottom" constant="197" id="Y9G-GV-ds8"/>
+                            <constraint firstItem="wPs-GL-jei" firstAttribute="top" secondItem="zWP-cg-pCf" secondAttribute="top" constant="409" id="awI-7p-8fZ"/>
+                            <constraint firstItem="wPs-GL-jei" firstAttribute="trailing" secondItem="zWP-cg-pCf" secondAttribute="trailing" id="cbf-oY-TRV"/>
+                            <constraint firstItem="BgI-VQ-vUJ" firstAttribute="leading" secondItem="zWP-cg-pCf" secondAttribute="leading" id="duU-Qx-X4I"/>
+                            <constraint firstItem="wPs-GL-jei" firstAttribute="leading" secondItem="zWP-cg-pCf" secondAttribute="leading" id="pqH-Et-A3i"/>
+                            <constraint firstItem="BgI-VQ-vUJ" firstAttribute="top" secondItem="SLE-yF-a35" secondAttribute="top" id="vFZ-92-6Zo"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zWP-cg-pCf"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Shopping List" id="gec-dK-guG"/>
+                    <tabBarItem key="tabBarItem" title="Shopping List" image="ShoppingListIcon" id="gec-dK-guG"/>
+                    <navigationItem key="navigationItem" title="Shopping List" id="1vY-wq-uBt">
+                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="7Hx-8f-Gdr">
+                            <connections>
+                                <action selector="clickEdit:" destination="xfU-tA-Svr" id="BUQ-1U-x4Y"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="cYf-IW-dC8">
+                            <connections>
+                                <action selector="clickAdd:" destination="xfU-tA-Svr" id="Xhu-Of-spM"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="ShoppingListView" destination="BgI-VQ-vUJ" id="plM-Sb-vb9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cDP-CS-Kza" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1085.5999999999999" y="669.71514242878561"/>
+            <point key="canvasLocation" x="906" y="574"/>
         </scene>
         <!--LoginPage-->
         <scene sceneID="T6d-5J-H7D">
@@ -474,7 +503,7 @@
                     <connections>
                         <segue destination="KtL-ve-bGp" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
-                        <segue destination="xfU-tA-Svr" kind="relationship" relationship="viewControllers" id="09I-ci-Eia"/>
+                        <segue destination="LcN-hx-9td" kind="relationship" relationship="viewControllers" id="eHr-Kv-nxU"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -509,6 +538,7 @@
         <image name="Email" width="75" height="75"/>
         <image name="InventoryIcon" width="50" height="50"/>
         <image name="Lock" width="75" height="75"/>
+        <image name="ShoppingListIcon" width="37.5" height="37.5"/>
         <image name="User" width="75" height="75"/>
         <image name="second" width="30" height="30"/>
     </resources>
