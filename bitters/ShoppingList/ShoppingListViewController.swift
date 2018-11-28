@@ -66,7 +66,7 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
         let item = listData[indexPath.row]
-        let cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "itemCell")
+        //let cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "itemCell")
         if (item.itemSelected)
         {
             listData[indexPath.row].itemSelected = false
@@ -77,7 +77,13 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
             listData[indexPath.row].itemSelected = true
             tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.checkmark
         }
-        print (cell.accessoryType)
+        if let selectedIndexPaths = tableView.indexPathsForSelectedRows
+        {
+            for indexPath in selectedIndexPaths
+            {
+                tableView.deselectRow(at: indexPath, animated: true)
+            }
+        }
     }
     // Override to support editing the table view.
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath)
@@ -85,6 +91,13 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
         guard editingStyle == .delete else { return }
         listData.remove(at: indexPath.row)
         tableView.deleteRows(at: [indexPath], with: .automatic)
+    }
+    override func viewWillAppear(_ animated: Bool)
+    {
+        if let index = self.ShoppingListView.indexPathForSelectedRow
+        {
+            self.ShoppingListView.deselectRow(at: index, animated: true)
+        }
     }
 
     override func viewDidLoad()
