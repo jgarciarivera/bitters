@@ -29,11 +29,39 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
             guard let itemEntry = alert.textFields?.first?.text else { return }
             print (itemEntry)
             self.addItem(ListCellData.init(itemName: itemEntry, itemSelected: false))
-            UserDefaults.standard.set(try? PropertyListEncoder().encode(self.listData), forKey: "ShoppingListData")
-            print(self.listData.count, "saved")
+            self.saveListData()
         }
         alert.addAction(action)
         present(alert, animated: true)
+        self.ShoppingListView.reloadData()
+        checkSelectedItems()
+    }
+    func loadListData()
+    {
+        if let data = UserDefaults.standard.value(forKey: "ShoppingListData") as? Data
+        {
+            listData = try! PropertyListDecoder().decode(Array<ListCellData>.self, from: data)
+        }
+    }
+    func saveListData()
+    {
+        UserDefaults.standard.set(try? PropertyListEncoder().encode(self.listData), forKey: "ShoppingListData")
+    }
+    func checkSelectedItems()
+    {
+        for (index, item) in listData.enumerated()
+        {
+            let indexPath = IndexPath(item: index, section: 0)
+            if (item.itemSelected)
+            {
+                print(index, "checked")
+                self.ShoppingListView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.checkmark
+            }
+            else
+            {
+                self.ShoppingListView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.none
+            }
+        }
         self.ShoppingListView.reloadData()
     }
     func addItem(_ item: ListCellData)
@@ -51,8 +79,6 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
         listData.append(ListCellData.init(itemName: "Ice", itemSelected: false))
         listData.append(ListCellData.init(itemName: "Water", itemSelected: false))
         listData.append(ListCellData.init(itemName: "Whiskey", itemSelected: false))
-        //UserDefaults.standard.set(listData, forKey: "ShoppingListData")
-        //self.tableView.register(ShoppingListCell.self, forCellReuseIdentifier: "listCell")
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
@@ -87,6 +113,7 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
                 tableView.deselectRow(at: indexPath, animated: true)
             }
         }
+        saveListData()
     }
     // Override to support editing the table view.
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath)
@@ -94,6 +121,7 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
         guard editingStyle == .delete else { return }
         listData.remove(at: indexPath.row)
         tableView.deleteRows(at: [indexPath], with: .automatic)
+        saveListData()
     }
     override func viewWillAppear(_ animated: Bool)
     {
@@ -108,13 +136,8 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
         super.viewDidLoad()
         getShoppingListData()
         ShoppingListView.register(ShoppingListCell.self, forCellReuseIdentifier: "itemCell")
-        print (listData.count, " before")
-        if let data = UserDefaults.standard.value(forKey: "ShoppingListData") as? Data
-        {
-            listData = try! PropertyListDecoder().decode(Array<ListCellData>.self, from: data)
-            print (listData.count, "after")
-        }
-        //listData = UserDefaults.standard.object(forKey: "ShoppingListData") as! [ListCellData]
+        loadListData()
+        checkSelectedItems()
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
