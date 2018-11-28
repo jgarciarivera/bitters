@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct ListCellData
+struct ListCellData: Codable
 {
     let itemName: String?
     var itemSelected: Bool
@@ -29,6 +29,8 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
             guard let itemEntry = alert.textFields?.first?.text else { return }
             print (itemEntry)
             self.addItem(ListCellData.init(itemName: itemEntry, itemSelected: false))
+            UserDefaults.standard.set(try? PropertyListEncoder().encode(self.listData), forKey: "ShoppingListData")
+            print(self.listData.count, "saved")
         }
         alert.addAction(action)
         present(alert, animated: true)
@@ -49,6 +51,7 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
         listData.append(ListCellData.init(itemName: "Ice", itemSelected: false))
         listData.append(ListCellData.init(itemName: "Water", itemSelected: false))
         listData.append(ListCellData.init(itemName: "Whiskey", itemSelected: false))
+        //UserDefaults.standard.set(listData, forKey: "ShoppingListData")
         //self.tableView.register(ShoppingListCell.self, forCellReuseIdentifier: "listCell")
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
@@ -105,6 +108,13 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
         super.viewDidLoad()
         getShoppingListData()
         ShoppingListView.register(ShoppingListCell.self, forCellReuseIdentifier: "itemCell")
+        print (listData.count, " before")
+        if let data = UserDefaults.standard.value(forKey: "ShoppingListData") as? Data
+        {
+            listData = try! PropertyListDecoder().decode(Array<ListCellData>.self, from: data)
+            print (listData.count, "after")
+        }
+        //listData = UserDefaults.standard.object(forKey: "ShoppingListData") as! [ListCellData]
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
