@@ -34,7 +34,6 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
         alert.addAction(action)
         present(alert, animated: true)
         self.ShoppingListView.reloadData()
-        checkSelectedItems()
     }
     func loadListData()
     {
@@ -46,23 +45,6 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
     func saveListData()
     {
         UserDefaults.standard.set(try? PropertyListEncoder().encode(self.listData), forKey: "ShoppingListData")
-    }
-    func checkSelectedItems()
-    {
-        for (index, item) in listData.enumerated()
-        {
-            let indexPath = IndexPath(item: index, section: 0)
-            if (item.itemSelected)
-            {
-                print(index, "checked")
-                self.ShoppingListView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.checkmark
-            }
-            else
-            {
-                self.ShoppingListView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.none
-            }
-        }
-        self.ShoppingListView.reloadData()
     }
     func addItem(_ item: ListCellData)
     {
@@ -90,6 +72,14 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
         let cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "itemCell")
         //let cell = ShoppingListCell()
         cell.textLabel?.text = listData[indexPath.row].itemName
+        if (listData[indexPath.row].itemSelected)
+        {
+            cell.accessoryType = UITableViewCell.AccessoryType.checkmark
+        }
+        else
+        {
+            cell.accessoryType = UITableViewCell.AccessoryType.none
+        }
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
@@ -137,7 +127,6 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
         getShoppingListData()
         ShoppingListView.register(ShoppingListCell.self, forCellReuseIdentifier: "itemCell")
         loadListData()
-        checkSelectedItems()
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -161,14 +150,9 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
         print  ("count:", listData.count)
         return listData.count
     }
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
-    {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "listCell", for: indexPath) as! ShoppingListCell
-        cell.itemName = listData[indexPath.row].itemName
-        return cell
-    }
+     */
     
+    /*
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
         //tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.checkmark
