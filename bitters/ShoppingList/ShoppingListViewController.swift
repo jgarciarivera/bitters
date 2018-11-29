@@ -60,9 +60,9 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
     func getShoppingListData()
     {
         //Placeholder Data
-        listData.append(ListCellData.init(itemName: "Ice", itemSelected: false))
-        listData.append(ListCellData.init(itemName: "Water", itemSelected: false))
-        listData.append(ListCellData.init(itemName: "Whiskey", itemSelected: false))
+        //listData.append(ListCellData.init(itemName: "Ice", itemSelected: false))
+        //listData.append(ListCellData.init(itemName: "Water", itemSelected: false))
+        //listData.append(ListCellData.init(itemName: "Whiskey", itemSelected: false))
     }
     func showLiquorStoreOnMap()
     {
