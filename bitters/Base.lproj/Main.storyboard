@@ -298,6 +298,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="ShoppingListView" destination="BgI-VQ-vUJ" id="plM-Sb-vb9"/>
+                        <outlet property="StoreMapView" destination="wPs-GL-jei" id="foh-ps-Auw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cDP-CS-Kza" userLabel="First Responder" sceneMemberID="firstResponder"/>

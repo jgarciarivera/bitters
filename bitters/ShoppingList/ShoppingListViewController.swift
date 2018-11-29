@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MapKit
 
 struct ListCellData: Codable
 {
@@ -55,12 +56,51 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
         //self.ShoppingListView.reloadData()
     }
     @IBOutlet weak var ShoppingListView: UITableView!
+    @IBOutlet weak var StoreMapView: MKMapView!
     func getShoppingListData()
     {
         //Placeholder Data
         listData.append(ListCellData.init(itemName: "Ice", itemSelected: false))
         listData.append(ListCellData.init(itemName: "Water", itemSelected: false))
         listData.append(ListCellData.init(itemName: "Whiskey", itemSelected: false))
+    }
+    func showLiquorStoreOnMap()
+    {
+        UIApplication.shared.beginIgnoringInteractionEvents()
+        let activityIndicator = UIActivityIndicatorView()
+        activityIndicator.style = UIActivityIndicatorView.Style.gray
+        activityIndicator.center = self.view.center
+        activityIndicator.startAnimating()
+        self.view.addSubview(activityIndicator)
+        let searchRequest = MKLocalSearch.Request()
+        searchRequest.naturalLanguageQuery = "\"liquor store\""
+        let activeSearch = MKLocalSearch(request: searchRequest)
+        activeSearch.start
+        {
+            (response, error) in
+            activityIndicator.stopAnimating()
+            UIApplication.shared.endIgnoringInteractionEvents()
+            if response == nil
+            {
+                print ("no search result")
+            }
+            else
+            {
+                let annotations = self.StoreMapView.annotations
+                self.StoreMapView.removeAnnotations(annotations)
+                let latitude = response?.boundingRegion.center.latitude
+                let longitude = response?.boundingRegion.center.longitude
+                let annotation = MKPointAnnotation()
+                annotation.title = "Nearby Liquor Store"
+                annotation.coordinate = CLLocationCoordinate2DMake(latitude!, longitude!)
+                self.StoreMapView.addAnnotation(annotation)
+                let coordinate: CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude!, longitude!)
+                let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
+                let region = MKCoordinateRegion.init(center: coordinate, span: span)
+                self.StoreMapView.setRegion(region, animated: true)
+            }
+        }
+        
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
@@ -133,6 +173,11 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    override func viewDidAppear(_ animated: Bool)
+    {
+        print ("viewappear")
+        showLiquorStoreOnMap()
     }
 
     // MARK: - Table view data source
