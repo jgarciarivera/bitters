@@ -8,13 +8,14 @@
 
 import UIKit
 
-class FavoritesViewController: UITableViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class FavoritesViewController: UITableViewController, UICollectionViewDelegate, UICollectionViewDataSource{
     @IBOutlet weak var collectionView: UICollectionView!
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 10
     }
+    
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewCell", for: indexPath) as! CollectionViewCell
@@ -27,6 +28,40 @@ class FavoritesViewController: UITableViewController, UICollectionViewDelegate, 
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as? InventoryCell else {
+            return UITableViewCell()
+        }
+        
+        return cell
+    }
+    
+    //MARK: - Swipe Delete Action
+    
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let delete = deleteAction(at: indexPath)
+        return UISwipeActionsConfiguration(actions: [delete])
+    }
+    
+    func deleteAction(at indexPath: IndexPath) -> UIContextualAction {
+        let cocktail = currentCells[indexPath.row]
+        let action = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completion) in
+            entireCells.remove(at: indexPath.row)
+            
+            
+            completion(true)
+        }
+        
+        return action
     }
     
 
