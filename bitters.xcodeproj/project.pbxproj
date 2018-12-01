@@ -24,8 +24,6 @@
 		F279008D218408AB0063276C /* bittersUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F279008C218408AB0063276C /* bittersUITest.swift */; };
 		F2790095218409110063276C /* LoginPageUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2790094218409110063276C /* LoginPageUITest.swift */; };
 		F92BBE362199FD80005DF383 /* CocktailsListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92BBE352199FD80005DF383 /* CocktailsListCell.swift */; };
-		F92BBE382199FDDA005DF383 /* CocktailRecipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92BBE372199FDDA005DF383 /* CocktailRecipeCell.swift */; };
-		F92BBE3A2199FDF2005DF383 /* CocktailIngredientsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92BBE392199FDF2005DF383 /* CocktailIngredientsCell.swift */; };
 		F93A7A5D2198A853005B771E /* CocktailDescriptionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F931200321976CC700583423 /* CocktailDescriptionVC.swift */; };
 		F988DF3D21929FC200532167 /* CocktailsListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F988DF3C21929FC200532167 /* CocktailsListVC.swift */; };
 		F999DB3B2193590000BF2C7B /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F999DB3A2193590000BF2C7B /* CardView.swift */; };
@@ -90,8 +88,6 @@
 		F279008E218408AB0063276C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F2790094218409110063276C /* LoginPageUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageUITest.swift; sourceTree = "<group>"; };
 		F92BBE352199FD80005DF383 /* CocktailsListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailsListCell.swift; sourceTree = "<group>"; };
-		F92BBE372199FDDA005DF383 /* CocktailRecipeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailRecipeCell.swift; sourceTree = "<group>"; };
-		F92BBE392199FDF2005DF383 /* CocktailIngredientsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailIngredientsCell.swift; sourceTree = "<group>"; };
 		F931200321976CC700583423 /* CocktailDescriptionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailDescriptionVC.swift; sourceTree = "<group>"; };
 		F988DF3C21929FC200532167 /* CocktailsListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailsListVC.swift; sourceTree = "<group>"; };
 		F999DB3A2193590000BF2C7B /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
@@ -223,8 +219,6 @@
 			isa = PBXGroup;
 			children = (
 				F931200321976CC700583423 /* CocktailDescriptionVC.swift */,
-				F92BBE372199FDDA005DF383 /* CocktailRecipeCell.swift */,
-				F92BBE392199FDF2005DF383 /* CocktailIngredientsCell.swift */,
 			);
 			path = Description;
 			sourceTree = "<group>";
@@ -595,10 +589,8 @@
 				F111EB742197819500DEB88A /* LoginViewController.swift in Sources */,
 				F19D1E8F2188E842007B0C4D /* AddIngredientViewController.swift in Sources */,
 				F19D1E9121894872007B0C4D /* Methods.swift in Sources */,
-				F92BBE3A2199FDF2005DF383 /* CocktailIngredientsCell.swift in Sources */,
 				F12B3C9221879ED800298636 /* InventoryViewController.swift in Sources */,
 				F12B3C9621879F4000298636 /* InventoryCell.swift in Sources */,
-				F92BBE382199FDDA005DF383 /* CocktailRecipeCell.swift in Sources */,
 				F93A7A5D2198A853005B771E /* CocktailDescriptionVC.swift in Sources */,
 				F1E3A7B42197673F007DDE13 /* DatabaseConnection.swift in Sources */,
 				F1E3A7B621976A24007DDE13 /* Structures.swift in Sources */,

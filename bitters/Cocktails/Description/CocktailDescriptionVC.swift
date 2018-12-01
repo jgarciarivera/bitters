@@ -10,8 +10,8 @@ class CocktailDescriptionVC: UIViewController {
     
     @IBOutlet weak var photo: UIImageView!
     @IBOutlet weak var fullDescription: UILabel!
-    @IBOutlet weak var recipeTableView: UITableView!
-    @IBOutlet weak var ingredientsTableView: UITableView!
+    @IBOutlet weak var recipe: UILabel!
+    @IBOutlet weak var ingredients: UILabel!
     
     var name: String = ""
     var cocktail = Cocktail()
@@ -20,46 +20,30 @@ class CocktailDescriptionVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = name
-    
         cocktail = databaseService.getDetailedCocktailInfo(name: name)
-        fullDescription.text = cocktail.description
+        setCocktailInformation(cocktail: cocktail)
+    }
+    
+    func setCocktailInformation(cocktail: Cocktail) {
         photo.image = cocktail.image
+        fullDescription.text = cocktail.description
         
-        recipeTableView.delegate = self
-        recipeTableView.dataSource = self
-        ingredientsTableView.delegate = self
-        ingredientsTableView.dataSource = self
+        for (index, instruction) in cocktail.instructions.enumerated() {
+            if !(recipe.text!.isEmpty) && (index == cocktail.instructions.startIndex) {
+                recipe.text! = "\(index + 1). \(instruction)"
+            } else {
+                recipe.text! += "\n\(index + 1). \(instruction)"
+            }
+        }
+        
+        for (index, ingredient) in cocktail.ingredients.enumerated() {
+            if !(ingredients.text!.isEmpty) && (index == cocktail.ingredients.startIndex) {
+                ingredients.text! = "\(index + 1). \(ingredient.category.rawValue)"
+            } else {
+                ingredients.text! += "\n\(index + 1). \(ingredient.category.rawValue)"
+            }
+        }
     }
 }
 
-extension CocktailDescriptionVC: UITableViewDelegate, UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch (tableView) {
-        case recipeTableView:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "cocktailRecipeCell") as? CocktailRecipeCell
-                else { return UITableViewCell() }
-            cell.step.text = "\(indexPath.row + 1). \(cocktail.instructions[indexPath.row])"
-            return cell
-        case ingredientsTableView:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "cocktailIngredientCell") as? CocktailIngredientsCell
-                else { return UITableViewCell() }
-            cell.ingredient.text = "\(indexPath.row + 1). \(cocktail.ingredients[indexPath.row].category.rawValue)" 
-            return cell
-        default:
-            print("Table View not found")
-            return UITableViewCell()
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch (tableView) {
-        case recipeTableView:
-            return cocktail.instructions.count
-        case ingredientsTableView:
-            return cocktail.ingredients.count
-        default:
-            return 1
-        }
-    }
-}
+

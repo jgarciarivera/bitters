@@ -1,10 +1,9 @@
-//
 //  Structures.swift
 //  bitters
 //
 //  Created by Luis Flores on 11/10/18.
 //  Copyright © 2018 Jorge Garcia-Rivera. All rights reserved.
-//
+
 
 import Foundation
 import UIKit
@@ -38,7 +37,7 @@ struct Cocktail {
     init(name: String,
          about: String = defaultLongText,
          description: String = defaultMediumText,
-         instructions: [String] = [dafaultShortText],
+         instructions: [String] = defaultInstructions,
          ingredients:[Ingredient] = dbDelegate.getUserIngredients(),
          image: UIImage = UIImage(named: "cellDefault")!) {
         self.name = name
@@ -82,7 +81,6 @@ struct Ingredient {
         case Juice
         case Other
     }
-    
     
     let name: String
     let category: category
