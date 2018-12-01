@@ -296,20 +296,63 @@
             </objects>
             <point key="canvasLocation" x="918" y="-320"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Favorites-->
         <scene sceneID="fTT-NG-11C">
             <objects>
-                <tableViewController id="EQW-xg-Jdb" sceneMemberID="viewController">
+                <tableViewController id="EQW-xg-Jdb" customClass="FavoritesViewController" customModule="bitters" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="YyR-9q-rEO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <collectionView key="tableHeaderView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="2ze-j5-m91">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="77"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="7sR-fH-ME3">
+                                <size key="itemSize" width="67" height="68"/>
+                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </collectionViewFlowLayout>
+                            <cells>
+                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collectionViewCell" id="yGG-Tl-AHq" customClass="CollectionViewCell" customModule="bitters" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="4.5" width="67" height="68"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                        <rect key="frame" x="0.0" y="0.0" width="67" height="68"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="itk-pT-qW4" customClass="CardView" customModule="bitters" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="67" height="68"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="gfdsg" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gAW-ZZ-3da">
+                                                        <rect key="frame" x="4" y="8" width="44" height="21"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </view>
+                                        </subviews>
+                                    </view>
+                                    <connections>
+                                        <outlet property="label" destination="gAW-ZZ-3da" id="AUZ-Q6-kkI"/>
+                                    </connections>
+                                </collectionViewCell>
+                            </cells>
+                            <connections>
+                                <outlet property="dataSource" destination="EQW-xg-Jdb" id="d8s-Tp-lHV"/>
+                            </connections>
+                        </collectionView>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="1GK-gf-9Lb">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="72" id="1GK-gf-9Lb">
+                                <rect key="frame" x="0.0" y="105" width="375" height="72"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1GK-gf-9Lb" id="Z1q-fp-2wx">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="71.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -319,11 +362,14 @@
                             <outlet property="delegate" destination="EQW-xg-Jdb" id="tG8-Do-UXc"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="BXY-Hb-cxD"/>
+                    <navigationItem key="navigationItem" title="Favorites" id="BXY-Hb-cxD"/>
+                    <connections>
+                        <outlet property="collectionView" destination="2ze-j5-m91" id="t2N-0D-OoK"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nrv-SF-bdg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="918" y="340"/>
+            <point key="canvasLocation" x="917.60000000000002" y="339.58020989505252"/>
         </scene>
         <!--Favorites-->
         <scene sceneID="okF-pD-8iF">
@@ -667,16 +713,16 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Check" width="75" height="75"/>
+        <image name="Check" width="100" height="100"/>
         <image name="Cocktail Illustration" width="630" height="1024"/>
-        <image name="Email" width="75" height="75"/>
-        <image name="Lock" width="75" height="75"/>
-        <image name="TabCocktailsIcon" width="40" height="40"/>
-        <image name="TabDiscoverIcon" width="40" height="40"/>
-        <image name="TabFavoritesIcon" width="40" height="40"/>
-        <image name="TabInventoryIcon" width="40" height="40"/>
-        <image name="TabShoppingIcon" width="40" height="40"/>
-        <image name="User" width="75" height="75"/>
+        <image name="Email" width="100" height="100"/>
+        <image name="Lock" width="100" height="100"/>
+        <image name="TabCocktailsIcon" width="25" height="25"/>
+        <image name="TabDiscoverIcon" width="25" height="25"/>
+        <image name="TabFavoritesIcon" width="25" height="25"/>
+        <image name="TabInventoryIcon" width="25" height="25"/>
+        <image name="TabShoppingIcon" width="25" height="25"/>
+        <image name="User" width="100" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="kCy-69-SRg"/>
