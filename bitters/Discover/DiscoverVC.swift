@@ -13,7 +13,7 @@ class DiscoverVC: UIViewController, UICollectionViewDelegate, UICollectionViewDa
     
     @IBOutlet weak var featuredImage: UIImageView!
     
-    
+    private weak var shadowView: UIView?
     
     var imageArrayss = [UIImage(named: "0"),UIImage(named: "1"),UIImage(named: "2"),UIImage(named: "3"),UIImage(named: "4"),]
     override func viewDidLoad() {
@@ -32,27 +32,44 @@ class DiscoverVC: UIViewController, UICollectionViewDelegate, UICollectionViewDa
 
         return imageArrayss.count
     }
-
+   
+    
     //Populate view
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
     {
        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "recentImageCell", for: indexPath) as! imageCollectionViewCell
 
-        // load the image
+    
         cell.recentImage.image = imageArrayss[indexPath.row]
         
-        // load the label
         
-        //design the cell
-        cell.layer.cornerRadius = 6.0
-        cell.layer.masksToBounds = false
-        cell.layer.shadowColor = UIColor.gray.cgColor
         cell.layer.shadowOffset = CGSize(width: 0, height: 1)
-        cell.layer.shadowOpacity = 0.6
+  
+        cell.layer.masksToBounds = false
+        cell.layer.shadowRadius = 8.0
+        cell.layer.shadowColor = UIColor.black.cgColor
         
-     
-       // print(cell.recentImage.image ?? 0)
+        
+        cell.layer.shadowOpacity = 0.35
+      
         return cell
     }
+    
+    //ui
+    internal func setHeaderHeight(_ height: CGFloat) {
+        //featuredImage.constant = height
+        view.layoutIfNeeded()
+    }
+    
+    internal func configureRoundedCorners(shouldRound: Bool) {
+        featuredImage.layer.cornerRadius = shouldRound ? 14.0 : 0.0
+    }
+    
+    //ui end
+    
+    // testing
+ 
+    
+   
 }
 

@@ -362,7 +362,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="0" translatesAutoresizingMaskIntoConstraints="NO" id="Khy-yL-Gcu">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
+                                                <rect key="frame" x="25" y="0.0" width="364" height="250"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="250" id="u1Y-i2-wtz"/>
                                                 </constraints>
@@ -435,14 +435,14 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
+                                            <constraint firstItem="Khy-yL-Gcu" firstAttribute="leading" secondItem="VGA-iJ-4SX" secondAttribute="leading" constant="25" id="0yy-JC-LVI"/>
+                                            <constraint firstAttribute="trailing" secondItem="Khy-yL-Gcu" secondAttribute="trailing" constant="25" id="1QZ-CV-UE5"/>
                                             <constraint firstItem="uY6-9h-3af" firstAttribute="top" secondItem="Khy-yL-Gcu" secondAttribute="bottom" constant="50" id="1bl-MD-Hr8"/>
                                             <constraint firstAttribute="height" constant="1000" id="7zE-yI-HzX"/>
-                                            <constraint firstItem="Khy-yL-Gcu" firstAttribute="leading" secondItem="VGA-iJ-4SX" secondAttribute="leading" id="Hdd-Aa-2Sl"/>
                                             <constraint firstAttribute="trailing" secondItem="uY6-9h-3af" secondAttribute="trailing" id="MrH-Pe-ySi"/>
                                             <constraint firstItem="uY6-9h-3af" firstAttribute="leading" secondItem="VGA-iJ-4SX" secondAttribute="leading" constant="16" id="QiT-Qr-ZAj"/>
                                             <constraint firstItem="gQm-2F-PA5" firstAttribute="leading" secondItem="VGA-iJ-4SX" secondAttribute="leading" id="Ubs-Rm-AP2"/>
                                             <constraint firstItem="gQm-2F-PA5" firstAttribute="top" secondItem="uY6-9h-3af" secondAttribute="bottom" constant="15" id="Uxd-hN-Uha"/>
-                                            <constraint firstAttribute="trailing" secondItem="Khy-yL-Gcu" secondAttribute="trailing" id="Xd4-Hq-oCz"/>
                                             <constraint firstItem="Khy-yL-Gcu" firstAttribute="top" secondItem="VGA-iJ-4SX" secondAttribute="top" id="lqf-01-9J5"/>
                                             <constraint firstAttribute="trailing" secondItem="gQm-2F-PA5" secondAttribute="trailing" id="pLU-gr-3n2"/>
                                         </constraints>
