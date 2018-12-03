@@ -40,7 +40,7 @@ extension CocktailsListVC: UITableViewDelegate, UITableViewDataSource {
         cell.name.text = cocktails[indexPath.row].name
         cell.baseDescription.text = cocktails[indexPath.row].description
         cell.icon.image = cocktails[indexPath.row].image
-        cell.contentView.backgroundColor = UIColor(white: 0.95, alpha: 1)
+        cell.contentView.backgroundColor = UIColor(white: 1, alpha: 1)
 
         return cell
     }
