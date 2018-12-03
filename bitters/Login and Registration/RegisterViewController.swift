@@ -27,7 +27,10 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
         passwordTextField.delegate = self
         confirmationTextField.delegate = self
         
-        registerButton.layer.cornerRadius = 16
+        passwordTextField.isSecureTextEntry = true
+        confirmationTextField.isSecureTextEntry = true
+
+        registerButton.layer.cornerRadius = 20
         registerButton.clipsToBounds = true
     }
     

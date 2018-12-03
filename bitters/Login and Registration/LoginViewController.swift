@@ -13,6 +13,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var registerButton: UIButton!
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
@@ -23,12 +24,18 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         emailTextField.delegate = self
         passwordTextField.delegate = self
+        passwordTextField.isSecureTextEntry = true
         
         self.emailTextField.text = "123@bitters.com"
         self.passwordTextField.text = "123bitters"
 
-        loginButton.layer.cornerRadius = 16
+        loginButton.layer.cornerRadius = 20
         loginButton.clipsToBounds = true
+        
+        registerButton.layer.cornerRadius = 20
+        registerButton.clipsToBounds = true
+        registerButton.layer.borderWidth = 2
+        registerButton.layer.borderColor = UIColor(red: 255/255, green: 126/255, blue: 121/255, alpha: 1).cgColor
     }
     
     @IBAction func loginButton(_ sender: Any) {
