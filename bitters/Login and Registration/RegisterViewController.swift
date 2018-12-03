@@ -16,7 +16,15 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var confirmationTextField: UITextField!
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
+        if textField == usernameTextField {
+            emailTextField.becomeFirstResponder()
+        } else if textField == emailTextField {
+            passwordTextField.becomeFirstResponder()
+        } else if textField == passwordTextField {
+            confirmationTextField.becomeFirstResponder()
+        } else {
+            confirmationTextField.resignFirstResponder()
+        }
         return true
     }
     
@@ -26,39 +34,42 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
         emailTextField.delegate = self
         passwordTextField.delegate = self
         confirmationTextField.delegate = self
-        
-        passwordTextField.isSecureTextEntry = true
-        confirmationTextField.isSecureTextEntry = true
-
-        registerButton.layer.cornerRadius = 20
-        registerButton.clipsToBounds = true
+        setUpUserInterface()
     }
     
     @IBAction func completeRegistration(_ sender: Any) {
+        registerButton.isUserInteractionEnabled = false
+        
         if (usernameTextField.hasText && emailTextField.hasText && passwordTextField.hasText && confirmationTextField.hasText) {
+            
             let email = emailTextField.text!
             let password = passwordTextField.text!
             let confirmation = confirmationTextField.text!
             
             if (password == confirmation && password.count >= 6) {
                 Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
+                    self.registerButton.isUserInteractionEnabled = true
                     if let error = error {
-                        print("Error attempting to register user: \(error.localizedDescription)")
+                        print("Error registering user: \(error.localizedDescription)")
+                        self.generateAlert(alertTitle: "Could Not Register", alertMessage: "There was an error attempting to register your account")
                     } else {
+                        print("Successful registration!")
                         self.performSegue(withIdentifier: "registerToMain", sender: self)
                     }
                 }
             } else {
-                generateAlert(alertTitle: "Password", alertMessage: "The password must be at least 6 characters long and match the password confirmation")
+                self.registerButton.isUserInteractionEnabled = true
+                generateAlert(alertTitle: "Password Mismatch", alertMessage: "Password must be at least 6 characters long and match the password confirmation")
             }
         } else {
-            generateAlert(alertTitle: "Missing Information", alertMessage: "Please ensure you enter all required information")
+            self.registerButton.isUserInteractionEnabled = true
+            generateAlert(alertTitle: "Missing Information", alertMessage: "Please enter all required fields")
         }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "registerToMain") {
-            let destinationViewController = segue.destination as! UITabBarController
+            _ = segue.destination as! UITabBarController
         }
     }
     
@@ -66,5 +77,12 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
         let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: {_ in alert.dismiss (animated: true, completion: nil )}))
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    func setUpUserInterface() {
+        passwordTextField.isSecureTextEntry = true
+        confirmationTextField.isSecureTextEntry = true
+        registerButton.layer.cornerRadius = 20
+        registerButton.clipsToBounds = true
     }
 }

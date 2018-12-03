@@ -26,6 +26,7 @@
 		F92BBE362199FD80005DF383 /* CocktailsListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92BBE352199FD80005DF383 /* CocktailsListCell.swift */; };
 		F93A7A5D2198A853005B771E /* CocktailDescriptionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F931200321976CC700583423 /* CocktailDescriptionVC.swift */; };
 		F988DF3D21929FC200532167 /* CocktailsListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F988DF3C21929FC200532167 /* CocktailsListVC.swift */; };
+		F99476F721B4C31400CD7425 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99476F621B4C31400CD7425 /* FavoritesViewController.swift */; };
 		F999DB3B2193590000BF2C7B /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F999DB3A2193590000BF2C7B /* CardView.swift */; };
 		F9DA47B02165BF3500718111 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9DA47AF2165BF3500718111 /* AppDelegate.swift */; };
 		F9DA47B72165BF3500718111 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9DA47B52165BF3500718111 /* Main.storyboard */; };
@@ -90,6 +91,7 @@
 		F92BBE352199FD80005DF383 /* CocktailsListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailsListCell.swift; sourceTree = "<group>"; };
 		F931200321976CC700583423 /* CocktailDescriptionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailDescriptionVC.swift; sourceTree = "<group>"; };
 		F988DF3C21929FC200532167 /* CocktailsListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailsListVC.swift; sourceTree = "<group>"; };
+		F99476F621B4C31400CD7425 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		F999DB3A2193590000BF2C7B /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		F9DA47AC2165BF3500718111 /* bitters.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bitters.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9DA47AF2165BF3500718111 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -274,6 +276,7 @@
 				F12B3C9021879EB800298636 /* Inventory */,
 				F9DA47B52165BF3500718111 /* Main.storyboard */,
 				F999DB3A2193590000BF2C7B /* CardView.swift */,
+				F99476F621B4C31400CD7425 /* FavoritesViewController.swift */,
 				F9DA47AF2165BF3500718111 /* AppDelegate.swift */,
 				F2790081218401A80063276C /* GoogleService-Info.plist */,
 				F9DA47B82165BF3600718111 /* Assets.xcassets */,
@@ -588,6 +591,7 @@
 			files = (
 				F111EB742197819500DEB88A /* LoginViewController.swift in Sources */,
 				F19D1E8F2188E842007B0C4D /* AddIngredientViewController.swift in Sources */,
+				F99476F721B4C31400CD7425 /* FavoritesViewController.swift in Sources */,
 				F19D1E9121894872007B0C4D /* Methods.swift in Sources */,
 				F12B3C9221879ED800298636 /* InventoryViewController.swift in Sources */,
 				F12B3C9621879F4000298636 /* InventoryCell.swift in Sources */,
