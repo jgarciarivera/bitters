@@ -18,8 +18,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cocktails All" translatesAutoresizingMaskIntoConstraints="NO" id="x6c-DC-6yd">
+                                <rect key="frame" x="0.0" y="64" width="375" height="187.5"/>
+                                <color key="tintColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="x6c-DC-6yd" secondAttribute="height" multiplier="2:1" id="C9N-gY-OfE"/>
+                                </constraints>
+                            </imageView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="7T1-2C-gga">
-                                <rect key="frame" x="10" y="74" width="355" height="41"/>
+                                <rect key="frame" x="10" y="261.5" width="355" height="41"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="V8c-f9-JdE"/>
                                 </constraints>
@@ -29,7 +36,7 @@
                                 </segments>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="97g-Ia-xR8" userLabel="tableView">
-                                <rect key="frame" x="0.0" y="119" width="375" height="499"/>
+                                <rect key="frame" x="0.0" y="306.5" width="375" height="311.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cocktailsListCell" rowHeight="120" id="spJ-r4-kJN" customClass="CocktailsListCell" customModule="bitters" customModuleProvider="target">
@@ -100,13 +107,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Fam-cr-3fX" firstAttribute="trailing" secondItem="x6c-DC-6yd" secondAttribute="trailing" id="3YG-O5-QDc"/>
                             <constraint firstItem="Fam-cr-3fX" firstAttribute="bottom" secondItem="97g-Ia-xR8" secondAttribute="bottom" id="6z9-BE-yck"/>
                             <constraint firstItem="Fam-cr-3fX" firstAttribute="trailing" secondItem="7T1-2C-gga" secondAttribute="trailing" constant="10" id="8ZG-K7-feS"/>
-                            <constraint firstItem="7T1-2C-gga" firstAttribute="top" secondItem="Fam-cr-3fX" secondAttribute="top" constant="10" id="Gs5-fY-Ajm"/>
+                            <constraint firstItem="x6c-DC-6yd" firstAttribute="leading" secondItem="Fam-cr-3fX" secondAttribute="leading" id="LV0-9I-ikH"/>
                             <constraint firstItem="Fam-cr-3fX" firstAttribute="trailing" secondItem="97g-Ia-xR8" secondAttribute="trailing" id="ax6-R4-Kf1"/>
-                            <constraint firstItem="97g-Ia-xR8" firstAttribute="top" secondItem="7T1-2C-gga" secondAttribute="bottom" constant="5" id="jHf-QQ-hM0"/>
+                            <constraint firstItem="97g-Ia-xR8" firstAttribute="top" secondItem="7T1-2C-gga" secondAttribute="bottom" constant="5" id="bgp-vi-gGE"/>
                             <constraint firstItem="7T1-2C-gga" firstAttribute="leading" secondItem="Fam-cr-3fX" secondAttribute="leading" constant="10" id="kEX-cM-LHX"/>
                             <constraint firstItem="97g-Ia-xR8" firstAttribute="leading" secondItem="Fam-cr-3fX" secondAttribute="leading" id="ofd-Ti-51S"/>
+                            <constraint firstItem="7T1-2C-gga" firstAttribute="top" secondItem="x6c-DC-6yd" secondAttribute="bottom" constant="10" id="t2M-9I-VcR"/>
+                            <constraint firstItem="x6c-DC-6yd" firstAttribute="top" secondItem="Fam-cr-3fX" secondAttribute="top" id="v1g-nB-PAJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Fam-cr-3fX"/>
                     </view>
@@ -958,6 +968,7 @@
     </scenes>
     <resources>
         <image name="Cocktail Logo 2" width="512" height="512"/>
+        <image name="Cocktails All" width="1480" height="732"/>
         <image name="Icon Confirm" width="51.200000762939453" height="51.200000762939453"/>
         <image name="Icon Email" width="51.200000762939453" height="51.200000762939453"/>
         <image name="Icon Log Out" width="409.60000610351562" height="409.60000610351562"/>
