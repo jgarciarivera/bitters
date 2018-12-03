@@ -10,16 +10,29 @@ class CocktailsListVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var cocktails = [Cocktail]()
-    var selectedCocktail = Cocktail()
     var dbDelegate = DatabaseConnection()
-    
+    var selectedSegment = 0
+    var allCocktails = [Cocktail]()
+    var availableCocktails = [Cocktail]()
+    var selectedCocktail = Cocktail()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .none
-        cocktails = dbDelegate.getUserCocktails()
+        
+        allCocktails = dbDelegate.getAllCocktails()
+        availableCocktails = dbDelegate.getAvailableCocktails()
+    }
+    
+    @IBAction func toggleSegment(_ sender: UISegmentedControl) {
+        if (sender.selectedSegmentIndex == 0) {
+            selectedSegment = 0
+        } else {
+            selectedSegment = 1
+        }
+        self.tableView.reloadData()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -43,29 +56,44 @@ class CocktailsListVC: UIViewController {
 extension CocktailsListVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cocktailsListCell") as? CocktailsListCell else {
-            return UITableViewCell()
-        }
+        let allCocktailsCell = tableView.dequeueReusableCell(withIdentifier: "cocktailsListCell") as! CocktailsListCell
+        let availableCocktailsCell = tableView.dequeueReusableCell(withIdentifier: "availableCocktailsListCell") as! CocktailsListCell
         
-        cell.name.text = cocktails[indexPath.row].name
-        cell.baseDescription.text = cocktails[indexPath.row].description
-        cell.icon.image = cocktails[indexPath.row].image
-        cell.contentView.backgroundColor = UIColor(white: 1, alpha: 1)
-
-        return cell
+        if (selectedSegment == 0) {
+            allCocktailsCell.name.text = allCocktails[indexPath.row].name
+            allCocktailsCell.baseDescription.text = allCocktails[indexPath.row].description
+            allCocktailsCell.icon.image = allCocktails[indexPath.row].image
+            allCocktailsCell.contentView.backgroundColor = UIColor(white: 1, alpha: 1)
+            return allCocktailsCell
+        } else {
+            availableCocktailsCell.name.text = availableCocktails[indexPath.row].name
+            availableCocktailsCell.baseDescription.text = availableCocktails[indexPath.row].description
+            availableCocktailsCell.icon.image = availableCocktails[indexPath.row].image
+            if (indexPath.row < 3) {
+                availableCocktailsCell.missingIngredientsIndicator.image = UIImage(named: "Icon Check")!
+            } else {
+                availableCocktailsCell.missingIngredientsIndicator.image = UIImage(named: "Icon One")!
+            }
+            availableCocktailsCell.contentView.backgroundColor = UIColor(white: 1, alpha: 1)
+            return availableCocktailsCell
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedCocktail = cocktails[indexPath.row]
+        if (selectedSegment == 0) {
+            selectedCocktail = allCocktails[indexPath.row]
+        } else {
+            selectedCocktail = availableCocktails[indexPath.row]
+        }
         performSegue(withIdentifier: "listToDescription", sender: self)
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cocktails.count
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 120
+        if (selectedSegment == 0) {
+            return allCocktails.count
+        } else {
+            return availableCocktails.count
+        }
     }
 }

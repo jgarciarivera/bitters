@@ -11,6 +11,7 @@ class CocktailsListCell: UITableViewCell {
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var baseDescription: UILabel!
     @IBOutlet weak var icon: UIImageView!
+    @IBOutlet weak var missingIngredientsIndicator: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -11,7 +11,7 @@ import UIKit
 
 protocol dbConnectionDelegate {
     func getUserIngredients() -> [Ingredient]
-    func getUserCocktails() -> [Cocktail]
+    func getAllCocktails() -> [Cocktail]
 }
 
 class DatabaseConnection: dbConnectionDelegate  {
@@ -19,7 +19,7 @@ class DatabaseConnection: dbConnectionDelegate  {
     //MARK: - Mock Cocktail Data Array
     
     
-    func getUserCocktails() -> [Cocktail] {
+    func getAllCocktails() -> [Cocktail] {
         var cocktailArray: [Cocktail] = []
         cocktailArray.append(Cocktail(name: "Dark n Stormy"))
         cocktailArray.append(Cocktail(name: "Negroni"))
@@ -62,5 +62,15 @@ class DatabaseConnection: dbConnectionDelegate  {
                         instructions: defaultInstructions,
                         ingredients: defaultIngredients,
                         image: UIImage(named: "defaultCocktailPhoto")!)
+    }
+    
+    func getAvailableCocktails() -> [Cocktail] {
+        var availableCocktails: [Cocktail] = []
+        availableCocktails.append(Cocktail(name: "Old Fashioned"))
+        availableCocktails.append(Cocktail(name: "Mexican Coffee"))
+        availableCocktails.append(Cocktail(name: "Negroni"))
+        availableCocktails.append(Cocktail(name: "Whiskey Sour"))
+        availableCocktails.append(Cocktail(name: "Manhattan"))
+        return availableCocktails
     }
 }

@@ -34,6 +34,17 @@ struct Cocktail {
     let ingredients: [Ingredient]
     let image: UIImage
     
+    // Default constructor with nearly empty values
+    init() {
+        self.name = ""
+        self.about = ""
+        self.image = UIImage(named: "defaultCocktailPhoto")!
+        self.description = ""
+        self.instructions = []
+        self.ingredients = []
+    }
+    
+    // Constructor with default values
     init(name: String,
          about: String = defaultLongText,
          description: String = defaultMediumText,
@@ -46,15 +57,6 @@ struct Cocktail {
         self.description = description
         self.instructions = instructions
         self.ingredients = ingredients
-    }
-    
-    init() {
-        self.name = ""
-        self.about = ""
-        self.image = UIImage(named: "defaultCocktailPhoto")!
-        self.description = ""
-        self.instructions = []
-        self.ingredients = []
     }
 }
 
