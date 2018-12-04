@@ -8,10 +8,7 @@ import UIKit
 
 class CocktailDescriptionVC: UIViewController {
     
-    @IBOutlet weak var photo: UIImageView!
-    @IBOutlet weak var fullDescription: UILabel!
-    @IBOutlet weak var recipe: UILabel!
-    @IBOutlet weak var ingredients: UILabel!
+    @IBOutlet weak var tableView: UITableView!
     
     var name: String = ""
     var cocktail = Cocktail()
@@ -20,30 +17,68 @@ class CocktailDescriptionVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = name
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.separatorStyle = .none
         cocktail = databaseService.getDetailedCocktailInfo(name: name)
-        setCocktailInformation(cocktail: cocktail)
-    }
-    
-    func setCocktailInformation(cocktail: Cocktail) {
-        photo.image = cocktail.image
-        fullDescription.text = cocktail.description
-        
-        for (index, instruction) in cocktail.instructions.enumerated() {
-            if !(recipe.text!.isEmpty) && (index == cocktail.instructions.startIndex) {
-                recipe.text! = "\(index + 1). \(instruction)"
-            } else {
-                recipe.text! += "\n\(index + 1). \(instruction)"
-            }
-        }
-        
-        for (index, ingredient) in cocktail.ingredients.enumerated() {
-            if !(ingredients.text!.isEmpty) && (index == cocktail.ingredients.startIndex) {
-                ingredients.text! = "\(index + 1). \(ingredient.category.rawValue)"
-            } else {
-                ingredients.text! += "\n\(index + 1). \(ingredient.category.rawValue)"
-            }
-        }
     }
 }
+
+extension CocktailDescriptionVC: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        if (indexPath.row == 0) {
+            let photoCell = tableView.dequeueReusableCell(withIdentifier: "photoCell") as! CocktailPhotoCell
+            
+            photoCell.photo.image = cocktail.image
+            
+            photoCell.isUserInteractionEnabled = false
+            return photoCell
+        } else if (indexPath.row == 1) {
+            let descriptionCell = tableView.dequeueReusableCell(withIdentifier: "informationCell") as! CocktailInformationCell
+            
+            descriptionCell.title.text = "Description"
+            descriptionCell.body.text = cocktail.description
+
+            descriptionCell.isUserInteractionEnabled = false
+            return descriptionCell
+        } else if (indexPath.row == 2) {
+            let recipeCell = tableView.dequeueReusableCell(withIdentifier: "informationCell") as! CocktailInformationCell
+            
+            recipeCell.title.text = "Recipe"
+            for (index, instruction) in cocktail.instructions.enumerated() {
+                if !(recipeCell.body.text!.isEmpty) && (index == cocktail.instructions.startIndex) {
+                    recipeCell.body.text! = "\(index + 1). \(instruction)"
+                } else {
+                    recipeCell.body.text! += "\n\(index + 1). \(instruction)"
+                }
+            }
+            
+            recipeCell.isUserInteractionEnabled = false
+            return recipeCell
+        } else {
+            let ingredientsCell = tableView.dequeueReusableCell(withIdentifier: "informationCell") as! CocktailInformationCell
+            
+            ingredientsCell.title.text = "Ingredients"
+            for (index, ingredient) in cocktail.ingredients.enumerated() {
+                if !(ingredientsCell.body.text!.isEmpty) && (index == cocktail.ingredients.startIndex) {
+                    ingredientsCell.body.text! = "\(index + 1). \(ingredient.category.rawValue)"
+                } else {
+                    ingredientsCell.body.text! += "\n\(index + 1). \(ingredient.category.rawValue)"
+                }
+            }
+
+            ingredientsCell.isUserInteractionEnabled = false
+            return ingredientsCell
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 4
+    }
+}
+
+
 
 
