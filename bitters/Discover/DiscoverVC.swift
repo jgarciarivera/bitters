@@ -43,25 +43,13 @@ class DiscoverVC: UIViewController, UICollectionViewDelegate, UICollectionViewDa
         featuredImage.layer.cornerRadius = 20.0
         featuredImage.image = imageArrayss[0]
         featuredImage.contentMode = .scaleAspectFill
-        featuredImage.layer.masksToBounds = true
+        // set the bottom part if the not set in xcode
         
-         //featuredImage.layer.shadowPath = UIBezierPath(roundedRect: featuredImage.bounds, cornerRadius: featuredImage.layer.cornerRadius).cgPath
+        //featuredImage.layer.masksToBounds = true
         
-        
-//        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-//
-//        //layout.sectionInset = UIEdgeInsets(top: 20, left: 2, bottom: 10, right: 2)
-//        layout.minimumInteritemSpacing = 20
-        //layout.minimumLineSpacing = 0
-       // CollectionViewRecent!.collectionViewLayout.layou
+         featuredImage.layer.shadowPath = UIBezierPath(roundedRect: featuredImage.bounds, cornerRadius: featuredImage.layer.cornerRadius).cgPath
         
         
-//        CollectionViewRecent.layer.cornerRadius = 20.0
-//        CollectionViewRecent.layer.shadowColor = UIColor.gray.cgColor
-//        CollectionViewRecent.layer.shadowOffset = CGSize.zero
-//        CollectionViewRecent.layer.shadowRadius = 12.0
-//        CollectionViewRecent.layer.shadowOpacity = 0.7
-        // Do any additional setup after loading the view.
     }
     
     override func didReceiveMemoryWarning() {

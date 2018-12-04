@@ -28,5 +28,15 @@ class imageCollectionViewCell: UICollectionViewCell {
         }
     }
     
+//    func populateImage(url: URL) {
+//        recentImage.sd_setImage(with: url)
+//    }
+//
+//    func populate(cocktail: Cocktail) {
+//        nameLabel.text = cocktail.name
+//        self.populate(url: cocktail.name)
+//
+//    }
+    
     
 }
