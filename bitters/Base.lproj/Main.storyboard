@@ -359,7 +359,7 @@
                                 <rect key="frame" x="0.0" y="64" width="414" height="936"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VGA-iJ-4SX" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1050"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="900"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="fQF-KE-71B" userLabel="Categories Stack View">
                                                 <rect key="frame" x="16" y="25" width="382" height="45"/>
@@ -545,13 +545,13 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="1050" id="6Nt-M7-56N"/>
                                             <constraint firstItem="NWU-gj-fGe" firstAttribute="top" secondItem="fQF-KE-71B" secondAttribute="bottom" constant="15" id="8zQ-Bp-fJu"/>
                                             <constraint firstItem="gQm-2F-PA5" firstAttribute="top" secondItem="uY6-9h-3af" secondAttribute="bottom" constant="15" id="9Co-e3-hwH"/>
                                             <constraint firstItem="Z8K-OA-Okv" firstAttribute="leading" secondItem="VGA-iJ-4SX" secondAttribute="leading" id="Fn5-CS-Ydt"/>
                                             <constraint firstAttribute="trailing" secondItem="NWU-gj-fGe" secondAttribute="trailing" constant="16" id="MWO-oJ-IKY"/>
                                             <constraint firstAttribute="trailing" secondItem="uY6-9h-3af" secondAttribute="trailing" constant="16" id="O7A-2C-yDN"/>
                                             <constraint firstItem="uY6-9h-3af" firstAttribute="top" secondItem="NWU-gj-fGe" secondAttribute="bottom" constant="15" id="Oiu-ix-yzw"/>
+                                            <constraint firstAttribute="height" constant="900" id="XE9-AI-o14"/>
                                             <constraint firstItem="Z8K-OA-Okv" firstAttribute="top" secondItem="99N-WB-UAG" secondAttribute="bottom" constant="15" id="XIg-iF-YaC"/>
                                             <constraint firstItem="NWU-gj-fGe" firstAttribute="leading" secondItem="VGA-iJ-4SX" secondAttribute="leading" constant="16" id="bIB-eG-C3o"/>
                                             <constraint firstItem="fQF-KE-71B" firstAttribute="leading" secondItem="VGA-iJ-4SX" secondAttribute="leading" constant="16" id="bZv-zR-85f"/>
