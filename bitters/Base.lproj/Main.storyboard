@@ -689,9 +689,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="akq-hZ-zYw">
-                                <rect key="frame" x="35" y="40" width="305" height="360"/>
+                                <rect key="frame" x="35" y="40" width="305" height="350"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cocktail Logo 2" translatesAutoresizingMaskIntoConstraints="NO" id="YvO-rg-9UT">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Bitters Logo" translatesAutoresizingMaskIntoConstraints="NO" id="YvO-rg-9UT">
                                         <rect key="frame" x="0.0" y="0.0" width="305" height="190"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="190" id="qZ9-Rx-zxQ"/>
@@ -702,50 +702,50 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="rJM-Qu-NtO"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="50"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="50"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Vlp-ae-gnF">
-                                        <rect key="frame" x="0.0" y="270" width="305" height="40"/>
+                                        <rect key="frame" x="0.0" y="270" width="305" height="35"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon Email" translatesAutoresizingMaskIntoConstraints="NO" id="Ink-7b-2X5">
-                                                <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
                                                 <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="40" id="K2w-Gh-n1P"/>
-                                                    <constraint firstAttribute="width" constant="40" id="Y0J-Ld-6wo"/>
+                                                    <constraint firstAttribute="height" constant="35" id="K2w-Gh-n1P"/>
+                                                    <constraint firstAttribute="width" constant="35" id="Y0J-Ld-6wo"/>
                                                 </constraints>
                                             </imageView>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mCT-uS-pIQ">
-                                                <rect key="frame" x="50" y="0.0" width="255" height="40"/>
+                                                <rect key="frame" x="45" y="0.0" width="260" height="35"/>
                                                 <accessibility key="accessibilityConfiguration" identifier="usernameTextField"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="40" id="SmT-FR-xq5"/>
+                                                    <constraint firstAttribute="height" constant="35" id="SmT-FR-xq5"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="next" textContentType="email"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="272-rt-G4M">
-                                        <rect key="frame" x="0.0" y="320" width="305" height="40"/>
+                                        <rect key="frame" x="0.0" y="315" width="305" height="35"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon Password" translatesAutoresizingMaskIntoConstraints="NO" id="UwU-2J-GXL">
-                                                <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
                                                 <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="40" id="THl-Cv-jKm"/>
-                                                    <constraint firstAttribute="height" constant="40" id="gK5-b5-qmy"/>
+                                                    <constraint firstAttribute="width" constant="35" id="THl-Cv-jKm"/>
+                                                    <constraint firstAttribute="height" constant="35" id="gK5-b5-qmy"/>
                                                 </constraints>
                                             </imageView>
                                             <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="ts2-fs-zwP">
-                                                <rect key="frame" x="50" y="0.0" width="255" height="40"/>
+                                                <rect key="frame" x="45" y="0.0" width="260" height="35"/>
                                                 <accessibility key="accessibilityConfiguration" identifier="passwordTextField"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="40" id="EUz-Hz-aR4"/>
+                                                    <constraint firstAttribute="height" constant="35" id="EUz-Hz-aR4"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="done" textContentType="password"/>
                                             </textField>
                                         </subviews>
@@ -760,16 +760,16 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="xFK-AI-Yon">
-                                <rect key="frame" x="60" y="497" width="255" height="90"/>
+                                <rect key="frame" x="65" y="507" width="245" height="80"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WjH-eb-dBO">
-                                        <rect key="frame" x="0.0" y="0.0" width="255" height="40"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="245" height="35"/>
                                         <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <accessibility key="accessibilityConfiguration" identifier="signInButton"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="m4q-Nb-1jm"/>
+                                            <constraint firstAttribute="height" constant="35" id="m4q-Nb-1jm"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="17"/>
                                         <color key="tintColor" red="0.97909511315930176" green="0.96787430065362279" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="LOG IN"/>
                                         <connections>
@@ -777,11 +777,11 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FXI-3C-9bO">
-                                        <rect key="frame" x="0.0" y="50" width="255" height="40"/>
+                                        <rect key="frame" x="0.0" y="45" width="245" height="35"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="EzD-De-Jf1"/>
+                                            <constraint firstAttribute="height" constant="35" id="EzD-De-Jf1"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="17"/>
                                         <state key="normal" title="REGISTER">
                                             <color key="titleColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
@@ -797,9 +797,9 @@
                             <constraint firstItem="b6R-Sk-5hT" firstAttribute="bottom" secondItem="xFK-AI-Yon" secondAttribute="bottom" constant="80" id="0MI-D3-ECG"/>
                             <constraint firstItem="b6R-Sk-5hT" firstAttribute="trailing" secondItem="akq-hZ-zYw" secondAttribute="trailing" constant="35" id="T1J-he-8zE"/>
                             <constraint firstItem="akq-hZ-zYw" firstAttribute="leading" secondItem="b6R-Sk-5hT" secondAttribute="leading" constant="35" id="Uxk-z0-H2a"/>
-                            <constraint firstItem="xFK-AI-Yon" firstAttribute="leading" secondItem="b6R-Sk-5hT" secondAttribute="leading" constant="60" id="aEz-lq-RIs"/>
+                            <constraint firstItem="xFK-AI-Yon" firstAttribute="leading" secondItem="b6R-Sk-5hT" secondAttribute="leading" constant="65" id="aEz-lq-RIs"/>
                             <constraint firstItem="akq-hZ-zYw" firstAttribute="top" secondItem="b6R-Sk-5hT" secondAttribute="top" constant="20" id="b07-R0-SZN"/>
-                            <constraint firstItem="b6R-Sk-5hT" firstAttribute="trailing" secondItem="xFK-AI-Yon" secondAttribute="trailing" constant="60" id="gPl-Xy-KLj"/>
+                            <constraint firstItem="b6R-Sk-5hT" firstAttribute="trailing" secondItem="xFK-AI-Yon" secondAttribute="trailing" constant="65" id="gPl-Xy-KLj"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="b6R-Sk-5hT"/>
                     </view>
@@ -825,96 +825,96 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ls7-Z6-wNg">
-                                <rect key="frame" x="35" y="40" width="305" height="390"/>
+                                <rect key="frame" x="35" y="40" width="305" height="370"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cocktail Logo 2" translatesAutoresizingMaskIntoConstraints="NO" id="8ZG-sH-RAq">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Bitters Logo" translatesAutoresizingMaskIntoConstraints="NO" id="8ZG-sH-RAq">
                                         <rect key="frame" x="0.0" y="0.0" width="305" height="190"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="190" id="BdD-jh-raU"/>
                                         </constraints>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="qDS-XS-yLw">
-                                        <rect key="frame" x="0.0" y="200" width="305" height="40"/>
+                                        <rect key="frame" x="0.0" y="200" width="305" height="35"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon User" translatesAutoresizingMaskIntoConstraints="NO" id="C3t-8j-jSC">
-                                                <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon Username" translatesAutoresizingMaskIntoConstraints="NO" id="C3t-8j-jSC">
+                                                <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
                                                 <color key="tintColor" red="0.66422420739999999" green="0.66424006219999998" blue="0.66423153879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="40" id="8hO-uq-exd"/>
-                                                    <constraint firstAttribute="height" constant="40" id="bf9-Fg-IXZ"/>
+                                                    <constraint firstAttribute="width" constant="35" id="8hO-uq-exd"/>
+                                                    <constraint firstAttribute="height" constant="35" id="bf9-Fg-IXZ"/>
                                                 </constraints>
                                             </imageView>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZdT-4u-B9e">
-                                                <rect key="frame" x="50" y="0.0" width="255" height="40"/>
+                                                <rect key="frame" x="45" y="0.0" width="260" height="35"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="40" id="qKZ-Nt-a8m"/>
+                                                    <constraint firstAttribute="height" constant="35" id="qKZ-Nt-a8m"/>
                                                 </constraints>
                                                 <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="next" textContentType="username"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="gV0-4K-2G3">
-                                        <rect key="frame" x="0.0" y="250" width="305" height="40"/>
+                                        <rect key="frame" x="0.0" y="245" width="305" height="35"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon Email" translatesAutoresizingMaskIntoConstraints="NO" id="uyi-hh-qed">
-                                                <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
                                                 <color key="tintColor" red="0.66422420739999999" green="0.66424006219999998" blue="0.66423153879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="40" id="0gG-PA-vYz"/>
-                                                    <constraint firstAttribute="height" constant="40" id="Lmg-Dc-sxq"/>
+                                                    <constraint firstAttribute="width" constant="35" id="0gG-PA-vYz"/>
+                                                    <constraint firstAttribute="height" constant="35" id="Lmg-Dc-sxq"/>
                                                 </constraints>
                                             </imageView>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Llj-0A-cYj">
-                                                <rect key="frame" x="50" y="0.0" width="255" height="40"/>
+                                                <rect key="frame" x="45" y="0.0" width="260" height="35"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="40" id="jLZ-z0-Fro"/>
+                                                    <constraint firstAttribute="height" constant="35" id="jLZ-z0-Fro"/>
                                                 </constraints>
                                                 <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="next" textContentType="email"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Kvs-lV-f7B">
-                                        <rect key="frame" x="0.0" y="300" width="305" height="40"/>
+                                        <rect key="frame" x="0.0" y="290" width="305" height="35"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon Password" translatesAutoresizingMaskIntoConstraints="NO" id="XNO-Nf-2Eb">
-                                                <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="40" id="8EW-9A-lF1"/>
-                                                    <constraint firstAttribute="width" constant="40" id="qkX-JH-ETv"/>
+                                                    <constraint firstAttribute="height" constant="35" id="8EW-9A-lF1"/>
+                                                    <constraint firstAttribute="width" constant="35" id="qkX-JH-ETv"/>
                                                 </constraints>
                                             </imageView>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2AW-V7-55g">
-                                                <rect key="frame" x="50" y="0.0" width="255" height="40"/>
+                                                <rect key="frame" x="45" y="0.0" width="260" height="35"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="40" id="hAu-P4-6KM"/>
+                                                    <constraint firstAttribute="height" constant="35" id="hAu-P4-6KM"/>
                                                 </constraints>
                                                 <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="next" textContentType="password"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="wk1-QX-IlV">
-                                        <rect key="frame" x="0.0" y="350" width="305" height="40"/>
+                                        <rect key="frame" x="0.0" y="335" width="305" height="35"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon Confirm" translatesAutoresizingMaskIntoConstraints="NO" id="WfO-5z-bNK">
-                                                <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="40" id="Adj-OY-EGj"/>
-                                                    <constraint firstAttribute="width" constant="40" id="a2s-xn-C63"/>
+                                                    <constraint firstAttribute="height" constant="35" id="Adj-OY-EGj"/>
+                                                    <constraint firstAttribute="width" constant="35" id="a2s-xn-C63"/>
                                                 </constraints>
                                             </imageView>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SwE-4E-7lh">
-                                                <rect key="frame" x="50" y="0.0" width="255" height="40"/>
+                                                <rect key="frame" x="45" y="0.0" width="260" height="35"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="40" id="NVB-V8-TfD"/>
+                                                    <constraint firstAttribute="height" constant="35" id="NVB-V8-TfD"/>
                                                 </constraints>
                                                 <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="done" textContentType="password"/>
                                             </textField>
                                         </subviews>
@@ -929,15 +929,15 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="87" translatesAutoresizingMaskIntoConstraints="NO" id="bRV-7o-slK">
-                                <rect key="frame" x="60" y="487" width="255" height="160"/>
+                                <rect key="frame" x="60" y="492" width="255" height="155"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6iH-Bs-eN0">
-                                        <rect key="frame" x="0.0" y="0.0" width="255" height="40"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="255" height="35"/>
                                         <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="tVf-SH-zEJ"/>
+                                            <constraint firstAttribute="height" constant="35" id="tVf-SH-zEJ"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="17"/>
                                         <state key="normal" title="REGISTER">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
@@ -946,8 +946,8 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cEL-oA-eyX">
-                                        <rect key="frame" x="0.0" y="127" width="255" height="33"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <rect key="frame" x="0.0" y="122" width="255" height="33"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
                                         <state key="normal" title="I already have an account">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
@@ -1027,13 +1027,13 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Cocktail Logo 2" width="512" height="512"/>
+        <image name="Bitters Logo" width="630" height="1024"/>
         <image name="Cocktails All" width="1480" height="732"/>
-        <image name="Icon Confirm" width="51.200000762939453" height="51.200000762939453"/>
-        <image name="Icon Email" width="51.200000762939453" height="51.200000762939453"/>
+        <image name="Icon Confirm" width="204.80000305175781" height="204.80000305175781"/>
+        <image name="Icon Email" width="204.80000305175781" height="204.80000305175781"/>
         <image name="Icon Log Out" width="409.60000610351562" height="409.60000610351562"/>
-        <image name="Icon Password" width="51.200000762939453" height="51.200000762939453"/>
-        <image name="Icon User" width="51.200000762939453" height="51.200000762939453"/>
+        <image name="Icon Password" width="204.80000305175781" height="204.80000305175781"/>
+        <image name="Icon Username" width="204.80000305175781" height="204.80000305175781"/>
         <image name="TabCocktailsIcon" width="40" height="40"/>
         <image name="TabDiscoverIcon" width="40" height="40"/>
         <image name="TabFavoritesIcon" width="40" height="40"/>
@@ -1042,7 +1042,7 @@
         <image name="defaultCocktailPhoto" width="960" height="540"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="EAJ-cr-3rE"/>
+        <segue reference="kCy-69-SRg"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
