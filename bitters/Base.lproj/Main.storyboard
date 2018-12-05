@@ -18,13 +18,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cocktails All" translatesAutoresizingMaskIntoConstraints="NO" id="x6c-DC-6yd">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gFY-QA-cSq" userLabel="Cocktails Image Container">
                                 <rect key="frame" x="0.0" y="64" width="375" height="187.5"/>
-                                <color key="tintColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" alpha="0.25" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Cocktails All" translatesAutoresizingMaskIntoConstraints="NO" id="x6c-DC-6yd">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="188"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="COCKTAILS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jkz-dm-Z7n">
+                                        <rect key="frame" x="102.5" y="76" width="170" height="36"/>
+                                        <fontDescription key="fontDescription" name="GillSans-SemiBold" family="Gill Sans" pointSize="30"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="x6c-DC-6yd" secondAttribute="height" multiplier="2:1" id="C9N-gY-OfE"/>
+                                    <constraint firstItem="Jkz-dm-Z7n" firstAttribute="centerX" secondItem="gFY-QA-cSq" secondAttribute="centerX" id="5iB-l5-7Mi"/>
+                                    <constraint firstItem="Jkz-dm-Z7n" firstAttribute="centerY" secondItem="gFY-QA-cSq" secondAttribute="centerY" id="PXp-h3-xzR"/>
+                                    <constraint firstAttribute="width" secondItem="gFY-QA-cSq" secondAttribute="height" multiplier="2:1" id="gIj-O0-0tv"/>
                                 </constraints>
-                            </imageView>
+                            </view>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="7T1-2C-gga">
                                 <rect key="frame" x="10" y="261.5" width="355" height="41"/>
                                 <constraints>
@@ -193,16 +208,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Fam-cr-3fX" firstAttribute="trailing" secondItem="x6c-DC-6yd" secondAttribute="trailing" id="3YG-O5-QDc"/>
                             <constraint firstItem="Fam-cr-3fX" firstAttribute="bottom" secondItem="97g-Ia-xR8" secondAttribute="bottom" id="6z9-BE-yck"/>
                             <constraint firstItem="Fam-cr-3fX" firstAttribute="trailing" secondItem="7T1-2C-gga" secondAttribute="trailing" constant="10" id="8ZG-K7-feS"/>
-                            <constraint firstItem="x6c-DC-6yd" firstAttribute="leading" secondItem="Fam-cr-3fX" secondAttribute="leading" id="LV0-9I-ikH"/>
+                            <constraint firstItem="gFY-QA-cSq" firstAttribute="leading" secondItem="Fam-cr-3fX" secondAttribute="leading" id="P4y-mj-8Vh"/>
+                            <constraint firstItem="7T1-2C-gga" firstAttribute="top" secondItem="gFY-QA-cSq" secondAttribute="bottom" constant="10" id="R4x-Vf-alK"/>
                             <constraint firstItem="Fam-cr-3fX" firstAttribute="trailing" secondItem="97g-Ia-xR8" secondAttribute="trailing" id="ax6-R4-Kf1"/>
                             <constraint firstItem="97g-Ia-xR8" firstAttribute="top" secondItem="7T1-2C-gga" secondAttribute="bottom" constant="5" id="bgp-vi-gGE"/>
                             <constraint firstItem="7T1-2C-gga" firstAttribute="leading" secondItem="Fam-cr-3fX" secondAttribute="leading" constant="10" id="kEX-cM-LHX"/>
                             <constraint firstItem="97g-Ia-xR8" firstAttribute="leading" secondItem="Fam-cr-3fX" secondAttribute="leading" id="ofd-Ti-51S"/>
-                            <constraint firstItem="7T1-2C-gga" firstAttribute="top" secondItem="x6c-DC-6yd" secondAttribute="bottom" constant="10" id="t2M-9I-VcR"/>
-                            <constraint firstItem="x6c-DC-6yd" firstAttribute="top" secondItem="Fam-cr-3fX" secondAttribute="top" id="v1g-nB-PAJ"/>
+                            <constraint firstItem="gFY-QA-cSq" firstAttribute="top" secondItem="Fam-cr-3fX" secondAttribute="top" id="weo-ge-vhy"/>
+                            <constraint firstItem="Fam-cr-3fX" firstAttribute="trailing" secondItem="gFY-QA-cSq" secondAttribute="trailing" id="x4l-Yk-21v"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Fam-cr-3fX"/>
                     </view>
@@ -1270,7 +1285,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="kCy-69-SRg"/>
-        <segue reference="zb0-1f-aZa"/>
+        <segue reference="Mgf-iJ-wXL"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
