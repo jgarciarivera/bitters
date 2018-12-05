@@ -37,8 +37,8 @@ class CocktailsListVC: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "listToDescription") {
-            let destination = segue.destination as! CocktailDescriptionVC
-            destination.name = selectedCocktail.name
+            let destinationViewController = segue.destination as! CocktailDescriptionVC
+            destinationViewController.cocktail = selectedCocktail
         }
     }
     

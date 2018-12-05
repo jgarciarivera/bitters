@@ -841,6 +841,7 @@
                         <outlet property="CollectionViewRecent" destination="gQm-2F-PA5" id="EpO-Lk-O7j"/>
                         <outlet property="featuredImage" destination="Khy-yL-Gcu" id="7fp-v9-30U"/>
                         <outlet property="featuredView" destination="NWU-gj-fGe" id="BQm-LP-hmx"/>
+                        <segue destination="btG-KW-36a" kind="show" identifier="discoverToCocktail" id="zb0-1f-aZa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iCi-XR-3T8" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1269,6 +1270,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="kCy-69-SRg"/>
+        <segue reference="zb0-1f-aZa"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

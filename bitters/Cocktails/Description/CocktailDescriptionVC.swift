@@ -11,12 +11,12 @@ class CocktailDescriptionVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var name: String = ""
-    var cocktail = Cocktail()
+    var cocktail: Cocktail!
     var databaseService = DatabaseConnection()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = name
+        self.title = cocktail.name
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .none
