@@ -34,20 +34,19 @@ class DiscoverVC: UIViewController, UICollectionViewDelegate, UICollectionViewDa
         featuredView.layer.borderWidth = 1.0
         featuredView.layer.borderColor = UIColor.clear.cgColor
         featuredView.layer.masksToBounds = false
-        featuredView.layer.shadowColor = UIColor.gray.cgColor
-        featuredView.layer.shadowOffset = CGSize(width: 0, height: 0)
-        featuredView.layer.shadowRadius = 12.0
-        featuredView.layer.shadowOpacity = 1
+        featuredView.layer.shadowColor = UIColor.black.cgColor
+        featuredView.layer.shadowOffset = CGSize(width: 10, height: 10)
+        featuredView.layer.shadowRadius = 6.0
+        featuredView.layer.shadowOpacity = 0.75
         
 
         featuredImage.layer.cornerRadius = 20.0
         featuredImage.image = imageArrayss[0]
         featuredImage.contentMode = .scaleAspectFill
         // set the bottom part if the not set in xcode
+        featuredImage.layer.masksToBounds = true
         
-        //featuredImage.layer.masksToBounds = true
-        
-         featuredImage.layer.shadowPath = UIBezierPath(roundedRect: featuredImage.bounds, cornerRadius: featuredImage.layer.cornerRadius).cgPath
+         //featuredImage.layer.shadowPath = UIBezierPath(roundedRect: featuredImage.bounds, cornerRadius: featuredImage.layer.cornerRadius).cgPath
         
         
     }
@@ -84,10 +83,10 @@ class DiscoverVC: UIViewController, UICollectionViewDelegate, UICollectionViewDa
         cell.layer.borderWidth  = 1.0
         cell.layer.borderColor = UIColor.clear.cgColor
         cell.layer.cornerRadius = 15.0
-        cell.layer.shadowColor = UIColor.gray.cgColor
-        cell.layer.shadowOffset = CGSize(width: 0, height: 0)
+        cell.layer.shadowColor = UIColor.black.cgColor
+        cell.layer.shadowOffset = CGSize(width: 0, height: 5)
         cell.layer.shadowRadius = 6.0 // test
-        cell.layer.shadowOpacity = 1 // test
+        cell.layer.shadowOpacity = 0.75 // test
         cell.layer.masksToBounds = false
      
         cell.recentImage.layer.cornerRadius = 15.0
