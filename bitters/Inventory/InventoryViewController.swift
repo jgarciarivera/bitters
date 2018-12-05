@@ -21,17 +21,19 @@ class InventoryViewController: UIViewController {
     // MARK: - View Controller Objects
     @IBOutlet weak var inventoryTable: UITableView!
     @IBOutlet weak var inventorySearchBar: UISearchBar!
+    @IBOutlet weak var addIngredientButton: UIButton!
     
+    @IBAction func addIngredient(_ sender: Any) {
+        performSegue(withIdentifier: "addIngredientSegue", sender: self)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         currentUser()
         inventoryTable.separatorStyle = .none
+        stylizeAddIngredientButton()
         entireCells = dbdelegate.getUserIngredients()
         currentCells = currentCells.isEmpty ? entireCells : currentCells
-    }
-    
-    @IBAction func addButton(_ sender: Any) {
-        performSegue(withIdentifier: "addIngredientSegue", sender: self)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -92,6 +94,12 @@ extension InventoryViewController: UITableViewDataSource, UITableViewDelegate, U
         inventoryTable.reloadData()
     }
     
+    func stylizeAddIngredientButton() {
+        addIngredientButton.layer.cornerRadius = addIngredientButton.frame.height/2
+        addIngredientButton.layer.shadowOpacity = 0.3
+        addIngredientButton.layer.shadowRadius = 4
+        addIngredientButton.layer.shadowOffset = CGSize(width: 0, height: 8)
+    }
 }
 
 

@@ -468,14 +468,30 @@
                                     <outlet property="delegate" destination="9pv-A4-QxB" id="ySg-mw-eeF"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7kX-dA-I1S">
+                                <rect key="frame" x="299" y="542" width="56" height="56"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="BJM-2C-EVt"/>
+                                    <constraint firstAttribute="width" constant="56" id="ZEb-1A-dob"/>
+                                </constraints>
+                                <state key="normal" image="Icon Plus">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="addIngredient:" destination="9pv-A4-QxB" eventType="touchUpInside" id="1sg-HD-D9D"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="7kX-dA-I1S" secondAttribute="trailing" constant="20" id="2rV-kl-ffR"/>
                             <constraint firstItem="fex-CW-ufU" firstAttribute="width" secondItem="tsR-hK-woN" secondAttribute="width" id="5bB-1B-0VU"/>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="1xQ-Dp-Thn" secondAttribute="trailing" id="AYO-3q-gFq"/>
                             <constraint firstItem="fex-CW-ufU" firstAttribute="top" secondItem="1xQ-Dp-Thn" secondAttribute="bottom" id="FCp-Hb-Aru"/>
                             <constraint firstItem="tah-iJ-g5m" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" id="THZ-i7-Inx"/>
                             <constraint firstItem="1xQ-Dp-Thn" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" id="Wan-Qy-2EB"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="7kX-dA-I1S" secondAttribute="bottom" constant="20" id="YIM-f2-pej"/>
                             <constraint firstItem="tah-iJ-g5m" firstAttribute="top" secondItem="fex-CW-ufU" secondAttribute="bottom" constant="5" id="Zgp-MF-hoU"/>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="tah-iJ-g5m" secondAttribute="bottom" id="fRT-mm-dbz"/>
                             <constraint firstItem="fex-CW-ufU" firstAttribute="leading" secondItem="1xQ-Dp-Thn" secondAttribute="leading" id="ubL-nI-aMR"/>
@@ -484,18 +500,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Inventory" id="frX-0c-bdf">
-                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="sqr-K5-FPp"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ljh-6g-IZE">
-                            <connections>
-                                <action selector="addButton:" destination="9pv-A4-QxB" id="5GQ-A5-fNm"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Inventory" id="frX-0c-bdf"/>
                     <connections>
+                        <outlet property="addIngredientButton" destination="7kX-dA-I1S" id="kCw-BI-EeK"/>
                         <outlet property="inventorySearchBar" destination="fex-CW-ufU" id="q6Y-09-sz6"/>
                         <outlet property="inventoryTable" destination="tah-iJ-g5m" id="He2-2X-lnv"/>
-                        <segue destination="HW8-9o-bA7" kind="presentation" identifier="addIngredientSegue" id="5JL-bF-77O"/>
+                        <segue destination="HW8-9o-bA7" kind="presentation" identifier="addIngredientSegue" id="ftN-2y-NcM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
@@ -1308,6 +1318,7 @@
         <image name="Icon Email" width="204.80000305175781" height="204.80000305175781"/>
         <image name="Icon Log Out" width="409.60000610351562" height="409.60000610351562"/>
         <image name="Icon Password" width="204.80000305175781" height="204.80000305175781"/>
+        <image name="Icon Plus" width="204.80000305175781" height="204.80000305175781"/>
         <image name="Icon Username" width="204.80000305175781" height="204.80000305175781"/>
         <image name="Inventory Header" width="1500" height="750"/>
         <image name="TabCocktailsIcon" width="40" height="40"/>
@@ -1319,7 +1330,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="kCy-69-SRg"/>
-        <segue reference="zb0-1f-aZa"/>
+        <segue reference="Mgf-iJ-wXL"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
