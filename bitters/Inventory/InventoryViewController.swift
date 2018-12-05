@@ -22,10 +22,10 @@ class InventoryViewController: UIViewController {
     @IBOutlet weak var inventoryTable: UITableView!
     @IBOutlet weak var inventorySearchBar: UISearchBar!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         currentUser()
+        inventoryTable.separatorStyle = .none
         entireCells = dbdelegate.getUserIngredients()
         currentCells = currentCells.isEmpty ? entireCells : currentCells
     }
@@ -33,7 +33,16 @@ class InventoryViewController: UIViewController {
     @IBAction func addButton(_ sender: Any) {
         performSegue(withIdentifier: "addIngredientSegue", sender: self)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+    }
 
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+    }
 }
 
 extension InventoryViewController: UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
@@ -41,10 +50,6 @@ extension InventoryViewController: UITableViewDataSource, UITableViewDelegate, U
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return currentCells.count
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -69,16 +74,11 @@ extension InventoryViewController: UITableViewDataSource, UITableViewDelegate, U
         let ingredient = currentCells[indexPath.row]
         let action = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completion) in
             entireCells.remove(at: indexPath.row)
-            
-            
+
             completion(true)
         }
-        
         return action
     }
-    
-    
-    
     
     // MARK: - SearchBar Functionality
     
