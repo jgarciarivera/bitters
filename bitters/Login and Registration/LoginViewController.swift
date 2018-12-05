@@ -10,6 +10,8 @@ import FirebaseAuth
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
     
+    var dbdelegate = DatabaseConnection()
+    
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
@@ -21,6 +23,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        let newCocktails = dbdelegate.getCocktails()
+//        print("Cotails:\n\(newCocktails)")
+        
         emailTextField.delegate = self
         passwordTextField.delegate = self
         

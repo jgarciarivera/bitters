@@ -24,12 +24,12 @@ class AddIngredientViewController: UIViewController {
     }
     
     @IBAction func saveIngredient(_ sender: Any) {
-        if let newName = ingredientName.text as String?{
-            if let newCategory = chosenCategory as Ingredient.category? {
-                addNewIngredient(ingredientToBeAdded: Ingredient(name: newName, category: newCategory))
-                dismiss(animated: true, completion: nil)
-            }
-        }
+//        if let newName = ingredientName.text as String?{
+//            if let newCategory = chosenCategory as Ingredient.category? {
+//                addNewIngredient(ingredientToBeAdded: Ingredient(name: newName, category: newCategory))
+//                dismiss(animated: true, completion: nil)
+//            }
+//        }
     }
 }
 

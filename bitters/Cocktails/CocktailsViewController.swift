@@ -5,6 +5,7 @@
 //  Copyright © 2018 Jorge Garcia-Rivera. All rights reserved.
 
 import UIKit
+import SDWebImage
 
 class CocktailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var dbDelegate = DatabaseConnection()
@@ -32,7 +33,7 @@ class CocktailsViewController: UIViewController, UITableViewDelegate, UITableVie
 
         name.text = cocktails[indexPath.row].name
         description.text = cocktails[indexPath.row].description
-        picture.image = cocktails[indexPath.row].image
+        picture.sd_setImage(with: cocktails[indexPath.row].image) //cocktails[indexPath.row].image
         
         cell.contentView.backgroundColor = UIColor(white: 0.95, alpha: 1)
         return cell
@@ -52,4 +53,20 @@ class CocktailsViewController: UIViewController, UITableViewDelegate, UITableVie
     
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
      }
+    
+//    func populateImage(url: URL) {
+//        cell.viewWithTag(1).sd_setImage(with: url)
+//    }
+    
+//    func populate(ingredient: Ingredient) {
+//        ingredientName.text = ingredient.name
+//        ingredientCategory.text = ingredient.category.rawValue
+//
+//        let image = ingredient.image
+//        ingredientImage.sd_setImage(with: image)
+//    }
+    
+//    override func prepareForReuse() {
+//        ingredientImage.sd_cancelCurrentImageLoad()
+//    }
 }

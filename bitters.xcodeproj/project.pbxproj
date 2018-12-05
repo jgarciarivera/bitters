@@ -17,6 +17,9 @@
 		F12B3C9621879F4000298636 /* InventoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12B3C9521879F4000298636 /* InventoryCell.swift */; };
 		F19D1E8F2188E842007B0C4D /* AddIngredientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19D1E8E2188E842007B0C4D /* AddIngredientViewController.swift */; };
 		F19D1E9121894872007B0C4D /* Methods.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19D1E9021894872007B0C4D /* Methods.swift */; };
+		F1C50FBB21B650AA009FDECD /* LocalCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C50FBA21B650AA009FDECD /* LocalCollection.swift */; };
+		F1C50FBD21B6ACEA009FDECD /* Populate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C50FBC21B6ACEA009FDECD /* Populate.swift */; };
+		F1C50FBF21B6BC83009FDECD /* IngredientDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C50FBE21B6BC83009FDECD /* IngredientDetailsVC.swift */; };
 		F1E3A7B42197673F007DDE13 /* DatabaseConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E3A7B32197673F007DDE13 /* DatabaseConnection.swift */; };
 		F1E3A7B621976A24007DDE13 /* Structures.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E3A7B521976A24007DDE13 /* Structures.swift */; };
 		F1F2EF5C2187E95700462932 /* InventoryUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F2EF5B2187E95700462932 /* InventoryUITest.swift */; };
@@ -77,6 +80,9 @@
 		F12B3C9521879F4000298636 /* InventoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryCell.swift; sourceTree = "<group>"; };
 		F19D1E8E2188E842007B0C4D /* AddIngredientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIngredientViewController.swift; sourceTree = "<group>"; };
 		F19D1E9021894872007B0C4D /* Methods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Methods.swift; sourceTree = "<group>"; };
+		F1C50FBA21B650AA009FDECD /* LocalCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalCollection.swift; sourceTree = "<group>"; };
+		F1C50FBC21B6ACEA009FDECD /* Populate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Populate.swift; sourceTree = "<group>"; };
+		F1C50FBE21B6BC83009FDECD /* IngredientDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientDetailsVC.swift; sourceTree = "<group>"; };
 		F1E3A7B32197673F007DDE13 /* DatabaseConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseConnection.swift; sourceTree = "<group>"; };
 		F1E3A7B521976A24007DDE13 /* Structures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Structures.swift; sourceTree = "<group>"; };
 		F1F2EF5B2187E95700462932 /* InventoryUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryUITest.swift; sourceTree = "<group>"; };
@@ -177,6 +183,7 @@
 				F12B3C9121879ED800298636 /* InventoryViewController.swift */,
 				F12B3C9521879F4000298636 /* InventoryCell.swift */,
 				F19D1E8E2188E842007B0C4D /* AddIngredientViewController.swift */,
+				F1C50FBE21B6BC83009FDECD /* IngredientDetailsVC.swift */,
 				F19D1E9021894872007B0C4D /* Methods.swift */,
 			);
 			path = Inventory;
@@ -187,6 +194,8 @@
 			children = (
 				F1E3A7B32197673F007DDE13 /* DatabaseConnection.swift */,
 				F1E3A7B521976A24007DDE13 /* Structures.swift */,
+				F1C50FBA21B650AA009FDECD /* LocalCollection.swift */,
+				F1C50FBC21B6ACEA009FDECD /* Populate.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -459,6 +468,7 @@
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
@@ -475,6 +485,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
@@ -568,10 +579,13 @@
 				F19D1E8F2188E842007B0C4D /* AddIngredientViewController.swift in Sources */,
 				F19D1E9121894872007B0C4D /* Methods.swift in Sources */,
 				F12B3C9221879ED800298636 /* InventoryViewController.swift in Sources */,
+				F1C50FBF21B6BC83009FDECD /* IngredientDetailsVC.swift in Sources */,
 				F12B3C9621879F4000298636 /* InventoryCell.swift in Sources */,
 				F1E3A7B42197673F007DDE13 /* DatabaseConnection.swift in Sources */,
 				F1E3A7B621976A24007DDE13 /* Structures.swift in Sources */,
+				F1C50FBB21B650AA009FDECD /* LocalCollection.swift in Sources */,
 				F999DB3B2193590000BF2C7B /* CardView.swift in Sources */,
+				F1C50FBD21B6ACEA009FDECD /* Populate.swift in Sources */,
 				F111EB752197819500DEB88A /* RegisterViewController.swift in Sources */,
 				F9DA47B02165BF3500718111 /* AppDelegate.swift in Sources */,
 				F988DF3D21929FC200532167 /* CocktailsViewController.swift in Sources */,
