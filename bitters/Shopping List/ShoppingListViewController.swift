@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import Firebase
 
 struct ListCellData: Codable
 {
@@ -19,6 +20,15 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
 {
     
     @IBOutlet weak var addItemButton: UIButton!
+    
+    @IBAction func logOutButton(_ sender: UIBarButtonItem) {
+        try! Auth.auth().signOut()
+        if let storyboard = self.storyboard {
+            let destinationViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+            self.present(destinationViewController, animated: true, completion: nil)
+        }
+    }
+    
     
     @IBAction func addShoppingListItemButton(_ sender: UIButton) {
         let alert = UIAlertController(title: "Add Item", message: nil, preferredStyle: .alert)
@@ -181,14 +191,10 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
     }
     override func viewWillAppear(_ animated: Bool)
     {
-        super.viewWillAppear(true)
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
-        
         if let index = self.ShoppingListView.indexPathForSelectedRow
         {
             self.ShoppingListView.deselectRow(at: index, animated: true)
         }
-
     }
     
     override func viewDidLoad()
@@ -267,11 +273,6 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
      // Pass the selected object to the new view controller.
      }
      */
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(true)
-        self.navigationController?.setNavigationBarHidden(false, animated: false)
-    }
     
     func stylizeAddShoppingItemButton() {
         addItemButton.layer.cornerRadius = addItemButton.frame.height/2
