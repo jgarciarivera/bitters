@@ -34,11 +34,16 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
         let alert = UIAlertController(title: "Add Item", message: nil, preferredStyle: .alert)
         alert.addTextField { (shoppingListField) in shoppingListField.placeholder = "Enter Item" }
         let action = UIAlertAction(title: "Add", style: .default) { (_) in
-            guard let itemEntry = alert.textFields?.first?.text else { return }
+            guard let itemEntry = alert.textFields?.first?.text else {
+                return }
             self.addItem(ListCellData.init(itemName: itemEntry, itemSelected: false))
             self.saveListData()
         }
+        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: {_ in
+            alert.dismiss(animated: true, completion: nil)
+        }))
         alert.addAction(action)
+
         present(alert, animated: true)
         self.ShoppingListView.reloadData()
     }
