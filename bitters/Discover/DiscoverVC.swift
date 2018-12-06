@@ -22,8 +22,14 @@ class DiscoverVC: UIViewController, UICollectionViewDelegate, UICollectionViewDa
                         UIImage(named: "1"),
                         UIImage(named: "2"),
                         UIImage(named: "3"),
-                        UIImage(named: "4")]
-
+                        UIImage(named: "4"),
+                        UIImage(named: "5"),
+                        UIImage(named: "6"),
+                        UIImage(named: "7"),
+                        UIImage(named: "8"),
+                        UIImage(named: "9")]
+    //var imageLabel = ["", ]
+    var number = Int.random(in: 0 ... 9)
     override func viewDidLoad() {
         super.viewDidLoad()
         dbConnection = DatabaseConnection()
@@ -41,7 +47,7 @@ class DiscoverVC: UIViewController, UICollectionViewDelegate, UICollectionViewDa
         featuredView.layer.shadowRadius = 6.0
         featuredView.layer.shadowOpacity = 0.75
         featuredImage.layer.cornerRadius = 20.0
-        featuredImage.image = imageArrayss[0]
+        featuredImage.image = imageArrayss[4]
         featuredImage.contentMode = .scaleAspectFill
         featuredImage.layer.masksToBounds = true
     }
@@ -69,8 +75,8 @@ class DiscoverVC: UIViewController, UICollectionViewDelegate, UICollectionViewDa
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
     {
        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "recentImageCell", for: indexPath) as! imageCollectionViewCell
-        
-        cell.recentImage.image = imageArrayss[indexPath.row]
+        number = Int.random(in: 0 ... 9)
+        cell.recentImage.image = imageArrayss[number]
 //        cell.contentView.layer.cornerRadius = 15.0 //not working
         cell.layer.borderWidth  = 1.0
         cell.layer.borderColor = UIColor.clear.cgColor
