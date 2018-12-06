@@ -14,7 +14,12 @@ protocol dbConnectionDelegate {
     func getAllCocktails() -> [Cocktail]
 }
 
+protocol inventoryDb {
+    func updateData()
+}
+
 class DatabaseConnection: dbConnectionDelegate  {
+    
     
     //MARK: - Mock Cocktail Data Array
     

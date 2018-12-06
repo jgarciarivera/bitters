@@ -20,7 +20,11 @@ var globalUserIngredients: [Ingredient] = []
 var globalCocktails: [Cocktail] = []
 var currentCells: [Ingredient] = []
 
-class InventoryViewController: UIViewController, inventoryViewDelegate {
+class InventoryViewController: UIViewController, inventoryViewDelegate, inventoryDb {
+    func updateData() {
+        print("updateData() called")
+    }
+    
     var dbdelegate = DatabaseConnection()
     
     // Database
@@ -52,7 +56,18 @@ class InventoryViewController: UIViewController, inventoryViewDelegate {
     @IBAction func addIngredient(_ sender: Any) {
         performSegue(withIdentifier: "addIngredientSegue", sender: self)
     }
-
+    
+    init() {
+        db = Firestore.firestore()
+        user = Auth.auth()
+        query = baseQuery()
+        observeQuery()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 //        currentUser()

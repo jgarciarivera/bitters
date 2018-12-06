@@ -6,6 +6,8 @@
 
 import UIKit
 
+var cocktailCount: [(Cocktail, Int)]!
+
 class CocktailsListVC: UIViewController {
     
     @IBOutlet weak var scrollView: UIScrollView!
@@ -15,17 +17,18 @@ class CocktailsListVC: UIViewController {
     @IBOutlet weak var segmentHeight: NSLayoutConstraint!
     
     var dbDelegate = DatabaseConnection()
+    var daelegate = InventoryViewController()
     var selectedSegment = 0
     var allCocktails = globalCocktails
     var availableCocktails = globalCocktails
     var selectedCocktail: Cocktail?
-    var cocktailCount: [(Cocktail, Int)]!
     
     let screenHeight = UIScreen.main.bounds.height
     var scrollViewContentHeight = 1400 as CGFloat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        daelegate.updateData()
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .none
@@ -40,8 +43,8 @@ class CocktailsListVC: UIViewController {
         cocktailCount.forEach { (tuple) in
             let cocktail = tuple.0
             let count = tuple.1
-            print("Cocktail: \(cocktail.name) Missing: \(count)")
-            
+            print("\n-----------------------------------\n\n Actuall Data type: \n\(tuple)\n\n :end\n")
+            print("Cocktail: \(cocktail.name) Missing: \(count)\n")
         }
     }
     
@@ -49,7 +52,7 @@ class CocktailsListVC: UIViewController {
         let cocktails = globalCocktails
         let userIventory = globalUserIngredients
         
-        self.cocktailCount = cocktails.map { (cocktail) -> (Cocktail, Int) in
+        cocktailCount = cocktails.map { (cocktail) -> (Cocktail, Int) in
             let intersectionCount: Int = missingCount(userBar: userIventory, cocktail: cocktail)
             return (cocktail, intersectionCount)
         }
