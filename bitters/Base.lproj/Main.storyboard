@@ -734,7 +734,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NWU-gj-fGe" userLabel="featuredView">
                                                 <rect key="frame" x="16" y="85" width="382" height="350"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Khy-yL-Gcu">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="4" translatesAutoresizingMaskIntoConstraints="NO" id="Khy-yL-Gcu">
                                                         <rect key="frame" x="0.0" y="0.0" width="382" height="350"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </imageView>
@@ -1355,6 +1355,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="4" width="1920" height="1280"/>
         <image name="Bitters Logo" width="630" height="1024"/>
         <image name="Cocktails All" width="1480" height="732"/>
         <image name="Icon Confirm" width="256" height="256"/>
