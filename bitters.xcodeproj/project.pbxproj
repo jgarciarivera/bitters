@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		06A87BBA21B8C15300877E2A /* ShoppingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A87BB921B8C15300877E2A /* ShoppingListViewController.swift */; };
+		06A87BBC21B8C16900877E2A /* ShoppingListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06A87BBB21B8C16900877E2A /* ShoppingListCell.swift */; };
 		06E8806321B3446800CCCC3E /* imageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06E8806221B3446800CCCC3E /* imageCollectionViewCell.swift */; };
 		06EE5EB7219CAFCD0057DA4B /* DiscoverVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EE5EB6219CAFCD0057DA4B /* DiscoverVC.swift */; };
 		53B69B4A737C9B4800EB622F /* Pods_bittersUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43E050F3D14570F206139689 /* Pods_bittersUITests.framework */; };
@@ -66,6 +68,8 @@
 /* Begin PBXFileReference section */
 		01F19CCCC7761BEBDCFFF103 /* Pods-bittersTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bittersTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-bittersTests/Pods-bittersTests.release.xcconfig"; sourceTree = "<group>"; };
 		028D97D7756AF5F03EE4C37A /* Pods-bittersUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bittersUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-bittersUITests/Pods-bittersUITests.release.xcconfig"; sourceTree = "<group>"; };
+		06A87BB921B8C15300877E2A /* ShoppingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListViewController.swift; sourceTree = "<group>"; };
+		06A87BBB21B8C16900877E2A /* ShoppingListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListCell.swift; sourceTree = "<group>"; };
 		06E8806221B3446800CCCC3E /* imageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imageCollectionViewCell.swift; sourceTree = "<group>"; };
 		06EE5EB6219CAFCD0057DA4B /* DiscoverVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverVC.swift; sourceTree = "<group>"; };
 		1069C815FEBA7B9F4F8F272F /* Pods-bittersTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bittersTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-bittersTests/Pods-bittersTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -146,6 +150,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		06A87BB821B8C0F300877E2A /* Shopping List */ = {
+			isa = PBXGroup;
+			children = (
+				06A87BB921B8C15300877E2A /* ShoppingListViewController.swift */,
+				06A87BBB21B8C16900877E2A /* ShoppingListCell.swift */,
+			);
+			path = "Shopping List";
+			sourceTree = "<group>";
+		};
 		06EE5EB5219CAF930057DA4B /* Discover */ = {
 			isa = PBXGroup;
 			children = (
@@ -292,6 +305,7 @@
 		F9DA47AE2165BF3500718111 /* bitters */ = {
 			isa = PBXGroup;
 			children = (
+				06A87BB821B8C0F300877E2A /* Shopping List */,
 				06EE5EB5219CAF930057DA4B /* Discover */,
 				F1E3A7B221976700007DDE13 /* Model */,
 				F999DB3D2193681B00BF2C7B /* Login and Registration */,
@@ -614,6 +628,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06A87BBC21B8C16900877E2A /* ShoppingListCell.swift in Sources */,
 				F111EB742197819500DEB88A /* LoginViewController.swift in Sources */,
 				F1211E9421B8A18E0049C28F /* LocalCollection.swift in Sources */,
 				F19D1E8F2188E842007B0C4D /* AddIngredientViewController.swift in Sources */,
@@ -626,6 +641,7 @@
 				F93A7A5D2198A853005B771E /* CocktailDescriptionVC.swift in Sources */,
 				F9BEEA7321B5F65300038BB5 /* CocktailInformationCell.swift in Sources */,
 				F1E3A7B42197673F007DDE13 /* DatabaseConnection.swift in Sources */,
+				06A87BBA21B8C15300877E2A /* ShoppingListViewController.swift in Sources */,
 				F1E3A7B621976A24007DDE13 /* Structures.swift in Sources */,
 				F92BBE362199FD80005DF383 /* CocktailsListCell.swift in Sources */,
 				F999DB3B2193590000BF2C7B /* CardView.swift in Sources */,

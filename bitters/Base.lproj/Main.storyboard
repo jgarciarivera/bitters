@@ -251,7 +251,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultCocktailPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="4yj-yW-hKC">
-                                                    <rect key="frame" x="-352.5" y="0.0" width="1080" height="540.5"/>
+                                                    <rect key="frame" x="-532.5" y="0.0" width="1440" height="720.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="4yj-yW-hKC" secondAttribute="height" multiplier="2:1" id="mfv-rS-k75"/>
                                                     </constraints>
@@ -517,35 +517,6 @@
             </objects>
             <point key="canvasLocation" x="917.60000000000002" y="-1669.1154422788607"/>
         </scene>
-        <!--Root View Controller-->
-        <scene sceneID="goY-3b-34x">
-            <objects>
-                <tableViewController id="4n6-TO-fgh" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="cVH-6A-Opa">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="s72-BU-LHR">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="s72-BU-LHR" id="srP-qq-BaD">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="4n6-TO-fgh" id="GzW-Ql-fjd"/>
-                            <outlet property="delegate" destination="4n6-TO-fgh" id="Q4Y-Dy-wef"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="nHe-Yd-XKf"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zPa-eI-cI6" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="918" y="-320"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="okF-pD-8iF">
             <objects>
@@ -628,12 +599,65 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="4n6-TO-fgh" kind="relationship" relationship="rootViewController" id="nWw-ns-ccT"/>
+                        <segue destination="DdY-RJ-VqF" kind="relationship" relationship="rootViewController" id="SDT-pL-ArV"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bmw-zf-rsp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="153" y="-319"/>
+        </scene>
+        <!--Shopping List-->
+        <scene sceneID="MoI-5C-mIa">
+            <objects>
+                <viewController title="Shopping List" id="DdY-RJ-VqF" customClass="ShoppingListViewController" customModule="bitters" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aZW-vj-Tvv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OO8-bz-OGt">
+                                <rect key="frame" x="0.0" y="64" width="375" height="382"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="375" id="Z9O-iE-MoL"/>
+                                    <constraint firstAttribute="height" constant="382" id="te7-wX-VSp"/>
+                                </constraints>
+                            </tableView>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Sf7-19-mju">
+                                <rect key="frame" x="0.0" y="454" width="375" height="164"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="375" id="VHx-xE-IQn"/>
+                                    <constraint firstAttribute="height" constant="164" id="qSg-0g-VqA"/>
+                                </constraints>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Sf7-19-mju" firstAttribute="leading" secondItem="agq-ZS-jux" secondAttribute="leading" id="FGG-bt-8TQ"/>
+                            <constraint firstItem="OO8-bz-OGt" firstAttribute="top" secondItem="agq-ZS-jux" secondAttribute="top" id="Qy6-c7-fef"/>
+                            <constraint firstItem="OO8-bz-OGt" firstAttribute="trailing" secondItem="agq-ZS-jux" secondAttribute="trailing" id="Wu0-wc-Jyy"/>
+                            <constraint firstItem="Sf7-19-mju" firstAttribute="top" secondItem="agq-ZS-jux" secondAttribute="top" constant="390" id="ZB1-ay-xt1"/>
+                            <constraint firstItem="Sf7-19-mju" firstAttribute="bottom" secondItem="agq-ZS-jux" secondAttribute="bottom" id="fwF-zS-gc5"/>
+                            <constraint firstItem="agq-ZS-jux" firstAttribute="bottom" secondItem="OO8-bz-OGt" secondAttribute="bottom" constant="172" id="iYd-0E-kTH"/>
+                            <constraint firstItem="Sf7-19-mju" firstAttribute="trailing" secondItem="agq-ZS-jux" secondAttribute="trailing" id="pN2-RR-A3t"/>
+                            <constraint firstItem="OO8-bz-OGt" firstAttribute="leading" secondItem="agq-ZS-jux" secondAttribute="leading" id="x1h-Ja-7PA"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="agq-ZS-jux"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="EHv-9m-310">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="wJz-kq-MOj">
+                            <connections>
+                                <action selector="clickAdd:" destination="DdY-RJ-VqF" id="D8l-dL-Wtw"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="ShoppingListView" destination="OO8-bz-OGt" id="3QK-42-tR0"/>
+                        <outlet property="StoreMapView" destination="Sf7-19-mju" id="Axo-CB-SbD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FcX-be-fNH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="901.60000000000002" y="-320.68965517241384"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="FhT-Li-Dxw">
@@ -1319,19 +1343,19 @@
     <resources>
         <image name="Bitters Logo" width="630" height="1024"/>
         <image name="Cocktails All" width="1480" height="732"/>
-        <image name="Icon Confirm" width="204.80000305175781" height="204.80000305175781"/>
-        <image name="Icon Email" width="204.80000305175781" height="204.80000305175781"/>
-        <image name="Icon Log Out" width="409.60000610351562" height="409.60000610351562"/>
-        <image name="Icon Password" width="204.80000305175781" height="204.80000305175781"/>
-        <image name="Icon Plus" width="204.80000305175781" height="204.80000305175781"/>
-        <image name="Icon Username" width="204.80000305175781" height="204.80000305175781"/>
+        <image name="Icon Confirm" width="256" height="256"/>
+        <image name="Icon Email" width="256" height="256"/>
+        <image name="Icon Log Out" width="512" height="512"/>
+        <image name="Icon Password" width="256" height="256"/>
+        <image name="Icon Plus" width="256" height="256"/>
+        <image name="Icon Username" width="256" height="256"/>
         <image name="Inventory Header" width="1500" height="750"/>
-        <image name="TabCocktailsIcon" width="40" height="40"/>
-        <image name="TabDiscoverIcon" width="40" height="40"/>
-        <image name="TabFavoritesIcon" width="40" height="40"/>
-        <image name="TabInventoryIcon" width="40" height="40"/>
-        <image name="TabShoppingIcon" width="40" height="40"/>
-        <image name="defaultCocktailPhoto" width="960" height="540"/>
+        <image name="TabCocktailsIcon" width="25" height="25"/>
+        <image name="TabDiscoverIcon" width="25" height="25"/>
+        <image name="TabFavoritesIcon" width="25" height="25"/>
+        <image name="TabInventoryIcon" width="25" height="25"/>
+        <image name="TabShoppingIcon" width="25" height="25"/>
+        <image name="defaultCocktailPhoto" width="1280" height="720"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="kCy-69-SRg"/>
