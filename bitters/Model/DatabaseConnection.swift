@@ -125,7 +125,7 @@ class DatabaseConnection: dbConnectionDelegate  {
                 
                 print("cocktails: \(cocktailModels)")
                 
-                //globalCocktails = cocktailModels
+                globalCocktails = cocktailModels
                 //self.getAllCocktails()
             }
         }
