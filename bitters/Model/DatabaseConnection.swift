@@ -8,18 +8,170 @@
 
 import Foundation
 import UIKit
+import Firebase
+import FirebaseAuth
+import FirebaseFirestore
 
 protocol dbConnectionDelegate {
     func getUserIngredients() -> [Ingredient]
     func getAllCocktails() -> [Cocktail]
+    func getUserInventory()
+    func mapCocktailInventory(ingredientIDs: [String]) -> [Ingredient]
+    func getAvailableCocktails() -> [Cocktail]
 }
 
-protocol inventoryDb {
-    func updateData()
-}
+var globalIngredients: [Ingredient] = []
+var globalUserIngredients: [Ingredient] = []
+var globalCocktails: [Cocktail] = []
+var currentCells: [Ingredient] = []
+var userIngredientsList: [String] = []
+
+var db: Firestore!
+var user: Auth!
 
 class DatabaseConnection: dbConnectionDelegate  {
     
+    private var listener: ListenerRegistration?
+    
+    
+    init() {
+        self.setup()
+    }
+    
+    func setup() {
+        db = Firestore.firestore()
+        user = Auth.auth()
+        query = baseQuery()
+        observeQuery()
+        print("Initialized DatabseConnection as delegate")
+    }
+    
+    //  MARK: - Database Querying
+    
+    fileprivate var query: Query? {
+        didSet {
+            if let listener = listener {
+                listener.remove()
+                observeQuery()
+            }
+        }
+    }
+    
+    fileprivate func observeQuery() {
+        guard let query = query else { return }
+        stopObserving()
+        
+        // Display data from Firestore, part one
+        
+        listener = query.addSnapshotListener { [unowned self] (snapshot, error) in
+            guard let snapshot = snapshot else {
+                print("Error fetching snapshot results: \(error!)")
+                return
+            }
+            let models = snapshot.documents.map { (document) -> Ingredient in
+                var idData = document.data()
+                
+                idData["id"] = document.documentID
+                if let model = Ingredient(dictionary: idData) {
+                    return model
+                } else {
+                    // Don't use fatalError here in a real app.
+                    fatalError("Unable to initialize type \(Ingredient.self) with dictionary \(document.data())")
+                }
+            }
+            
+            globalIngredients = models
+            self.getCocktails()
+            self.getUserInventory()
+            
+            
+        }
+    }
+    
+    fileprivate func stopObserving() {
+        listener?.remove()
+    }
+    
+    fileprivate func baseQuery() -> Query {
+        return db.collection("Ingredients").limit(to: 50)
+    }
+    
+    fileprivate func userIngredientQuery()-> Query {
+        return db.collection("UserData")
+    }
+    
+    //    fileprivate func cocktailsQuery() -> Query {
+    //        print("Cocktails Query")
+    //        return
+    //    }
+    
+    func getCocktails() {
+        let cocktailsRef = Firestore.firestore().collection("Cocktails")
+        cocktailsRef.getDocuments { (snapshot, error) in
+            if error != nil {
+                print("Error getting Cocktails")
+            } else {
+                
+                let cocktailModels: [Cocktail] = snapshot!.documents.map { (cocktailDocument) -> Cocktail in
+                    
+                    let cocktailData = cocktailDocument.data()
+                    
+                    if let model = Cocktail(dbDictionary: cocktailData) {
+                        return model
+                    } else {
+                        fatalError("Unable to initialize type \(Cocktail.self) with dictionary \(cocktailData)")
+                    }
+                }
+                
+                print("cocktails: \(cocktailModels)")
+                
+                //globalCocktails = cocktailModels
+                //self.getAllCocktails()
+            }
+        }
+    }
+    
+    func mapCocktailInventory(ingredientIDs: [String]) -> [Ingredient] {
+        let filteredUserIngredients = globalIngredients.filter { (ingredient) -> Bool in
+            // MARK: CHANGE HERE FOR COCKTAILS
+            
+            return ingredientIDs.contains(ingredient.id)
+        }
+        return filteredUserIngredients
+        
+    }
+    
+    // --- END:
+    
+    func monitor( tableView: UITableView, query: Query) {
+        tableView.reloadData()
+    }
+    
+    func mapUserInventory() {
+        let filteredUserIngredients = globalIngredients.filter { (Ingredient) -> Bool in
+            // MARK: CHANGE HERE FOR INGREDIENTS
+            userIngredientsList.contains(Ingredient.id)
+            //true
+        }
+        globalUserIngredients = filteredUserIngredients
+    }
+    
+    func getUserInventory() {
+        let userID = user.currentUser!.uid
+        
+        db.document("UserData/\(userID)").getDocument { (snapshot, err) in
+            
+            if let err = err {
+                print(err)
+            }
+            if let userIngredients = snapshot?.data()!["inventory"] as? [String] {
+                userIngredientsList = userIngredients
+            } else {
+                print("Could not get user inventory")
+            }
+            self.mapUserInventory()
+        }
+    }
     
     //MARK: - Mock Cocktail Data Array
     

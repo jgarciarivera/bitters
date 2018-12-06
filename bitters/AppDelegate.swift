@@ -9,6 +9,8 @@
 import UIKit
 import Firebase
 
+var dbConnection: dbConnectionDelegate?
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -18,7 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
-        
+        dbConnection = DatabaseConnection()
+        // Need to initialize data within here
         return true
     }
 

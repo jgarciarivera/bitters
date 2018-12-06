@@ -16,11 +16,10 @@ class CocktailsListVC: UIViewController {
     @IBOutlet weak var imageHeight: NSLayoutConstraint!
     @IBOutlet weak var segmentHeight: NSLayoutConstraint!
     
-    var dbDelegate = DatabaseConnection()
-    var daelegate = InventoryViewController()
+    var dbDelegate = dbConnection!
     var selectedSegment = 0
-    var allCocktails = globalCocktails
-    var availableCocktails = globalCocktails
+    var allCocktails: [Cocktail] = []
+    var availableCocktails: [Cocktail] = []
     var selectedCocktail: Cocktail?
     
     let screenHeight = UIScreen.main.bounds.height
@@ -28,7 +27,6 @@ class CocktailsListVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        daelegate.updateData()
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .none
@@ -36,8 +34,8 @@ class CocktailsListVC: UIViewController {
         scrollView.bounces = false
         tableView.bounces = false
         tableView.isScrollEnabled = false
-        allCocktails = globalCocktails//dbDelegate.getAllCocktails()
-        availableCocktails = globalCocktails //dbDelegate.getAvailableCocktails()
+        allCocktails = dbDelegate.getAllCocktails()
+        availableCocktails = dbDelegate.getAvailableCocktails()
         
         calculateCocktailCount()
         cocktailCount.forEach { (tuple) in
@@ -46,6 +44,7 @@ class CocktailsListVC: UIViewController {
             print("\n-----------------------------------\n\n Actuall Data type: \n\(tuple)\n\n :end\n")
             print("Cocktail: \(cocktail.name) Missing: \(count)\n")
         }
+        tableView.reloadData()
     }
     
     func calculateCocktailCount() {

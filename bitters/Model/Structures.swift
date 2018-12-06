@@ -35,12 +35,8 @@ let sampleIngredientDictionary: [String: Any] = [
 
 // MARK: Delegates
 
-let dbDelegate: dbConnectionDelegate = DatabaseConnection()
-let delegate: inventoryViewDelegate = InventoryViewController()
+let dbDelegate: dbConnectionDelegate = dbConnection!
 
-protocol inventoryViewDelegate {
-    func mapCocktailInventory(ingredientIDs: [String]) -> [Ingredient]
-}
 
 let sampleIngredient = Ingredient(dictionary: sampleIngredientDictionary)!
 
@@ -94,7 +90,7 @@ extension Cocktail: DocumentSerializable {
             }
         }
         
-        guard let ingreds: [Ingredient] = delegate.mapCocktailInventory(ingredientIDs: ingredientPointers) else {fatalError("ingreds not assigned")}
+        guard let ingreds: [Ingredient] = dbDelegate.mapCocktailInventory(ingredientIDs: ingredientPointers) else {fatalError("ingreds not assigned")}
         
         self.init(name: name, about: about, description: description , instructions: instructions, ingredients: ingreds, image: image)
     }

@@ -15,27 +15,19 @@ import FirebaseAuth
 // MARK: - Cell Contents Structure
 //This can later be globalized if necessary
 
-var globalIngredients: [Ingredient] = []
-var globalUserIngredients: [Ingredient] = []
-var globalCocktails: [Cocktail] = []
-var currentCells: [Ingredient] = []
-
-class InventoryViewController: UIViewController, inventoryViewDelegate, inventoryDb {
+class InventoryViewController: UIViewController {
     func updateData() {
         print("updateData() called")
     }
     
-    var dbdelegate = DatabaseConnection()
+    var dbdelegate = dbConnection
     
     // Database
-    var db: Firestore!
-    var user: Auth!
     
     // Data to Populate View
     let backgroundView = UIImageView()
     var ingredients: [Ingredient] = []
-    var userIngredientsList: [String] = []
-    private var listener: ListenerRegistration?
+    //private var listener: ListenerRegistration?
     let screenHeight = UIScreen.main.bounds.height
     var scrollViewContentHeight = 1400 as CGFloat
     
@@ -57,16 +49,6 @@ class InventoryViewController: UIViewController, inventoryViewDelegate, inventor
         performSegue(withIdentifier: "addIngredientSegue", sender: self)
     }
     
-    init() {
-        db = Firestore.firestore()
-        user = Auth.auth()
-        query = baseQuery()
-        observeQuery()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,8 +58,8 @@ class InventoryViewController: UIViewController, inventoryViewDelegate, inventor
 //        entireCells = dbdelegate.getUserIngredients()
 //        currentCells = currentCells.isEmpty ? entireCells : currentCells
         
-        db = Firestore.firestore()
-        user = Auth.auth()
+//        db = Firestore.firestore()
+//        user = Auth.auth()
         
         backgroundView.image = UIImage(named: "Cocktail Illustration")
         
@@ -89,11 +71,9 @@ class InventoryViewController: UIViewController, inventoryViewDelegate, inventor
         inventoryTable.estimatedRowHeight = 140
         
         
-        query = baseQuery()
         inventoryTable.dataSource = self
         inventoryTable.delegate = self
         
-        observeQuery()
         
         // adjust scroll view
         scrollView.delegate = self
@@ -117,130 +97,11 @@ class InventoryViewController: UIViewController, inventoryViewDelegate, inventor
         self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
-    //  MARK: - Database Querying
+    // MARK: DATAB
     
-    fileprivate var query: Query? {
-        didSet {
-            if let listener = listener {
-                listener.remove()
-                observeQuery()
-            }
-        }
-    }
+        // Need to set data locally....
     
-    fileprivate func observeQuery() {
-        guard let query = query else { return }
-        stopObserving()
-        
-        // Display data from Firestore, part one
-        
-        listener = query.addSnapshotListener { [unowned self] (snapshot, error) in
-            guard let snapshot = snapshot else {
-                print("Error fetching snapshot results: \(error!)")
-                return
-            }
-            let models = snapshot.documents.map { (document) -> Ingredient in
-                var idData = document.data()
-                
-                idData["id"] = document.documentID
-                if let model = Ingredient(dictionary: idData) {
-                    return model
-                } else {
-                    // Don't use fatalError here in a real app.
-                    fatalError("Unable to initialize type \(Ingredient.self) with dictionary \(document.data())")
-                }
-            }
-            
-            
-            globalIngredients = models
-            self.getUserInventory()
-            self.getCocktails()
-            
-        }
-    }
-    
-    fileprivate func stopObserving() {
-        listener?.remove()
-    }
-    
-    fileprivate func baseQuery() -> Query {
-        return db.collection("Ingredients").limit(to: 50)
-    }
-    
-    fileprivate func userIngredientQuery()-> Query {
-        return db.collection("UserData")
-    }
-    
-//    fileprivate func cocktailsQuery() -> Query {
-//        print("Cocktails Query")
-//        return
-//    }
-    
-    fileprivate func getCocktails() {
-        let cocktailsRef = db.collection("Cocktails")
-        cocktailsRef.getDocuments { (snapshot, error) in
-            if error != nil {
-                print("Error getting Cocktails")
-            } else {
-                
-                let cocktailModels: [Cocktail] = snapshot!.documents.map { (cocktailDocument) -> Cocktail in
-                    
-                    let cocktailData = cocktailDocument.data()
-                    
-                    if let model = Cocktail(dbDictionary: cocktailData) {
-                        return model
-                    } else {
-                        fatalError("Unable to initialize type \(Cocktail.self) with dictionary \(cocktailData)")
-                    }
-                }
-                
-                globalCocktails = cocktailModels
-            }
-        }
-    }
-    
-    func mapCocktailInventory(ingredientIDs: [String]) -> [Ingredient] {
-        let filteredUserIngredients = globalIngredients.filter { (ingredient) -> Bool in
-            // MARK: CHANGE HERE FOR COCKTAILS
-            
-            return ingredientIDs.contains(ingredient.id)
-        }
-        return filteredUserIngredients
-
-    }
-    
-    // --- END:
-    
-    func monitor( tableView: UITableView, query: Query) {
-        tableView.reloadData()
-    }
-    
-    func mapUserInventory() {
-        let filteredUserIngredients = globalIngredients.filter { (Ingredient) -> Bool in
-            // MARK: CHANGE HERE FOR INGREDIENTS
-            self.userIngredientsList.contains(Ingredient.id)
-            //true
-        }
-        globalUserIngredients = filteredUserIngredients
-        self.inventoryTable.reloadData()
-    }
-    
-    func getUserInventory() {
-        let userID = user.currentUser!.uid
-        
-        db.document("UserData/\(userID)").getDocument { (snapshot, err) in
-            
-            if let err = err {
-                print(err)
-            }
-            if let userIngredients = snapshot?.data()!["inventory"] as? [String] {
-                self.userIngredientsList = userIngredients
-            } else {
-                print("Could not get user inventory")
-            }
-            self.mapUserInventory()
-        }
-    }
+    // MARK: TABLE VIEW
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if let lastVisibleIndexPath = tableView.indexPathsForVisibleRows?.last {
             if indexPath == lastVisibleIndexPath {

@@ -12,7 +12,7 @@ class CocktailDescriptionVC: UIViewController {
     
     var name: String = ""
     var cocktail: Cocktail!
-    var databaseService = DatabaseConnection()
+    var databaseService = dbConnection
 
     override func viewDidLoad() {
         super.viewDidLoad()
