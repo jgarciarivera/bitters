@@ -32,12 +32,22 @@ class InventoryViewController: UIViewController, inventoryViewDelegate {
     var ingredients: [Ingredient] = []
     var userIngredientsList: [String] = []
     private var listener: ListenerRegistration?
-
+    let screenHeight = UIScreen.main.bounds.height
+    var scrollViewContentHeight = 1400 as CGFloat
     
     // MARK: - View Controller Objects
+    
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var viewHeight: NSLayoutConstraint!
+    @IBOutlet weak var imageHeight: NSLayoutConstraint!
+    @IBOutlet weak var segmentHeight: NSLayoutConstraint!
+    
     @IBOutlet weak var inventoryTable: UITableView!
     @IBOutlet weak var inventorySearchBar: UISearchBar!
     @IBOutlet weak var addIngredientButton: UIButton!
+    
+    
+    
     
     @IBAction func addIngredient(_ sender: Any) {
         performSegue(withIdentifier: "addIngredientSegue", sender: self)
@@ -69,6 +79,15 @@ class InventoryViewController: UIViewController, inventoryViewDelegate {
         inventoryTable.delegate = self
         
         observeQuery()
+        
+        // adjust scroll view
+        scrollView.delegate = self
+        inventoryTable.delegate = self
+        inventoryTable.dataSource = self
+        scrollView.bounces = false
+        inventoryTable.bounces = false
+        inventoryTable.isScrollEnabled = false
+        inventoryTable.separatorStyle = .none
 
     }
 
@@ -205,6 +224,41 @@ class InventoryViewController: UIViewController, inventoryViewDelegate {
                 print("Could not get user inventory")
             }
             self.mapUserInventory()
+        }
+    }
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if let lastVisibleIndexPath = tableView.indexPathsForVisibleRows?.last {
+            if indexPath == lastVisibleIndexPath {
+                // do here...
+                print("table View Size")
+                print(self.inventoryTable.contentSize.height)
+                print("segementController height")
+                print(self.segmentHeight.constant)
+                print("imageHeight height")
+                print(self.imageHeight.constant)
+                print("total height")
+                
+                self.viewHeight.constant = self.inventoryTable.contentSize.height + self.segmentHeight.constant + self.imageHeight.constant + 50
+                print(self.viewHeight.constant)
+            }
+        }
+    }
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        let yOffset = scrollView.contentOffset.y
+        
+        if scrollView == self.scrollView {
+            if yOffset >= scrollViewContentHeight - screenHeight {
+                scrollView.isScrollEnabled = false
+                inventoryTable.isScrollEnabled = true
+            }
+        }
+        
+        if scrollView == self.inventoryTable {
+            if yOffset <= 0 {
+                self.scrollView.isScrollEnabled = true
+                self.inventoryTable.isScrollEnabled = false
+            }
         }
     }
     
