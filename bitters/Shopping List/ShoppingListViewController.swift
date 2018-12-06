@@ -15,11 +15,12 @@ struct ListCellData: Codable
     var itemSelected: Bool
 }
 
-class ShoppingListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource
+class ShoppingListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MKMapViewDelegate
 {
-    var listData = [ListCellData]()
-    @IBAction func clickAdd(_ sender: Any)
-    {
+    
+    @IBOutlet weak var addItemButton: UIButton!
+    
+    @IBAction func addShoppingListItemButton(_ sender: UIButton) {
         let alert = UIAlertController(title: "Add Item", message: nil, preferredStyle: .alert)
         alert.addTextField { (shoppingListField) in shoppingListField.placeholder = "Enter Item" }
         let action = UIAlertAction(title: "Add", style: .default) { (_) in
@@ -31,6 +32,11 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
         present(alert, animated: true)
         self.ShoppingListView.reloadData()
     }
+    
+    var listData = [ListCellData]()
+    var mapItem = MKMapItem()
+    var coordinate = CLLocationCoordinate2D()
+    
     func loadListData()
     {
         if let data = UserDefaults.standard.value(forKey: "ShoppingListData") as? Data
@@ -72,21 +78,55 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
                 }
                 else
                 {
-                    let annotations = self.StoreMapView.annotations
-                    self.StoreMapView.removeAnnotations(annotations)
-                    let latitude = response?.boundingRegion.center.latitude
-                    let longitude = response?.boundingRegion.center.longitude
-                    let annotation = MKPointAnnotation()
-                    annotation.title = "Nearby Liquor Store"
-                    annotation.coordinate = CLLocationCoordinate2DMake(latitude!, longitude!)
-                    self.StoreMapView.addAnnotation(annotation)
-                    let coordinate: CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude!, longitude!)
-                    let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
-                    let region = MKCoordinateRegion.init(center: coordinate, span: span)
-                    self.StoreMapView.setRegion(region, animated: true)
+                    for mapItem in (response?.mapItems)!.reversed()
+                    {
+                        let annotations = self.StoreMapView.annotations
+                        self.StoreMapView.removeAnnotations(annotations)
+                        let latitude = mapItem.placemark.coordinate.latitude
+                        let longitude = mapItem.placemark.coordinate.longitude
+                        let annotation = MKPointAnnotation()
+                        annotation.coordinate = CLLocationCoordinate2DMake(latitude, longitude)
+                        let coordinate = CLLocationCoordinate2DMake(latitude, longitude)
+                        let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
+                        let region = MKCoordinateRegion.init(center: coordinate, span: span)
+                        self.StoreMapView.setRegion(region, animated: true)
+                        let geocoder = CLGeocoder()
+                        let location = CLLocation(latitude: latitude, longitude: longitude)
+                        geocoder.reverseGeocodeLocation(location, completionHandler:
+                            { (placemarks, error) in
+                                if (error == nil)
+                                {
+                                    
+                                    let street = placemarks?[0].thoroughfare
+                                    let streetNumber = placemarks?[0].subThoroughfare
+                                    if (street != nil && streetNumber != nil)
+                                    {
+                                        annotation.title = streetNumber! + " " + street!
+                                    }
+                                    else
+                                    {
+                                        annotation.title = "Nearby Liquor Store"
+                                    }
+                                    self.StoreMapView.addAnnotation(annotation)
+                                }
+                        })
+                    }
                 }
         }
-        
+    }
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView)
+    {
+        let regionSpan = MKCoordinateRegion(center: (view.annotation?.coordinate)!, latitudinalMeters: 10, longitudinalMeters: 10)
+        let options =
+            [
+                MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
+                MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span),
+                MKLaunchOptionsShowsTrafficKey: true,
+                MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDefault
+            ] as [String : Any]
+        let placemark = MKPlacemark(coordinate: (view.annotation?.coordinate)!)
+        let mapItem = MKMapItem(placemark: placemark)
+        mapItem.openInMaps(launchOptions: options)
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
@@ -141,19 +181,25 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
     }
     override func viewWillAppear(_ animated: Bool)
     {
+        super.viewWillAppear(true)
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        
         if let index = self.ShoppingListView.indexPathForSelectedRow
         {
             self.ShoppingListView.deselectRow(at: index, animated: true)
         }
+
     }
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        StoreMapView.delegate = self
         ShoppingListView.dataSource = self
         ShoppingListView.delegate = self
         ShoppingListView.register(ShoppingListCell.self, forCellReuseIdentifier: "itemCell")
         loadListData()
+        stylizeAddShoppingItemButton()
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -222,4 +268,15 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
      }
      */
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+    
+    func stylizeAddShoppingItemButton() {
+        addItemButton.layer.cornerRadius = addItemButton.frame.height/2
+        addItemButton.layer.shadowOpacity = 0.3
+        addItemButton.layer.shadowRadius = 4
+        addItemButton.layer.shadowOffset = CGSize(width: 0, height: 8)
+    }
 }
