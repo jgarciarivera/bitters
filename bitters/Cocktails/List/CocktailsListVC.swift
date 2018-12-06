@@ -9,14 +9,14 @@ import UIKit
 var cocktailCount: [(Cocktail, Int)]!
 
 class CocktailsListVC: UIViewController {
-    
+    var dbDelegate: dbConnectionDelegate!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var viewHeight: NSLayoutConstraint!
     @IBOutlet weak var imageHeight: NSLayoutConstraint!
     @IBOutlet weak var segmentHeight: NSLayoutConstraint!
     
-    var dbDelegate = dbConnection!
+    
     var selectedSegment = 0
     var allCocktails: [Cocktail] = []
     var availableCocktails: [Cocktail] = []
@@ -35,6 +35,7 @@ class CocktailsListVC: UIViewController {
         tableView.bounces = false
         tableView.isScrollEnabled = false
         allCocktails = dbDelegate.getAllCocktails()
+        dbDelegate = dbConnection!
         availableCocktails = dbDelegate.getAvailableCocktails()
         
         calculateCocktailCount()
