@@ -6,6 +6,7 @@ target 'bitters' do
   use_frameworks!
 
   # Pods for bitters
+  pod 'SDWebImage'
   pod 'Firebase/Core'
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
