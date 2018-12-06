@@ -307,10 +307,10 @@
 			children = (
 				06A87BB821B8C0F300877E2A /* Shopping List */,
 				06EE5EB5219CAF930057DA4B /* Discover */,
-				F1E3A7B221976700007DDE13 /* Model */,
-				F999DB3D2193681B00BF2C7B /* Login and Registration */,
 				F9D4B33D218F9A5B00A7EC38 /* Cocktails */,
 				F12B3C9021879EB800298636 /* Inventory */,
+				F1E3A7B221976700007DDE13 /* Model */,
+				F999DB3D2193681B00BF2C7B /* Login and Registration */,
 				F9DA47B52165BF3500718111 /* Main.storyboard */,
 				F999DB3A2193590000BF2C7B /* CardView.swift */,
 				F99476F621B4C31400CD7425 /* FavoritesViewController.swift */,
@@ -914,14 +914,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7VB9R44KK9;
+				DEVELOPMENT_TEAM = Z45ZX8S546;
 				INFOPLIST_FILE = bitters/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ubicompteam5.bitters;
+				PRODUCT_BUNDLE_IDENTIFIER = the.beer.hunter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
@@ -936,14 +936,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7VB9R44KK9;
+				DEVELOPMENT_TEAM = Z45ZX8S546;
 				INFOPLIST_FILE = bitters/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ubicompteam5.bitters;
+				PRODUCT_BUNDLE_IDENTIFIER = the.beer.hunter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
