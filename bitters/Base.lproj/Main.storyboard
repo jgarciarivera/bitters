@@ -280,7 +280,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultCocktailPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="4yj-yW-hKC">
-                                                    <rect key="frame" x="-532.5" y="0.0" width="1440" height="720.5"/>
+                                                    <rect key="frame" x="-352.5" y="0.0" width="1080" height="540.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="4yj-yW-hKC" secondAttribute="height" multiplier="2:1" id="mfv-rS-k75"/>
                                                     </constraints>
@@ -793,8 +793,8 @@
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="W7M-nH-4za">
                                                                     <rect key="frame" x="0.0" y="0.0" width="160" height="160"/>
                                                                 </imageView>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Snehil" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bGv-wi-ZJp" userLabel="Snehil's Drinks">
-                                                                    <rect key="frame" x="24" y="116" width="47" height="21"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bGv-wi-ZJp" userLabel="Snehil's Drinks">
+                                                                    <rect key="frame" x="24" y="137" width="0.0" height="0.0"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
@@ -843,7 +843,7 @@
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vHv-02-3Mm">
                                                                     <rect key="frame" x="0.0" y="0.0" width="160" height="160"/>
                                                                 </imageView>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Snehil" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XEg-f9-nTY" userLabel="Snehil's Drinks">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XEg-f9-nTY" userLabel="Snehil's Drinks">
                                                                     <rect key="frame" x="24" y="116" width="47" height="21"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1355,21 +1355,21 @@
         </scene>
     </scenes>
     <resources>
-        <image name="4" width="1920" height="1280"/>
+        <image name="4" width="460.79998779296875" height="307.20001220703125"/>
         <image name="Bitters Logo" width="630" height="1024"/>
         <image name="Cocktails All" width="1480" height="732"/>
-        <image name="Icon Confirm" width="256" height="256"/>
-        <image name="Icon Edit" width="256" height="256"/>
-        <image name="Icon Email" width="256" height="256"/>
-        <image name="Icon Password" width="256" height="256"/>
-        <image name="Icon Plus" width="256" height="256"/>
-        <image name="Icon Username" width="256" height="256"/>
+        <image name="Icon Confirm" width="204.80000305175781" height="204.80000305175781"/>
+        <image name="Icon Edit" width="204.80000305175781" height="204.80000305175781"/>
+        <image name="Icon Email" width="204.80000305175781" height="204.80000305175781"/>
+        <image name="Icon Password" width="204.80000305175781" height="204.80000305175781"/>
+        <image name="Icon Plus" width="204.80000305175781" height="204.80000305175781"/>
+        <image name="Icon Username" width="204.80000305175781" height="204.80000305175781"/>
         <image name="Inventory Header" width="1500" height="750"/>
-        <image name="TabCocktailsIcon" width="25" height="25"/>
-        <image name="TabDiscoverIcon" width="25" height="25"/>
-        <image name="TabInventoryIcon" width="25" height="25"/>
-        <image name="TabShoppingIcon" width="25" height="25"/>
-        <image name="defaultCocktailPhoto" width="1280" height="720"/>
+        <image name="TabCocktailsIcon" width="40" height="40"/>
+        <image name="TabDiscoverIcon" width="40" height="40"/>
+        <image name="TabInventoryIcon" width="40" height="40"/>
+        <image name="TabShoppingIcon" width="40" height="40"/>
+        <image name="defaultCocktailPhoto" width="960" height="540"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="kCy-69-SRg"/>
