@@ -50,26 +50,51 @@ class CocktailsListVC: UIViewController {
         let userIventory = globalUserIngredients
         
         self.cocktailCount = cocktails.map { (cocktail) -> (Cocktail, Int) in
-            let intersectionCount = missingCount(userBar: userIventory, cocktail: cocktail)
+            let intersectionCount: Int = missingCount(userBar: userIventory, cocktail: cocktail)
             return (cocktail, intersectionCount)
         }
         
     }
     
     func missingCount(userBar: [Ingredient], cocktail: Cocktail) -> Int {
-        let usrBar = Set(userBar)
-        let cocktailIngredients = Set(cocktail.ingredients)
         
-        let intersection = cocktailIngredients.intersection(usrBar)
+        let userBarCategories: [Ingredient.category] = userBar.map { (ingredient) -> Ingredient.category in
+            return ingredient.category
+        }
+        
+        let cocktailIngredientsCategories: [Ingredient.category] = cocktail.ingredients.map { (ingredient) -> Ingredient.category in
+            return ingredient.category
+        }
+        
+        let usrCategorySet = Set(userBarCategories)
+        let cocktailIngredientCategoriesSet = Set(cocktailIngredientsCategories)
+        
+        let intersection = usrCategorySet.intersection(cocktailIngredientCategoriesSet)
         
         print("\n\n\nIntersection:")
         intersection.forEach { (ingredient) in
-            print("Ingredient Name: \(ingredient.name)")
+            print("Ingredient Name: \(ingredient)")
         }
+        
         print("\(intersection)")
         
         
-        return cocktailIngredients.count - intersection.count
+        return cocktailIngredientCategoriesSet.count - intersection.count
+        
+        
+        // Old
+    //        let usrBar = Set(userBar)
+    //        let cocktailIngredients = Set(cocktail.ingredients)
+    //
+    //        let intersection = cocktailIngredients.intersection(usrBar)
+    //
+    //        print("\n\n\nIntersection:")
+    //        intersection.forEach { (ingredient) in
+    //            print("Ingredient Name: \(ingredient.name)")
+    //        }
+    //        print("\(intersection)")
+    //
+    //        return cocktailIngredients.count - intersection.count
     }
     
     @IBAction func toggleSegment(_ sender: UISegmentedControl) {
@@ -149,17 +174,7 @@ extension CocktailsListVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if let lastVisibleIndexPath = tableView.indexPathsForVisibleRows?.last {
             if indexPath == lastVisibleIndexPath {
-                // do here...
-                print("table View Size")
-                print(self.tableView.contentSize.height)
-                print("segementController height")
-                print(self.segmentHeight.constant)
-                print("imageHeight height")
-                print(self.imageHeight.constant)
-                print("total height")
-                
                 self.viewHeight.constant = self.tableView.contentSize.height + self.segmentHeight.constant + self.imageHeight.constant + 50
-                print(self.viewHeight.constant)
             }
         }
     }

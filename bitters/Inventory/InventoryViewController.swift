@@ -229,17 +229,7 @@ class InventoryViewController: UIViewController, inventoryViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if let lastVisibleIndexPath = tableView.indexPathsForVisibleRows?.last {
             if indexPath == lastVisibleIndexPath {
-                // do here...
-                print("table View Size")
-                print(self.inventoryTable.contentSize.height)
-                print("segementController height")
-                print(self.segmentHeight.constant)
-                print("imageHeight height")
-                print(self.imageHeight.constant)
-                print("total height")
-                
                 self.viewHeight.constant = self.inventoryTable.contentSize.height + self.segmentHeight.constant + self.imageHeight.constant + 50
-                print(self.viewHeight.constant)
             }
         }
     }
