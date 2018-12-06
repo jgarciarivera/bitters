@@ -62,13 +62,13 @@ extension CocktailsListVC: UITableViewDelegate, UITableViewDataSource {
         if (selectedSegment == 0) {
             allCocktailsCell.name.text = allCocktails[indexPath.row].name
             allCocktailsCell.baseDescription.text = allCocktails[indexPath.row].description
-            allCocktailsCell.icon.image = allCocktails[indexPath.row].image
+            allCocktailsCell.icon.sd_setImage(with: allCocktails[indexPath.row].image)
             allCocktailsCell.contentView.backgroundColor = UIColor(white: 1, alpha: 1)
             return allCocktailsCell
         } else {
             availableCocktailsCell.name.text = availableCocktails[indexPath.row].name
             availableCocktailsCell.baseDescription.text = availableCocktails[indexPath.row].description
-            availableCocktailsCell.icon.image = availableCocktails[indexPath.row].image
+            availableCocktailsCell.icon.sd_setImage(with: availableCocktails[indexPath.row].image)
             if (indexPath.row < 3) {
                 availableCocktailsCell.missingIngredientsIndicator.image = UIImage(named: "Icon Check")!
             } else {

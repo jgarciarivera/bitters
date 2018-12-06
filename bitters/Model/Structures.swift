@@ -17,12 +17,23 @@ let defaultInstructions = ["Lorem ipsum dolor sit amet, consectetur adipiscing e
                            "Vestibulum consequat lacus sit amet tempus mollis.",
                            "Nulla tempor dictum est, et viverra nisi."]
 
-let mockIngredientOne = Ingredient(name: "vodka", category: Ingredient.category.Vodka)
-let mockIngredientTwo = Ingredient(name: "lime juice", category: Ingredient.category.Juice)
-let mockIngredientThree = Ingredient(name: "ginger beer", category: Ingredient.category.Other)
-let defaultIngredients = [mockIngredientOne, mockIngredientTwo, mockIngredientThree]
+//let mockIngredientOne = Ingredient(name: "vodka", category: Ingredient.category.Vodka)
+//let mockIngredientTwo = Ingredient(name: "lime juice", category: Ingredient.category.Juice)
+//let mockIngredientThree = Ingredient(name: "ginger beer", category: Ingredient.category.Other)
+//let defaultIngredients = [mockIngredientOne, mockIngredientTwo, mockIngredientThree]
 
 let dbDelegate: dbConnectionDelegate = DatabaseConnection()
+
+let sampleIngredientDictionary: [String: Any] = [
+    "name": "The Good Shit",
+    "category": "cherry liqueur",
+    "image": "https://gangslangs.com/wp-content/uploads/2017/09/alcohol-benefits.jpg",
+    "id": "shit"
+]
+
+let sampleIngredient = Ingredient(dictionary: sampleIngredientDictionary)!
+
+let defaultIngredients = [sampleIngredient, sampleIngredient, sampleIngredient]
 
 //MARK: - Cocktail Struct
 
@@ -32,13 +43,13 @@ struct Cocktail {
     let description: String
     let instructions: [String]
     let ingredients: [Ingredient]
-    let image: UIImage
+    let image: URL
     
     // Default constructor with nearly empty values
     init() {
         self.name = ""
         self.about = ""
-        self.image = UIImage(named: "defaultCocktailPhoto")!
+        self.image = URL(string: "https://1570308986.rsc.cdn77.org/wp-content/uploads/2016/12/DSC_1447.jpg")!
         self.description = ""
         self.instructions = []
         self.ingredients = []
@@ -50,13 +61,28 @@ struct Cocktail {
          description: String = defaultMediumText,
          instructions: [String] = defaultInstructions,
          ingredients:[Ingredient] = dbDelegate.getUserIngredients(),
-         image: UIImage = UIImage(named: "cellDefault")!) {
+         image: URL = URL(string: "https://1570308986.rsc.cdn77.org/wp-content/uploads/2016/12/DSC_1447.jpg")!) {
         self.name = name
         self.about = about
         self.image = image
         self.description = description
         self.instructions = instructions
         self.ingredients = ingredients
+    }
+}
+
+extension Cocktail: DocumentSerializable {
+    init?(dictionary: [String : Any]) {
+        
+        guard let name = dictionary["name"] as? String ,
+            let about = dictionary["about"] as? String,
+            let description = dictionary["description"] as? String,
+            let instructions = dictionary["instructions"] as? [String],
+            let ingredients = dictionary["ingredients"] as? [Ingredient],
+            let image = (dictionary["image"] as? String).flatMap(URL.init(string:))
+            else { return nil }
+        
+        self.init(name: name, about: about, description: description , instructions: instructions, ingredients: ingredients, image: image)
     }
 }
 
@@ -81,16 +107,54 @@ struct Ingredient {
         case Scotch = "Scotch Whiskey"
         case TennWhiskey = "Tennessee Whiskey"
         case Juice
+        case GingerBeer = "Ginger Beer"
+        case Campari
+        case Conteou
+        case Vermouth
+        case Pisco
+        case Cointreau
+        case Water
+        case Prosecco
+        case Liqueur
+        case Curacao
+        case Benedictine
+        case orangeliqueur = "Orange Liqueur"
+        case amarettoliqueur = "Amaretto Liqueur"
+        case coffeeliqueur = "Coffee Liqueur"
+        case cherryliqueur = "Cherry Liqueur"
+        case cocunutrum = "Coconut Rum"
+        case simplesyrup = "Simple Syrup"
+        case Lime
+        case eggwhite = "Egg White"
+        case limejuice = "Lime Juice"
+        case clubsoda = "Club Soda"
         case Other
     }
     
     let name: String
     let category: category
-    let image: UIImage
+    let image: URL
+    let id: String
     
-    init(name: String, category: category, image: UIImage = UIImage(named: "cellDefault")!) {
-        self.name = name
-        self.category = category
-        self.image = image
+    var dictionary: [String: Any] {
+        return [
+            "name": name,
+            "category" : self.category.rawValue,
+            "image" : image.absoluteString
+        ]
+    }
+}
+
+extension Ingredient: DocumentSerializable {
+    init?(dictionary: [String : Any]) {
+        guard let name = dictionary["name"] as? String,
+            let category = Ingredient.category(rawValue: ((dictionary["category"] as! String).capitalized)),
+            let id = dictionary["id"] as? String,
+            let image = (dictionary["image"] as? String).flatMap(URL.init(string:))//,
+            //            let measurement = dictionary["measurement"] as? String,
+            //            let amount = dictionary["amount"] as? Double
+            else { return nil }
+        
+        self.init(name: name, category: category, image: image, id: id)//, measurement: measurement, amount: amount)
     }
 }

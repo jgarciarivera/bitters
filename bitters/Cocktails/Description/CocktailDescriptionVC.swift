@@ -31,7 +31,7 @@ extension CocktailDescriptionVC: UITableViewDelegate, UITableViewDataSource {
         if (indexPath.row == 0) {
             let photoCell = tableView.dequeueReusableCell(withIdentifier: "photoCell") as! CocktailPhotoCell
             
-            photoCell.photo.image = cocktail.image
+            photoCell.photo.sd_setImage(with: cocktail.image)
             
             photoCell.isUserInteractionEnabled = false
             return photoCell

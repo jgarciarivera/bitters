@@ -15,6 +15,7 @@
 		DB0716A49F7252A98E07A20B /* Pods_bittersTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B49F28F77C417C074FB3B3E3 /* Pods_bittersTests.framework */; };
 		F111EB742197819500DEB88A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F111EB722197819500DEB88A /* LoginViewController.swift */; };
 		F111EB752197819500DEB88A /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F111EB732197819500DEB88A /* RegisterViewController.swift */; };
+		F1211E9421B8A18E0049C28F /* LocalCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1211E9321B8A18E0049C28F /* LocalCollection.swift */; };
 		F12B3C9221879ED800298636 /* InventoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12B3C9121879ED800298636 /* InventoryViewController.swift */; };
 		F12B3C9621879F4000298636 /* InventoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12B3C9521879F4000298636 /* InventoryCell.swift */; };
 		F19D1E8F2188E842007B0C4D /* AddIngredientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F19D1E8E2188E842007B0C4D /* AddIngredientViewController.swift */; };
@@ -82,6 +83,7 @@
 		CD7F0EA0D57CCE2068CCE20E /* Pods-bitters.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bitters.release.xcconfig"; path = "Pods/Target Support Files/Pods-bitters/Pods-bitters.release.xcconfig"; sourceTree = "<group>"; };
 		F111EB722197819500DEB88A /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F111EB732197819500DEB88A /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		F1211E9321B8A18E0049C28F /* LocalCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalCollection.swift; sourceTree = "<group>"; };
 		F12B3C9121879ED800298636 /* InventoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryViewController.swift; sourceTree = "<group>"; };
 		F12B3C9521879F4000298636 /* InventoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryCell.swift; sourceTree = "<group>"; };
 		F19D1E8E2188E842007B0C4D /* AddIngredientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIngredientViewController.swift; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 			isa = PBXGroup;
 			children = (
 				F1E3A7B32197673F007DDE13 /* DatabaseConnection.swift */,
+				F1211E9321B8A18E0049C28F /* LocalCollection.swift */,
 				F1E3A7B521976A24007DDE13 /* Structures.swift */,
 			);
 			path = Model;
@@ -610,6 +613,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F111EB742197819500DEB88A /* LoginViewController.swift in Sources */,
+				F1211E9421B8A18E0049C28F /* LocalCollection.swift in Sources */,
 				F19D1E8F2188E842007B0C4D /* AddIngredientViewController.swift in Sources */,
 				F99476F721B4C31400CD7425 /* FavoritesViewController.swift in Sources */,
 				F9BEEA7121B5F64100038BB5 /* CocktailPhotoCell.swift in Sources */,
@@ -892,14 +896,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Z45ZX8S546;
+				DEVELOPMENT_TEAM = 7VB9R44KK9;
 				INFOPLIST_FILE = bitters/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = howdy.howdy.hello;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ubicompteam5.bitters;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
@@ -914,14 +918,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Z45ZX8S546;
+				DEVELOPMENT_TEAM = 7VB9R44KK9;
 				INFOPLIST_FILE = bitters/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = howdy.howdy.hello;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ubicompteam5.bitters;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;

@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseDatabase
+import SDWebImage
 
 class InventoryCell: UITableViewCell {
 
@@ -22,6 +23,22 @@ class InventoryCell: UITableViewCell {
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+    }
+    
+    func populateImage(url: URL) {
+        ingredientImage.sd_setImage(with: url)
+    }
+    
+    func populate(ingredient: Ingredient) {
+        ingredientName.text = ingredient.name
+        ingredientCategory.text = ingredient.category.rawValue
+        
+        let image = ingredient.image
+        ingredientImage.sd_setImage(with: image)
+    }
+    
+    override func prepareForReuse() {
+        ingredientImage.sd_cancelCurrentImageLoad()
     }
 
 }

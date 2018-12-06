@@ -40,16 +40,22 @@ class DatabaseConnection: dbConnectionDelegate  {
     func getUserIngredients() -> [Ingredient] { //This will later be used to pull data info
         
         var cellContents: [Ingredient] = []
-        cellContents.append(Ingredient(name: "New Amsterdam", category: Ingredient.category.Vodka))
-        cellContents.append(Ingredient(name: "Pepitos's Añejo", category: Ingredient.category.Tequila))
-        cellContents.append(Ingredient(name: "Grey Goose", category: .Vodka))
-        cellContents.append(Ingredient(name: "Tanqueray", category: .Gin))
-        cellContents.append(Ingredient(name: "Malibu", category: .Rum))
-        cellContents.append(Ingredient(name: "Crown Royal", category: .Whiskey))
-        cellContents.append(Ingredient(name: "Jose Cuervo", category: .Tequila))
-        cellContents.append(Ingredient(name: "Johnnie Walker", category: .Whiskey))
-        cellContents.append(Ingredient(name: "Hennessy", category: .Cognac))
-        cellContents.append(Ingredient(name: "Casadores", category: .Tequila))
+        cellContents.append(sampleIngredient)
+        cellContents.append(sampleIngredient)
+        cellContents.append(sampleIngredient)
+        cellContents.append(sampleIngredient)
+        cellContents.append(sampleIngredient)
+        
+        // Old sample data
+//        cellContents.append(Ingredient(name: "Pepitos's Añejo", category: Ingredient.category.Tequila))
+//        cellContents.append(Ingredient(name: "Grey Goose", category: .Vodka))
+//        cellContents.append(Ingredient(name: "Tanqueray", category: .Gin))
+//        cellContents.append(Ingredient(name: "Malibu", category: .Rum))
+//        cellContents.append(Ingredient(name: "Crown Royal", category: .Whiskey))
+//        cellContents.append(Ingredient(name: "Jose Cuervo", category: .Tequila))
+//        cellContents.append(Ingredient(name: "Johnnie Walker", category: .Whiskey))
+//        cellContents.append(Ingredient(name: "Hennessy", category: .Cognac))
+//        cellContents.append(Ingredient(name: "Casadores", category: .Tequila))
         
         return cellContents
     }
@@ -61,7 +67,7 @@ class DatabaseConnection: dbConnectionDelegate  {
                         description: defaultLongText,
                         instructions: defaultInstructions,
                         ingredients: defaultIngredients,
-                        image: UIImage(named: "defaultCocktailPhoto")!)
+                        image: URL(string: "https://1570308986.rsc.cdn77.org/wp-content/uploads/2016/12/DSC_1447.jpg")!)
     }
     
     func getAvailableCocktails() -> [Cocktail] {
