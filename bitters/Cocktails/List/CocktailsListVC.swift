@@ -97,3 +97,14 @@ extension CocktailsListVC: UITableViewDelegate, UITableViewDataSource {
         }
     }
 }
+
+// MARK : - Database Implementation
+
+extension CocktailsListVC {
+    
+//    var selectedSegment = 0
+//    var allCocktails = [Cocktail]()
+//    var availableCocktails = [Cocktail]()
+//    var selectedCocktail = Cocktail()
+    
+}

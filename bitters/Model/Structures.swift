@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-//MARK: - Default Texts as a reference for defaultValues of Cocktail Struct
+// MARK: - Default Texts as a reference for defaultValues of Cocktail Struct
 
 let defaultLongText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum consequat lacus sit amet tempus mollis. Ut nibh justo, bibendum vel leo in, semper lacinia nisl. Mauris erat ex, dictum vitae purus ac, interdum ornare lacus. Nulla tempor dictum est."
 let defaultMediumText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum consequat lacus sit amet tempus mollis. Ut nibh justo, bibendum vel leo in."
@@ -35,7 +35,7 @@ let sampleIngredient = Ingredient(dictionary: sampleIngredientDictionary)!
 
 let defaultIngredients = [sampleIngredient, sampleIngredient, sampleIngredient]
 
-//MARK: - Cocktail Struct
+// MARK: - Cocktail Struct
 
 struct Cocktail {
     let name: String
@@ -73,7 +73,6 @@ struct Cocktail {
 
 extension Cocktail: DocumentSerializable {
     init?(dictionary: [String : Any]) {
-        
         guard let name = dictionary["name"] as? String ,
             let about = dictionary["about"] as? String,
             let description = dictionary["description"] as? String,
