@@ -144,10 +144,11 @@ extension CocktailsListVC: UITableViewDelegate, UITableViewDataSource {
             allCocktailsCell.contentView.backgroundColor = UIColor(white: 1, alpha: 1)
             return allCocktailsCell
         } else {
-            availableCocktailsCell.name.text = availableCocktails[indexPath.row].name
-            availableCocktailsCell.baseDescription.text = availableCocktails[indexPath.row].description
-            availableCocktailsCell.icon.sd_setImage(with: availableCocktails[indexPath.row].image)
-            if (indexPath.row < 3) {
+            availableCocktailsCell.name.text = cocktailCount[indexPath.row].0.name
+            availableCocktailsCell.baseDescription.text = cocktailCount[indexPath.row].0.description
+            availableCocktailsCell.icon.sd_setImage(with: cocktailCount[indexPath.row].0.image)
+            
+            if (cocktailCount[indexPath.row].1 == 0) {
                 availableCocktailsCell.missingIngredientsIndicator.image = UIImage(named: "Icon Check")!
             } else {
                 availableCocktailsCell.missingIngredientsIndicator.image = UIImage(named: "Icon One")!
