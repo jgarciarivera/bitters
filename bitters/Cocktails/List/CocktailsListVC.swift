@@ -12,9 +12,9 @@ class CocktailsListVC: UIViewController {
     
     var dbDelegate = DatabaseConnection()
     var selectedSegment = 0
-    var allCocktails = [Cocktail]()
-    var availableCocktails = [Cocktail]()
-    var selectedCocktail = Cocktail()
+    var allCocktails = globalCocktails
+    var availableCocktails = globalCocktails
+    var selectedCocktail: Cocktail?
 
     override func viewDidLoad() {
         super.viewDidLoad()
