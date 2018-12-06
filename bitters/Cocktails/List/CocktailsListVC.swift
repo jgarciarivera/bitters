@@ -8,7 +8,11 @@ import UIKit
 
 class CocktailsListVC: UIViewController {
     
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var viewHeight: NSLayoutConstraint!
+    @IBOutlet weak var imageHeight: NSLayoutConstraint!
+    @IBOutlet weak var segmentHeight: NSLayoutConstraint!
     
     var dbDelegate = DatabaseConnection()
     var selectedSegment = 0
@@ -16,13 +20,19 @@ class CocktailsListVC: UIViewController {
     var availableCocktails = globalCocktails
     var selectedCocktail: Cocktail?
     var cocktailCount: [(Cocktail, Int)]!
-
+    
+    let screenHeight = UIScreen.main.bounds.height
+    var scrollViewContentHeight = 1400 as CGFloat
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .none
-        
+        scrollView.delegate = self
+        scrollView.bounces = false
+        tableView.bounces = false
+        tableView.isScrollEnabled = false
         allCocktails = globalCocktails//dbDelegate.getAllCocktails()
         availableCocktails = globalCocktails //dbDelegate.getAvailableCocktails()
         
@@ -31,6 +41,7 @@ class CocktailsListVC: UIViewController {
             let cocktail = tuple.0
             let count = tuple.1
             print("Cocktail: \(cocktail.name) Missing: \(count)")
+            
         }
     }
     
@@ -133,6 +144,41 @@ extension CocktailsListVC: UITableViewDelegate, UITableViewDataSource {
             return allCocktails.count
         } else {
             return availableCocktails.count
+        }
+    }
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if let lastVisibleIndexPath = tableView.indexPathsForVisibleRows?.last {
+            if indexPath == lastVisibleIndexPath {
+                // do here...
+                print("table View Size")
+                print(self.tableView.contentSize.height)
+                print("segementController height")
+                print(self.segmentHeight.constant)
+                print("imageHeight height")
+                print(self.imageHeight.constant)
+                print("total height")
+                
+                self.viewHeight.constant = self.tableView.contentSize.height + self.segmentHeight.constant + self.imageHeight.constant + 50
+                print(self.viewHeight.constant)
+            }
+        }
+    }
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        let yOffset = scrollView.contentOffset.y
+        
+        if scrollView == self.scrollView {
+            if yOffset >= scrollViewContentHeight - screenHeight {
+                scrollView.isScrollEnabled = false
+                tableView.isScrollEnabled = true
+            }
+        }
+        
+        if scrollView == self.tableView {
+            if yOffset <= 0 {
+                self.scrollView.isScrollEnabled = true
+                self.tableView.isScrollEnabled = false
+            }
         }
     }
 }
