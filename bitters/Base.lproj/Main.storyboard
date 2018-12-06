@@ -428,7 +428,7 @@
                                                 </constraints>
                                             </view>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tah-iJ-g5m">
-                                                <rect key="frame" x="0.0" y="253.5" width="375" height="441.5"/>
+                                                <rect key="frame" x="0.0" y="192.5" width="375" height="502.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="120" id="IGp-Pf-cGo" customClass="InventoryCell" customModule="bitters" customModuleProvider="target">
@@ -502,16 +502,6 @@
                                                     <outlet property="delegate" destination="9pv-A4-QxB" id="ySg-mw-eeF"/>
                                                 </connections>
                                             </tableView>
-                                            <searchBar contentMode="redraw" text="" translatesAutoresizingMaskIntoConstraints="NO" id="fex-CW-ufU" userLabel="InventorySearchBar">
-                                                <rect key="frame" x="0.0" y="192.5" width="375" height="56"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="56" id="UUJ-Fi-nAA"/>
-                                                </constraints>
-                                                <textInputTraits key="textInputTraits"/>
-                                                <connections>
-                                                    <outlet property="delegate" destination="9pv-A4-QxB" id="sjh-cC-ZBA"/>
-                                                </connections>
-                                            </searchBar>
                                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7kX-dA-I1S">
                                                 <rect key="frame" x="299" y="478" width="56" height="56"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -529,17 +519,14 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="fex-CW-ufU" secondAttribute="trailing" id="35g-rE-OVh"/>
+                                            <constraint firstAttribute="bottom" secondItem="tah-iJ-g5m" secondAttribute="bottom" constant="5" id="6SP-WN-XjR"/>
+                                            <constraint firstAttribute="trailing" secondItem="tah-iJ-g5m" secondAttribute="trailing" id="9Ku-Mh-wAM"/>
                                             <constraint firstItem="1xQ-Dp-Thn" firstAttribute="leading" secondItem="aEz-Ww-zsa" secondAttribute="leading" id="AqE-Cg-cnb"/>
-                                            <constraint firstItem="fex-CW-ufU" firstAttribute="top" secondItem="1xQ-Dp-Thn" secondAttribute="bottom" constant="5" id="GUE-BN-pi4"/>
-                                            <constraint firstItem="tah-iJ-g5m" firstAttribute="top" secondItem="fex-CW-ufU" secondAttribute="bottom" constant="5" id="JLN-Sf-Ahf"/>
-                                            <constraint firstItem="fex-CW-ufU" firstAttribute="leading" secondItem="aEz-Ww-zsa" secondAttribute="leading" id="Nie-Ax-Xlb"/>
                                             <constraint firstAttribute="trailing" secondItem="1xQ-Dp-Thn" secondAttribute="trailing" id="RGB-iK-kXT"/>
+                                            <constraint firstItem="tah-iJ-g5m" firstAttribute="leading" secondItem="aEz-Ww-zsa" secondAttribute="leading" id="XCV-lc-vx3"/>
                                             <constraint firstAttribute="height" constant="700" id="XdU-Md-aGj"/>
-                                            <constraint firstAttribute="trailing" secondItem="tah-iJ-g5m" secondAttribute="trailing" id="dTQ-cx-vsl"/>
                                             <constraint firstItem="1xQ-Dp-Thn" firstAttribute="top" secondItem="aEz-Ww-zsa" secondAttribute="top" id="g8c-tf-h2z"/>
-                                            <constraint firstAttribute="bottom" secondItem="tah-iJ-g5m" secondAttribute="bottom" constant="5" id="iKX-0t-ZXz"/>
-                                            <constraint firstItem="tah-iJ-g5m" firstAttribute="leading" secondItem="aEz-Ww-zsa" secondAttribute="leading" id="tXg-fs-eZW"/>
+                                            <constraint firstItem="tah-iJ-g5m" firstAttribute="top" secondItem="1xQ-Dp-Thn" secondAttribute="bottom" constant="5" id="qqw-TK-Wf1"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -567,10 +554,8 @@
                     <connections>
                         <outlet property="addIngredientButton" destination="7kX-dA-I1S" id="kCw-BI-EeK"/>
                         <outlet property="imageHeight" destination="8I4-6d-sKE" id="fcx-7a-8YP"/>
-                        <outlet property="inventorySearchBar" destination="fex-CW-ufU" id="q6Y-09-sz6"/>
                         <outlet property="inventoryTable" destination="tah-iJ-g5m" id="He2-2X-lnv"/>
                         <outlet property="scrollView" destination="EjV-Xi-tuV" id="1ij-1P-NQj"/>
-                        <outlet property="segmentHeight" destination="UUJ-Fi-nAA" id="JB7-Jd-4bJ"/>
                         <outlet property="viewHeight" destination="XdU-Md-aGj" id="sT2-pp-JgN"/>
                         <segue destination="HW8-9o-bA7" kind="presentation" identifier="addIngredientSegue" id="ftN-2y-NcM"/>
                     </connections>

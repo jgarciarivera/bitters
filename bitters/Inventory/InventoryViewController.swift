@@ -36,7 +36,6 @@ class InventoryViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var viewHeight: NSLayoutConstraint!
     @IBOutlet weak var imageHeight: NSLayoutConstraint!
-    @IBOutlet weak var segmentHeight: NSLayoutConstraint!
     
     @IBOutlet weak var inventoryTable: UITableView!
     @IBOutlet weak var inventorySearchBar: UISearchBar!
@@ -105,7 +104,7 @@ class InventoryViewController: UIViewController {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if let lastVisibleIndexPath = tableView.indexPathsForVisibleRows?.last {
             if indexPath == lastVisibleIndexPath {
-                self.viewHeight.constant = self.inventoryTable.contentSize.height + self.segmentHeight.constant + self.imageHeight.constant + 50
+                self.viewHeight.constant = self.inventoryTable.contentSize.height + self.imageHeight.constant + 50
             }
         }
     }
