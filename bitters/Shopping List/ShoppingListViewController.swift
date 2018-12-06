@@ -18,8 +18,6 @@ struct ListCellData: Codable
 class ShoppingListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MKMapViewDelegate
 {
     var listData = [ListCellData]()
-    var mapItem = MKMapItem()
-    var coordinate = CLLocationCoordinate2D()
     @IBAction func clickAdd(_ sender: Any)
     {
         let alert = UIAlertController(title: "Add Item", message: nil, preferredStyle: .alert)
@@ -74,46 +72,55 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
                 }
                 else
                 {
-                    let annotations = self.StoreMapView.annotations
-                    self.StoreMapView.removeAnnotations(annotations)
-                    let latitude = response?.boundingRegion.center.latitude
-                    let longitude = response?.boundingRegion.center.longitude
-                    let annotation = MKPointAnnotation()
-                    annotation.coordinate = CLLocationCoordinate2DMake(latitude!, longitude!)
-                    self.coordinate = CLLocationCoordinate2DMake(latitude!, longitude!)
-                    let mapPlacemark = MKPlacemark(coordinate: self.coordinate)
-                    let regionSpan = MKCoordinateRegion(center: self.coordinate, latitudinalMeters: 1000, longitudinalMeters: 1000)
-                    self.mapItem = MKMapItem(placemark: mapPlacemark)
-                    let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
-                    let region = MKCoordinateRegion.init(center: self.coordinate, span: span)
-                    self.StoreMapView.setRegion(region, animated: true)
-                    let geocoder = CLGeocoder()
-                    let location = CLLocation(latitude: latitude!, longitude: longitude!)
-                    geocoder.reverseGeocodeLocation(location, completionHandler:
-                        { (placemarks, error) in
-                        if (error == nil)
-                        {
-                            
-                            let street = placemarks?[0].thoroughfare
-                            let streetNumber = placemarks?[0].subThoroughfare
-                            if (street != nil && streetNumber != nil)
-                            {
-                                annotation.title = streetNumber! + " " + street!
-                            }
-                            else
-                            {
-                                annotation.title = "Nearby Liquor Store"
-                            }
-                        }
+                    for mapItem in (response?.mapItems)!.reversed()
+                    {
+                        let annotations = self.StoreMapView.annotations
+                        self.StoreMapView.removeAnnotations(annotations)
+                        let latitude = mapItem.placemark.coordinate.latitude
+                        let longitude = mapItem.placemark.coordinate.longitude
+                        let annotation = MKPointAnnotation()
+                        annotation.coordinate = CLLocationCoordinate2DMake(latitude, longitude)
+                        let coordinate = CLLocationCoordinate2DMake(latitude, longitude)
+                        let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
+                        let region = MKCoordinateRegion.init(center: coordinate, span: span)
+                        self.StoreMapView.setRegion(region, animated: true)
+                        let geocoder = CLGeocoder()
+                        let location = CLLocation(latitude: latitude, longitude: longitude)
+                        geocoder.reverseGeocodeLocation(location, completionHandler:
+                            { (placemarks, error) in
+                                if (error == nil)
+                                {
+                                    
+                                    let street = placemarks?[0].thoroughfare
+                                    let streetNumber = placemarks?[0].subThoroughfare
+                                    if (street != nil && streetNumber != nil)
+                                    {
+                                        annotation.title = streetNumber! + " " + street!
+                                    }
+                                    else
+                                    {
+                                        annotation.title = "Nearby Liquor Store"
+                                    }
+                                    self.StoreMapView.addAnnotation(annotation)
+                                }
                         })
-                    self.StoreMapView.addAnnotation(annotation)
+                    }
                 }
         }
     }
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView)
     {
-        let options = [MKLaunchOptionsShowsTrafficKey: true, MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: coordinate), MKLaunchOptionsMapSpanKey: NSValue(mkCoordinate: coordinate), MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving] as [String : Any]
-        self.mapItem.openInMaps(launchOptions: options)
+        let regionSpan = MKCoordinateRegion(center: (view.annotation?.coordinate)!, latitudinalMeters: 10, longitudinalMeters: 10)
+        let options =
+            [
+                MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
+                MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span),
+                MKLaunchOptionsShowsTrafficKey: true,
+                MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDefault
+            ] as [String : Any]
+        let placemark = MKPlacemark(coordinate: (view.annotation?.coordinate)!)
+        let mapItem = MKMapItem(placemark: placemark)
+        mapItem.openInMaps(launchOptions: options)
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {

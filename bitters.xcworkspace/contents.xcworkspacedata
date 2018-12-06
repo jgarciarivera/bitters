@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:bitters/Discover/imageCollectionViewCell.swift">
+   </FileRef>
+   <FileRef
       location = "group:bitters.xcodeproj">
    </FileRef>
    <FileRef
