@@ -44,6 +44,10 @@ class DatabaseConnection: dbConnectionDelegate  {
         query = baseQuery()
         observeQuery()
         print("Initialized DatabseConnection as delegate")
+        
+//        categoriesToAdd.forEach { (data) in
+//            addIngredientCategories(category: data)
+//        }
     }
     
     //  MARK: - Database Querying
@@ -236,4 +240,63 @@ class DatabaseConnection: dbConnectionDelegate  {
 //        availableCocktails.append(Cocktail(name: "Manhattan"))
         return globalCocktails
     }
+    
+    
+    
+//    func addIngredientCategories(category: [String: Any]) {
+//        let ingRef = db.collection("Ingredients").addDocument(data: category)
+//    }
 }
+
+
+//let categoriesToAdd = [
+//
+//    ["category": "ginger beer", "name": "Ginger Beer", "image": "https://i0.wp.com/drinkingginger.com/wp-content/uploads/2017/12/Barritts_full_700x1000.jpg?resize=700%2C1000"],
+//
+//    ["category": "vodka", "name": "Vodka", "image": "https://www.firstchoiceliquor.com.au/-/media/Images/Products/Generic_SpiritBottle.ashx?bc=White&mh=200&w=200&productID=2125390&isThumbnail=False&hash=6BEFEBE242820A4C65F443333E2AED1EC894BF6C"],
+//    ["category": "lime juice", "name": "Lime Juice", "image": "https://www.firstchoiceliquor.com.au/-/media/Images/Products/Generic_SpiritBottle.ashx?bc=White&mh=200&w=200&productID=2125390&isThumbnail=False&hash=6BEFEBE242820A4C65F443333E2AED1EC894BF6C"],
+//    ["category": "lime", "name": "Lime", "image": "https://static.meijer.com/Media/000/41409/0004140900006_0_A1C1_0600.png"],
+//    ["category": "rum", "name": "Rum", "image": "https://static1.squarespace.com/static/56ce21152fe1314d29719fb4/t/5a66d34a24a69492e7c82f65/1516688222320/below-deck-spice-rum-lg.jpg"],
+//    ["category": "simple syrup", "name": "Simple Syrup", "image": "https://products2.imgix.drizly.com/ci-dailys-bar-syrup-e808676d45be517a.jpeg?auto=format%2Ccompress&fm=jpeg&q=20"],
+//    ["category": "egg white", "name": "Egg White", "image": "http://joepastry.com/pics/eggwhite.jpg"],
+////    ["category": "lemon juice", "name": "Lemon Juice", "image": "https://static.meijer.com/Media/000/41409/0004140900005_0_A1C1_0600.png"],
+//    ["category": "gin", "name": "Gin", "image": "https://okanaganspirits.com/wp-content/uploads/2017/03/OS-Gin-Essential-Collection-HR.jpg"],
+//    ["category": "club soda", "name": "Club Soda", "image": "https://static.meijer.com/Media/007/13733/0071373367451_0_A1C1_0600.png"],
+//
+//
+//    ["category": "ground black pepper", "name": "Ground Black Pepper", "image": "https://target.scene7.com/is/image/Target/GUEST_8f56133a-a671-4150-962e-95dcc9f64c5c?wid=488&hei=488&fmt=pjpeg"],
+//    ["category": "smoked paprika", "name": "Smoked Paprika", "image": "https://target.scene7.com/is/image/Target/GUEST_7a335e6b-ffa2-4887-8476-f77302ab6298?wid=488&hei=488&fmt=pjpeg"],
+//    ["category": "lemon", "name": "Lemon", "image": "https://images-na.ssl-images-amazon.com/images/I/81UzOaQ6VyL._SY355_.jpg"],
+//    ["category": "worcestershire sauce", "name": "Worcestershire Sauce", "image": "https://target.scene7.com/is/image/Target/GUEST_9d682c66-dada-4057-8f05-d45b6191e4e5?wid=488&hei=488&fmt=pjpeg"],
+//    ["category": "tabasco sauce", "name": "Tabasco Sauce", "image": "https://target.scene7.com/is/image/Target/GUEST_188462a0-c26b-41aa-91c9-a9f46661b496?wid=488&hei=488&fmt=pjpeg"],
+//    ["category": "horseradish", "name": "Horseradish", "image": "https://static.meijer.com/Media/000/38882/0003888272002_0_A1C1_0600.png"],
+//    ["category": "tomato juice", "name": "Tomato Juice", "image": "https://www.dollargeneral.com/media/catalog/product/cache/image/beff4985b56e3afdbeabfc89641a4582/9/2/928301.jpg"],
+//    ["category": "celery salt", "name": "Celery Salt", "image": "https://target.scene7.com/is/image/Target/GUEST_4c31ceb3-818e-4554-b828-9a3a9f1110af?wid=488&hei=488&fmt=pjpeg"],
+//    ["category": "sugar", "name": "Sugar", "image": "https://images.samsclubresources.com/is/image/samsclub/0004920004754_A?$img_size_380x380$"],
+//    ["category": "peychaud's bitters", "name": "Peychaud's Bitters", "image": "https://images-na.ssl-images-amazon.com/images/I/61w172t7OBL._SY355_.jpg"],
+//    ["category": "cognac", "name": "Cognac", "image": "https://cdn11.bigcommerce.com/s-erpoah/images/stencil/1280x1280/products/9020/13505/courvoisier-vs-french-cognac-bottle-1000ml__67531.1494823439.jpg?c=2&imbypass=on"],
+//
+//
+//    ["category": "angostura bitters", "name": "Angostura Bitters", "image": "https://images-na.ssl-images-amazon.com/images/I/61w1qatvV%2BL._SY355_.jpg"],
+//    ["category": "water", "name": "Water", "image": "https://cdn.instructables.com/FU2/Y18R/IDM04U7M/FU2Y18RIDM04U7M.LARGE.jpg"],
+//    ["category": "whiskey", "name": "Whiskey", "image": "https://products2.imgix.drizly.com/ci-jack-daniels-tennessee-honey-1d9700d15d455076.jpeg?auto=format%2Ccompress&dpr=2&fm=jpeg&h=240&q=20"],
+//    ["category": "orange bitters", "name": "Orange Bitters", "image": "https://cdnimg.webstaurantstore.com/images/products/large/80373/55428.jpg"],
+//    ["category": "vermouth", "name": "Vermouth", "image": "https://s7d9.scene7.com/is/image/SAQ/11544302_is?$saq%2Dprod%2Dtra$"],
+//    ["category": "campari", "name": "Campari", "image": "https://applejack.com/site/images/Campari-Aperitivo-750-ml_1.png"],
+//    ["category": "orange", "name": "Orange", "image": "http://soappotions.com/wp-content/uploads/2017/10/orange.jpg"],
+//    ["category": "scotch", "name": "Scotch", "image": "https://products2.imgix.drizly.com/ci-johnnie-walker-red-label-6f6a8b0c1568ddb1.jpeg?auto=format%2Ccompress&dpr=2&fm=jpeg&h=240&q=20"],
+//    ["category": "honey-ginger syrup", "name": "Honey-Ginger Syrup", "image": "https://static.meijer.com/Media/007/44160/0074416020061_0_A1C1_0600.png"],
+//    ["category": "cointreau", "name": "Cointreau", "image": "https://products3.imgix.drizly.com/ci-cointreau-5e1f534418e40c4b.png?auto=format%2Ccompress&fm=jpeg&q=20"],
+//    ["category": "bourbon", "name": "Bourbon", "image": "https://products2.imgix.drizly.com/ci-bulleit-bourbon-07be0e5c0084bc44.jpeg?auto=format%2Ccompress&dpr=2&fm=jpeg&h=240&q=20"],
+//
+//    ["category": "prosecco", "name": "Prosecco", "image": "https://static.vinepair.com/wp-content/uploads/2017/11/La-Marca.jpg"],
+//    ["category": "aperol", "name": "Aperol", "image": "https://www.ocado.com/productImages/949/94934011_0_640x640.jpg?identifier=bf0b3cd378a75f7a5f3f1dc166af23c3"],
+//    ["category": "benedictine", "name": "Benedictine", "image": "https://cdn11.bigcommerce.com/s-e6b77/images/stencil/1280x1280/products/15082/15450/benedictine-dom__88697.1496359865.jpg?c=2"],
+//    ["category": "cherry", "name": "Cherry", "image": "https://static01.nyt.com/newsgraphics/2014/06/16/bittman-eat-cherry/ed5c4f4c098cd142650d7c00014e71abf85d2f86/eatopener_cherry.jpg"],
+//    ["category": "mint", "name": "Mint", "image": "https://cdn.shopify.com/s/files/1/0562/4205/products/mint.jpg?v=1511809558"],
+//    ["category": "tequila", "name": "Tequila", "image": "https://cdn1.wine-searcher.net/images/labels/34/31/patron-tequila-anejo-mexico-10653431.jpg"],
+//    ["category": "agave syrup", "name": "Agave Syrup", "image": "https://i3.pureformulas.net/images/product/large/ojio-agave-nectar-clear-raw-100-organic-500-ml-by-ultimate-superfoods.jpg"],
+//    ["category": "orange liqueur", "name": "Orange Liqueur", "image": "https://applejack.com/site/images/Gran-Gala-Triple-Orange-Liqueur_main-1.png"],
+//    ["category": "pisco", "name": "Pisco", "image": "http://cdn.shopify.com/s/files/1/0655/7109/products/Pisco-White_grande.gif?v=1507863925"],
+//    ["category": "almond syrup", "name": "Almond Syrup", "image": "https://images-na.ssl-images-amazon.com/images/I/51976%2BQ8EAL._SL1000_.jpg"]
+//]

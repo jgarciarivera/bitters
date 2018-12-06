@@ -138,6 +138,18 @@ struct Ingredient: Hashable {
         case eggwhite = "Egg White"
         case limejuice = "Lime Juice"
         case clubsoda = "Club Soda"
+        case groundblackpepper = "Ground Black Pepper"
+        case Horseradish
+        case smokedpaprika = "Smoked Paprika"
+        case lemonjuice = "Lemon Juice"
+        case worcestershire = "Worcestershire Sauce"
+        case celeray = "Celery Salt"
+        case pey = "Peychaud's Bitters"
+        case Sugar
+        case tabasco = "Tabasco Sauce"
+        case tomatojuice = "Tomato Juice"
+        case Lemon
+//        case worcestershire
         case Other
     }
     
