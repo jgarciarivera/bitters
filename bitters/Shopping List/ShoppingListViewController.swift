@@ -17,9 +17,10 @@ struct ListCellData: Codable
 
 class ShoppingListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MKMapViewDelegate
 {
-    var listData = [ListCellData]()
-    @IBAction func clickAdd(_ sender: Any)
-    {
+    
+    @IBOutlet weak var addItemButton: UIButton!
+    
+    @IBAction func addShoppingListItemButton(_ sender: UIButton) {
         let alert = UIAlertController(title: "Add Item", message: nil, preferredStyle: .alert)
         alert.addTextField { (shoppingListField) in shoppingListField.placeholder = "Enter Item" }
         let action = UIAlertAction(title: "Add", style: .default) { (_) in
@@ -31,6 +32,11 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
         present(alert, animated: true)
         self.ShoppingListView.reloadData()
     }
+    
+    var listData = [ListCellData]()
+    var mapItem = MKMapItem()
+    var coordinate = CLLocationCoordinate2D()
+    
     func loadListData()
     {
         if let data = UserDefaults.standard.value(forKey: "ShoppingListData") as? Data
@@ -175,10 +181,14 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
     }
     override func viewWillAppear(_ animated: Bool)
     {
+        super.viewWillAppear(true)
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+        
         if let index = self.ShoppingListView.indexPathForSelectedRow
         {
             self.ShoppingListView.deselectRow(at: index, animated: true)
         }
+
     }
     
     override func viewDidLoad()
@@ -189,6 +199,7 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
         ShoppingListView.delegate = self
         ShoppingListView.register(ShoppingListCell.self, forCellReuseIdentifier: "itemCell")
         loadListData()
+        stylizeAddShoppingItemButton()
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -257,4 +268,15 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
      }
      */
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+    
+    func stylizeAddShoppingItemButton() {
+        addItemButton.layer.cornerRadius = addItemButton.frame.height/2
+        addItemButton.layer.shadowOpacity = 0.3
+        addItemButton.layer.shadowRadius = 4
+        addItemButton.layer.shadowOffset = CGSize(width: 0, height: 8)
+    }
 }
