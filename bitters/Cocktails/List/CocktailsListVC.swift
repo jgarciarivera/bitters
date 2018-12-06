@@ -34,8 +34,8 @@ class CocktailsListVC: UIViewController {
         scrollView.bounces = false
         tableView.bounces = false
         tableView.isScrollEnabled = false
-        allCocktails = dbDelegate.getAllCocktails()
         dbDelegate = dbConnection!
+        allCocktails = dbDelegate.getAllCocktails()
         availableCocktails = dbDelegate.getAvailableCocktails()
         
         calculateCocktailCount()
