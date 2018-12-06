@@ -20,7 +20,7 @@ class CocktailDescriptionVC: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .none
-        cocktail = databaseService.getDetailedCocktailInfo(name: name)
+        //cocktail = databaseService.getDetailedCocktailInfo(name: name)
     }
 }
 
@@ -61,6 +61,7 @@ extension CocktailDescriptionVC: UITableViewDelegate, UITableViewDataSource {
             let ingredientsCell = tableView.dequeueReusableCell(withIdentifier: "informationCell") as! CocktailInformationCell
             
             ingredientsCell.title.text = "Ingredients"
+            
             for (index, ingredient) in cocktail.ingredients.enumerated() {
                 if !(ingredientsCell.body.text!.isEmpty) && (index == cocktail.ingredients.startIndex) {
                     ingredientsCell.body.text! = "\(index + 1). \(ingredient.category.rawValue)"

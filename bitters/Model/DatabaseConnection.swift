@@ -21,15 +21,15 @@ class DatabaseConnection: dbConnectionDelegate  {
     
     func getAllCocktails() -> [Cocktail] {
         var cocktailArray: [Cocktail] = []
-        cocktailArray.append(Cocktail(name: "Dark n Stormy"))
-        cocktailArray.append(Cocktail(name: "Negroni"))
-        cocktailArray.append(Cocktail(name: "Vodka Sour"))
-        cocktailArray.append(Cocktail(name: "Sake Bomb"))
-        cocktailArray.append(Cocktail(name: "Gibson"))
-        cocktailArray.append(Cocktail(name: "Gin and Tonic"))
-        cocktailArray.append(Cocktail(name: "Gin Sour"))
-        cocktailArray.append(Cocktail(name: "Cojito"))
-        cocktailArray.append(Cocktail(name: "Mojito"))
+//        cocktailArray.append(Cocktail(name: "Dark n Stormy"))
+//        cocktailArray.append(Cocktail(name: "Negroni"))
+//        cocktailArray.append(Cocktail(name: "Vodka Sour"))
+//        cocktailArray.append(Cocktail(name: "Sake Bomb"))
+//        cocktailArray.append(Cocktail(name: "Gibson"))
+//        cocktailArray.append(Cocktail(name: "Gin and Tonic"))
+//        cocktailArray.append(Cocktail(name: "Gin Sour"))
+//        cocktailArray.append(Cocktail(name: "Cojito"))
+//        cocktailArray.append(Cocktail(name: "Mojito"))
         
         return globalCocktails
     }
@@ -72,11 +72,11 @@ class DatabaseConnection: dbConnectionDelegate  {
     
     func getAvailableCocktails() -> [Cocktail] {
         var availableCocktails: [Cocktail] = []
-        availableCocktails.append(Cocktail(name: "Old Fashioned"))
-        availableCocktails.append(Cocktail(name: "Mexican Coffee"))
-        availableCocktails.append(Cocktail(name: "Negroni"))
-        availableCocktails.append(Cocktail(name: "Whiskey Sour"))
-        availableCocktails.append(Cocktail(name: "Manhattan"))
-        return availableCocktails
+//        availableCocktails.append(Cocktail(name: "Old Fashioned"))
+//        availableCocktails.append(Cocktail(name: "Mexican Coffee"))
+//        availableCocktails.append(Cocktail(name: "Negroni"))
+//        availableCocktails.append(Cocktail(name: "Whiskey Sour"))
+//        availableCocktails.append(Cocktail(name: "Manhattan"))
+        return globalCocktails
     }
 }

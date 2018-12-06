@@ -17,17 +17,14 @@ let defaultInstructions = ["Lorem ipsum dolor sit amet, consectetur adipiscing e
                            "Vestibulum consequat lacus sit amet tempus mollis.",
                            "Nulla tempor dictum est, et viverra nisi."]
 
-//let mockIngredientOne = Ingredient(name: "vodka", category: Ingredient.category.Vodka)
-//let mockIngredientTwo = Ingredient(name: "lime juice", category: Ingredient.category.Juice)
-//let mockIngredientThree = Ingredient(name: "ginger beer", category: Ingredient.category.Other)
-//let defaultIngredients = [mockIngredientOne, mockIngredientTwo, mockIngredientThree]
-
-let dbDelegate: dbConnectionDelegate = DatabaseConnection()
-let delegate: inventoryViewDelegate = InventoryViewController()
-
-protocol inventoryViewDelegate {
-    func mapCocktailInventory(ingredientIDs: [String]) -> [Ingredient]
-}
+let defaultCocktailDictionary: [String: Any] = [
+    "name": "Gin Fizz",
+    "about": "",
+    "description": "This is Gin Fizz",
+    "instructions": ["Add the first four ingredients to a shaker and dry-shake (without ice) for about 10 seconds.", "Add 3 or 4 ice cubes and shake very well.", "\"Double-strain into a chilled fizz glass and top with club soda.  \""],
+    "ingredients": [],
+    "image": "https://253qv1sx4ey389p9wtpp9sj0-wpengine.netdna-ssl.com/wp-content/uploads/2018/08/GinFizz-CocktailBeers__Meg-Baggott_Styling_Dylan_Garret.jpg"
+]
 
 let sampleIngredientDictionary: [String: Any] = [
     "name": "The Good Shit",
@@ -35,6 +32,15 @@ let sampleIngredientDictionary: [String: Any] = [
     "image": "https://gangslangs.com/wp-content/uploads/2017/09/alcohol-benefits.jpg",
     "id": "shit"
 ]
+
+// MARK: Delegates
+
+let dbDelegate: dbConnectionDelegate = DatabaseConnection()
+let delegate: inventoryViewDelegate = InventoryViewController()
+
+protocol inventoryViewDelegate {
+    func mapCocktailInventory(ingredientIDs: [String]) -> [Ingredient]
+}
 
 let sampleIngredient = Ingredient(dictionary: sampleIngredientDictionary)!
 
@@ -49,36 +55,11 @@ struct Cocktail {
     let instructions: [String]
     let ingredients: [Ingredient]
     let image: URL
-    
-    // Default constructor with nearly empty values
-    init() {
-        self.name = ""
-        self.about = ""
-        self.image = URL(string: "https://1570308986.rsc.cdn77.org/wp-content/uploads/2016/12/DSC_1447.jpg")!
-        self.description = ""
-        self.instructions = []
-        self.ingredients = []
-    }
-    
-    // Constructor with default values
-    init(name: String,
-         about: String = defaultLongText,
-         description: String = defaultMediumText,
-         instructions: [String] = defaultInstructions,
-         ingredients:[Ingredient] = dbDelegate.getUserIngredients(),
-         image: URL = URL(string: "https://1570308986.rsc.cdn77.org/wp-content/uploads/2016/12/DSC_1447.jpg")!) {
-        self.name = name
-        self.about = about
-        self.image = image
-        self.description = description
-        self.instructions = instructions
-        self.ingredients = ingredients
-    }
 }
 
 extension Cocktail: DocumentSerializable {
     init?(dictionary: [String : Any]) {
-        
+
         guard let name = dictionary["name"] as? String ,
             let about = dictionary["about"] as? String,
             let description = dictionary["description"] as? String,
@@ -86,9 +67,11 @@ extension Cocktail: DocumentSerializable {
             let ingredients = dictionary["ingredients"] as? [Ingredient],
             let image = (dictionary["image"] as? String).flatMap(URL.init(string:))
             else { return nil }
-        
+
         self.init(name: name, about: about, description: description , instructions: instructions, ingredients: ingredients, image: image)
     }
+    
+    //MARK: Regactor Getting Ingredient Map
     
     init?(dbDictionary: [String : Any]) {
         
@@ -105,18 +88,13 @@ extension Cocktail: DocumentSerializable {
         
         let ingredientPointers = ingredients.map { (ingredientMap) -> String in
             if let ptr = ingredientMap["id"]! as? String {
-                print("Fuck yes!\(ptr)")
                 return ptr
             } else {
                 fatalError("hmm")
             }
         }
-        print("RIGHT HERE BITCH: \(ingredientPointers)")
-//        print(ingredientArr)
         
-        let ingreds: [Ingredient] = delegate.mapCocktailInventory(ingredientIDs: ingredientPointers)
-        
-        
+        guard let ingreds: [Ingredient] = delegate.mapCocktailInventory(ingredientIDs: ingredientPointers) else {fatalError("ingreds not assigned")}
         
         self.init(name: name, about: about, description: description , instructions: instructions, ingredients: ingreds, image: image)
     }
@@ -125,7 +103,7 @@ extension Cocktail: DocumentSerializable {
 
 // MARK: - Ingredient Struct
 
-struct Ingredient {
+struct Ingredient: Hashable {
     
     enum category: String, CaseIterable {
         case Rum
@@ -194,3 +172,33 @@ extension Ingredient: DocumentSerializable {
         self.init(name: name, category: category, image: image, id: id)//, measurement: measurement, amount: amount)
     }
 }
+
+
+
+
+// MARK: - Non-Important
+
+//    // Default constructor with nearly empty values
+//    init() {
+//        self.name = ""
+//        self.about = ""
+//        self.image = URL(string: "https://1570308986.rsc.cdn77.org/wp-content/uploads/2016/12/DSC_1447.jpg")!
+//        self.description = ""
+//        self.instructions = []
+//        self.ingredients = []
+//    }
+//
+//    // Constructor with default values
+//    init(name: String,
+//         about: String = defaultLongText,
+//         description: String = defaultMediumText,
+//         instructions: [String] = defaultInstructions,
+//         ingredients:[Ingredient] = dbDelegate.getUserIngredients(),
+//         image: URL = URL(string: "https://1570308986.rsc.cdn77.org/wp-content/uploads/2016/12/DSC_1447.jpg")!) {
+//        self.name = name
+//        self.about = about
+//        self.image = image
+//        self.description = description
+//        self.instructions = instructions
+//        self.ingredients = ingredients
+//    }

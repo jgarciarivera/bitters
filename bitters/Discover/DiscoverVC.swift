@@ -12,12 +12,17 @@ class DiscoverVC: UIViewController, UICollectionViewDelegate, UICollectionViewDa
     @IBOutlet weak var featuredView: UIView!
     @IBOutlet weak var CollectionViewRecent: UICollectionView!
     
-    var selectedCocktail = Cocktail(name: "Moscow Mule")
+    var selectedCocktail = Cocktail(dictionary: defaultCocktailDictionary)
+    
+    
+    
+    
+    //Cocktail(name: "Moscow Mule")
     var imageArrayss = [UIImage(named: "0"),
                         UIImage(named: "1"),
                         UIImage(named: "2"),
                         UIImage(named: "3"),
-                        UIImage(named: "4"),]
+                        UIImage(named: "4")]
 
     override func viewDidLoad() {
         super.viewDidLoad()

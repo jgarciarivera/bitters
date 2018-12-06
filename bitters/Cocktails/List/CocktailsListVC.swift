@@ -15,6 +15,7 @@ class CocktailsListVC: UIViewController {
     var allCocktails = globalCocktails
     var availableCocktails = globalCocktails
     var selectedCocktail: Cocktail?
+    var cocktailCount: [(Cocktail, Int)]!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,15 +23,53 @@ class CocktailsListVC: UIViewController {
         tableView.dataSource = self
         tableView.separatorStyle = .none
         
-        allCocktails = dbDelegate.getAllCocktails()
-        availableCocktails = dbDelegate.getAvailableCocktails()
+        allCocktails = globalCocktails//dbDelegate.getAllCocktails()
+        availableCocktails = globalCocktails //dbDelegate.getAvailableCocktails()
+        
+        calculateCocktailCount()
+        cocktailCount.forEach { (tuple) in
+            let cocktail = tuple.0
+            let count = tuple.1
+            print("Cocktail: \(cocktail.name) Missing: \(count)")
+        }
+    }
+    
+    func calculateCocktailCount() {
+        let cocktails = globalCocktails
+        let userIventory = globalUserIngredients
+        
+        self.cocktailCount = cocktails.map { (cocktail) -> (Cocktail, Int) in
+            let intersectionCount = missingCount(userBar: userIventory, cocktail: cocktail)
+            return (cocktail, intersectionCount)
+        }
+        
+    }
+    
+    func missingCount(userBar: [Ingredient], cocktail: Cocktail) -> Int {
+        let usrBar = Set(userBar)
+        let cocktailIngredients = Set(cocktail.ingredients)
+        
+        let intersection = cocktailIngredients.intersection(usrBar)
+        
+        print("\n\n\nIntersection:")
+        intersection.forEach { (ingredient) in
+            print("Ingredient Name: \(ingredient.name)")
+        }
+        print("\(intersection)")
+        
+        
+        return cocktailIngredients.count - intersection.count
     }
     
     @IBAction func toggleSegment(_ sender: UISegmentedControl) {
         if (sender.selectedSegmentIndex == 0) {
             selectedSegment = 0
+            
+            // All cocktails
         } else {
             selectedSegment = 1
+            
+            // Cocktails that can be made
         }
         self.tableView.reloadData()
     }
