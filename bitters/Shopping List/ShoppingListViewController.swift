@@ -15,9 +15,11 @@ struct ListCellData: Codable
     var itemSelected: Bool
 }
 
-class ShoppingListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource
+class ShoppingListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MKMapViewDelegate
 {
     var listData = [ListCellData]()
+    var mapItem = MKMapItem()
+    var coordinate = CLLocationCoordinate2D()
     @IBAction func clickAdd(_ sender: Any)
     {
         let alert = UIAlertController(title: "Add Item", message: nil, preferredStyle: .alert)
@@ -77,16 +79,41 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
                     let latitude = response?.boundingRegion.center.latitude
                     let longitude = response?.boundingRegion.center.longitude
                     let annotation = MKPointAnnotation()
-                    annotation.title = "Nearby Liquor Store"
                     annotation.coordinate = CLLocationCoordinate2DMake(latitude!, longitude!)
-                    self.StoreMapView.addAnnotation(annotation)
-                    let coordinate: CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude!, longitude!)
+                    self.coordinate = CLLocationCoordinate2DMake(latitude!, longitude!)
+                    let mapPlacemark = MKPlacemark(coordinate: self.coordinate)
+                    let regionSpan = MKCoordinateRegion(center: self.coordinate, latitudinalMeters: 1000, longitudinalMeters: 1000)
+                    self.mapItem = MKMapItem(placemark: mapPlacemark)
                     let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
-                    let region = MKCoordinateRegion.init(center: coordinate, span: span)
+                    let region = MKCoordinateRegion.init(center: self.coordinate, span: span)
                     self.StoreMapView.setRegion(region, animated: true)
+                    let geocoder = CLGeocoder()
+                    let location = CLLocation(latitude: latitude!, longitude: longitude!)
+                    geocoder.reverseGeocodeLocation(location, completionHandler:
+                        { (placemarks, error) in
+                        if (error == nil)
+                        {
+                            
+                            let street = placemarks?[0].thoroughfare
+                            let streetNumber = placemarks?[0].subThoroughfare
+                            if (street != nil && streetNumber != nil)
+                            {
+                                annotation.title = streetNumber! + " " + street!
+                            }
+                            else
+                            {
+                                annotation.title = "Nearby Liquor Store"
+                            }
+                        }
+                        })
+                    self.StoreMapView.addAnnotation(annotation)
                 }
         }
-        
+    }
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView)
+    {
+        let options = [MKLaunchOptionsShowsTrafficKey: true, MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: coordinate), MKLaunchOptionsMapSpanKey: NSValue(mkCoordinate: coordinate), MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving] as [String : Any]
+        self.mapItem.openInMaps(launchOptions: options)
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
@@ -150,6 +177,7 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        StoreMapView.delegate = self
         ShoppingListView.dataSource = self
         ShoppingListView.delegate = self
         ShoppingListView.register(ShoppingListCell.self, forCellReuseIdentifier: "itemCell")
