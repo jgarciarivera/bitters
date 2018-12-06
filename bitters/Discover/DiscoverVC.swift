@@ -26,6 +26,7 @@ class DiscoverVC: UIViewController, UICollectionViewDelegate, UICollectionViewDa
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        dbConnection = DatabaseConnection()
         setUpUserInterface()
         configureFeaturedImageTap()
     }
