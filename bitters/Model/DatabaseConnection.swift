@@ -31,7 +31,7 @@ class DatabaseConnection: dbConnectionDelegate  {
         cocktailArray.append(Cocktail(name: "Cojito"))
         cocktailArray.append(Cocktail(name: "Mojito"))
         
-        return cocktailArray
+        return globalCocktails
     }
     
     

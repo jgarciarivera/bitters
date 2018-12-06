@@ -9,15 +9,17 @@
 import UIKit
 import FirebaseFirestore
 import Firebase
+import FirebaseAuth
 
 
 // MARK: - Cell Contents Structure
 //This can later be globalized if necessary
 
-var entireCells: [Ingredient] = []
+var globalIngredients: [Ingredient] = []
+var globalCocktails: [Cocktail] = []
 var currentCells: [Ingredient] = []
 
-class InventoryViewController: UIViewController {
+class InventoryViewController: UIViewController, inventoryViewDelegate {
     var dbdelegate = DatabaseConnection()
     
     // Database
@@ -48,7 +50,6 @@ class InventoryViewController: UIViewController {
 //        entireCells = dbdelegate.getUserIngredients()
 //        currentCells = currentCells.isEmpty ? entireCells : currentCells
         
-        
         db = Firestore.firestore()
         user = Auth.auth()
         
@@ -67,6 +68,8 @@ class InventoryViewController: UIViewController {
         inventoryTable.delegate = self
         
         observeQuery()
+        
+        getCocktails()
 
     }
 
@@ -105,6 +108,7 @@ class InventoryViewController: UIViewController {
             }
             let models = snapshot.documents.map { (document) -> Ingredient in
                 var idData = document.data()
+                //print(document.data())
                 idData["id"] = document.documentID
                 if let model = Ingredient(dictionary: idData) {
                     return model
@@ -114,7 +118,8 @@ class InventoryViewController: UIViewController {
                 }
             }
             
-            self.ingredients = models
+            
+            globalIngredients = models
             self.getUserInventory()
             
         }
@@ -133,17 +138,62 @@ class InventoryViewController: UIViewController {
         return db.collection("UserData")
     }
     
+//    fileprivate func cocktailsQuery() -> Query {
+//        print("Cocktails Query")
+//        return
+//    }
+    
+    fileprivate func getCocktails() {
+        let cocktailsRef = db.collection("Cocktails")
+        cocktailsRef.getDocuments { (snapshot, error) in
+            if error != nil {
+                print("Error getting Cocktails")
+            } else {
+                
+                let cocktailModels: [Cocktail] = snapshot!.documents.map { (cocktailDocument) -> Cocktail in
+                    //print("\(cocktailDocument.documentID): \(cocktailDocument.data())")
+                    
+                    let cocktailData = cocktailDocument.data()
+                    
+                    if let model = Cocktail(dbDictionary: cocktailData) {
+                        //print("Success!! Model: \(model)")
+                        return model
+                    } else {
+                        print("Unable to initialize type \(Cocktail.self) with dictionary \(cocktailData)")
+                        fatalError("Unable to initialize type \(Cocktail.self) with dictionary \(cocktailData)")
+                    }
+                        //return Cocktail(name: "Dark n Stormy")
+                }
+                
+                print("Models: \(cocktailModels)")
+                globalCocktails = cocktailModels
+            }
+        }
+    }
+    
+    func mapCocktailInventory(ingredientIDs: [String]) -> [Ingredient] {
+        print("Please contain something: Ingredients\(globalIngredients)")
+        let filteredUserIngredients = globalIngredients.filter { (Ingredient) -> Bool in
+            // MARK: CHANGE HERE FOR INGREDIENTS
+            ingredientIDs.contains(Ingredient.id)
+        }
+        return filteredUserIngredients
+
+    }
+    
+    // --- END:
+    
     func monitor( tableView: UITableView, query: Query) {
         tableView.reloadData()
     }
     
     func mapUserInventory() {
-        let filteredUserIngredients = self.ingredients.filter { (Ingredient) -> Bool in
+        let filteredUserIngredients = globalIngredients.filter { (Ingredient) -> Bool in
             // MARK: CHANGE HERE FOR INGREDIENTS
             self.userIngredientsList.contains(Ingredient.id)
             //true
         }
-        self.ingredients = filteredUserIngredients
+        globalIngredients = filteredUserIngredients
         self.inventoryTable.reloadData()
     }
     
@@ -151,12 +201,12 @@ class InventoryViewController: UIViewController {
         let userID = user.currentUser!.uid
         
         db.document("UserData/\(userID)").getDocument { (snapshot, err) in
+            
             if let err = err {
                 print(err)
             }
             if let userIngredients = snapshot?.data()!["inventory"] as? [String] {
                 self.userIngredientsList = userIngredients
-                print(userIngredients)
             } else {
                 print("Could not get user inventory")
             }
@@ -174,7 +224,7 @@ extension InventoryViewController: UITableViewDataSource, UITableViewDelegate, U
     //  MARK: - Table View Funtion
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.ingredients.count
+        return globalIngredients.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -182,7 +232,7 @@ extension InventoryViewController: UITableViewDataSource, UITableViewDelegate, U
             return UITableViewCell()
         }
         
-        let ingredient = self.ingredients[indexPath.row]
+        let ingredient = globalIngredients[indexPath.row]
         cell.populate(ingredient: ingredient)
         
         return cell

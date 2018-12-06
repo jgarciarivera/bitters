@@ -23,6 +23,11 @@ let defaultInstructions = ["Lorem ipsum dolor sit amet, consectetur adipiscing e
 //let defaultIngredients = [mockIngredientOne, mockIngredientTwo, mockIngredientThree]
 
 let dbDelegate: dbConnectionDelegate = DatabaseConnection()
+let delegate: inventoryViewDelegate = InventoryViewController()
+
+protocol inventoryViewDelegate {
+    func mapCocktailInventory(ingredientIDs: [String]) -> [Ingredient]
+}
 
 let sampleIngredientDictionary: [String: Any] = [
     "name": "The Good Shit",
@@ -73,6 +78,7 @@ struct Cocktail {
 
 extension Cocktail: DocumentSerializable {
     init?(dictionary: [String : Any]) {
+        
         guard let name = dictionary["name"] as? String ,
             let about = dictionary["about"] as? String,
             let description = dictionary["description"] as? String,
@@ -82,6 +88,37 @@ extension Cocktail: DocumentSerializable {
             else { return nil }
         
         self.init(name: name, about: about, description: description , instructions: instructions, ingredients: ingredients, image: image)
+    }
+    
+    init?(dbDictionary: [String : Any]) {
+        
+        guard let name = dbDictionary["name"] as? String ,
+            let about = dbDictionary["about"] as? String,
+            let description = dbDictionary["description"] as? String,
+            let instructions = dbDictionary["instructions"] as? [String],
+            let ingredients = dbDictionary["ingredients"] as? [[String : Any]],
+            let image = (dbDictionary["image"] as? String).flatMap(URL.init(string:))
+            else {
+                print("Unable to initialize type \(Cocktail.self) with dictionary FUCK \((dbDictionary["ingredients"]! as! [String])[0])")
+                fatalError("Unable to initialize type \(Cocktail.self) with dictionary FUCK \((dbDictionary["ingredients"]! as! [String])[0])")
+            }
+        
+        let ingredientPointers = ingredients.map { (ingredientMap) -> String in
+            if let ptr = ingredientMap["id"]! as? String {
+                print("Fuck yes!\(ptr)")
+                return ptr
+            } else {
+                fatalError("hmm")
+            }
+        }
+        print("RIGHT HERE BITCH: \(ingredientPointers)")
+//        print(ingredientArr)
+        
+        let ingreds: [Ingredient] = delegate.mapCocktailInventory(ingredientIDs: ingredientPointers)
+        
+        
+        
+        self.init(name: name, about: about, description: description , instructions: instructions, ingredients: ingreds, image: image)
     }
 }
 
